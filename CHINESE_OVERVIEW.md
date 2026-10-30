@@ -34,7 +34,7 @@ Note: the root `.gitignore` excludes mp3 and other audio, the `chinese-extractio
 
 1. **Dictionary and frequency**: `chinese-dataset/dictionary/` (entries, lookup index, etymology) and `chinese-dataset/frequency/` (character order, word and character frequency). `dictionary.ts` and `search.worker.ts` load them for search, pinyin, definitions, components, and etymology. `ranking.ts` loads the frequency files for the overview page.
 2. **Audio**: `chinese-dataset/word-audio/` holds word and syllable MP3s. `audio.ts` discovers them at build time through `import.meta.glob`. `chinese-dataset/sentences/<set>/` holds sentence audio.
-3. **Sentences**: `training/data.ts` imports each set's `sentences.json` and keeps the sets listed in `config.training.sentenceSources`.
+3. **Sentences**: `training/data.ts` globs each set's `sentences.json` and keeps the sets listed in `config.training.sentenceSources`.
 4. **Curated dataset**: the data is maintained by hand. There are no generator scripts in the repository. The layout and interface are in [chinese-dataset/README.md](chinese-dataset/README.md) and [manifest.yaml](chinese-dataset/manifest.yaml).
 
 The main fields of a unified sentence record are `id`, `source`, `audio{path,format}`, `transcription`, `translation{language,text,words[],alignment[]}`, `word_split{tokens[],metadata}`, and `source_metadata`. The full definition is in [chinese-extraction/migrations/README.md](chinese-extraction/migrations/README.md).
@@ -138,7 +138,7 @@ Licensing:
 - Tatoeba: 30 recordings are CC BY-NC 4.0 (non-commercial, credit `audio_user`). 536 have no recorded license. The Anki deck's own license has not been checked.
 - Non-publishable sets are ignored by folder name in the root `.gitignore`.
 
-Build constraint: the four sentence `sentences.json` files are imported statically in `training/data.ts`, so all four must exist at build time. `tatoeba-unlicensed` and `anki-tatoeba` are gitignored local files, so a fresh clone fails to build without them.
+Build constraint: none. The sentence sets are loaded with `import.meta.glob` in `training/data.ts`, so any set that is missing is skipped. A fresh clone builds without the gitignored `tatoeba-unlicensed` and `anki-tatoeba` sets, but those sets then contribute no sentences.
 
 Known gaps:
 

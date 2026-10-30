@@ -1,9 +1,5 @@
 import frequencyWordFile from '../../../../chinese-dataset/frequency/words.json';
 import frequencyCharacterFile from '../../../../chinese-dataset/frequency/characters.json';
-import hskSentenceFile from '../../../../chinese-dataset/sentences/hsk-sentences-audio/sentences.json';
-import tatoebaNcFile from '../../../../chinese-dataset/sentences/tatoeba-nc/sentences.json';
-import tatoebaUnlicensedFile from '../../../../chinese-dataset/sentences/tatoeba-unlicensed/sentences.json';
-import ankiTatoebaFile from '../../../../chinese-dataset/sentences/anki-tatoeba/sentences.json';
 import { config } from '../config';
 import type { FrequencyCharacter, FrequencyWord, Sentence } from './types';
 
@@ -15,12 +11,17 @@ function tagSentences(source: string, records: Omit<Sentence, 'source'>[]): Sent
   return records.map((sentence) => ({ ...sentence, source }));
 }
 
-const allSentences = [
-  ...tagSentences('hsk-sentences-audio', hskSentenceFile.sentences as Omit<Sentence, 'source'>[]),
-  ...tagSentences('tatoeba-nc', tatoebaNcFile.sentences as Omit<Sentence, 'source'>[]),
-  ...tagSentences('tatoeba-unlicensed', tatoebaUnlicensedFile.sentences as Omit<Sentence, 'source'>[]),
-  ...tagSentences('anki-tatoeba', ankiTatoebaFile.sentences as Omit<Sentence, 'source'>[]),
-];
+// Sets are globbed rather than imported: gitignored sets are absent in a fresh clone and are skipped.
+// The order is fixed because selectSentence takes the first unseen sentence.
+const sentenceSetOrder = ['hsk-sentences-audio', 'tatoeba-nc', 'tatoeba-unlicensed', 'anki-tatoeba'];
+const sentenceSetFiles = import.meta.glob<{ sentences: Omit<Sentence, 'source'>[] }>(
+  '../../../../chinese-dataset/sentences/*/sentences.json',
+  { eager: true, import: 'default' },
+);
+const allSentences = sentenceSetOrder.flatMap((source) => {
+  const file = sentenceSetFiles[`../../../../chinese-dataset/sentences/${source}/sentences.json`];
+  return file ? tagSentences(source, file.sentences) : [];
+});
 const enabledSentenceSources = new Set<string>(config.training.sentenceSources);
 export const sentences = allSentences.filter((sentence) => enabledSentenceSources.has(sentence.source));
 export const wordIndex = new Map(frequencyWords.map((entry) => [entry.word, entry.index]));

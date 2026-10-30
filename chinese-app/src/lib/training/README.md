@@ -7,14 +7,14 @@ The training feature lets users read example sentences and selects sentences in 
 | File | Responsibility |
 | --- | --- |
 | `types.ts` | Type definitions: `Sentence`, `LearningState`, `FrequencyWord`, `FrequencyCharacter`, `HelpLevel` (0/1/2), `WordCategory` |
-| `data.ts` | Statically loads word lists and sentences, builds `wordIndex` and `characterIndex`, and filters sentences by `config.training.sentenceSources` |
+| `data.ts` | Loads word lists and sentences (sentences via glob), builds `wordIndex` and `characterIndex`, and filters sentences by `config.training.sentenceSources` |
 | `engine.ts` | Sentence selection (`selectSentence`) and state update after a sentence is completed (`completeSentence`) |
 | `state.ts` | IndexedDB persistence, new state creation, categorization (`categoryFor`), daily progress, and timing outlier detection |
 
 ## Data loading (data.ts)
 
 - Word list: `chinese-dataset/frequency/words.json`. Character list: `chinese-dataset/frequency/characters.json`.
-- Sentences: four sets are statically imported from `chinese-dataset/sentences/<set>/sentences.json` (`hsk-sentences-audio`, `tatoeba-nc`, `tatoeba-unlicensed`, `anki-tatoeba`). Each set's source is set to its folder name. **All four files must exist at build time**, or the Vite build fails. Two of them (`tatoeba-unlicensed` and `anki-tatoeba`) are gitignored, so a fresh clone needs them copied in.
+- Sentences: every `chinese-dataset/sentences/<set>/sentences.json` is loaded through `import.meta.glob`. The known sets (`hsk-sentences-audio`, `tatoeba-nc`, `tatoeba-unlicensed`, `anki-tatoeba`) are concatenated in that fixed order, because `engine.ts` takes the first unseen sentence. Each set's source is its folder name. A missing set is skipped, so the build does not fail in a fresh clone that lacks the gitignored sets.
 - The sentence sources actually used are determined by `config.training.sentenceSources`, which currently enables `tatoeba-nc` and `tatoeba-unlicensed`.
 
 ## Learning state (LearningState)
@@ -73,6 +73,6 @@ Character encounter counts are accumulated the same way. Daily progress is then 
 - To change the mastery rules, adjust the `knowledge*` parameters in `config.training` or the logic in `completeSentence`.
 - To change the selection strategy, modify `selectSentence`. Note that `unknownWords` depends on `wordKnowledge`.
 - To change the persistence structure, note that `loadLearningState` validates array lengths, so existing saved data may be affected.
-- To add a new sentence source, create `chinese-dataset/sentences/<set>/` with a `sentences.json` and its audio, add an import and a `tagSentences` entry in `data.ts`, and enable it in `config.training.sentenceSources`.
+- To add a new sentence source, create `chinese-dataset/sentences/<set>/` with a `sentences.json` and its audio, add its folder name to `sentenceSetOrder` in `data.ts`, and enable it in `config.training.sentenceSources`.
 
 Back to [src overview](../../README.md).
