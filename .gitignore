@@ -5,20 +5,22 @@
 *.m4a
 *.aac
 *.flac
-chinese-extraction/hsk-sentences-audio
 chinese/dong-chinese
 
-# Tatoeba raw exports (over GitHub's 100 MB limit; see chinese-extraction/tatoeba/DOWNLOAD.md)
-chinese-extraction/tatoeba/links.csv
-chinese-extraction/tatoeba/links.tar.bz2
-chinese-extraction/tatoeba/cmn_sentences.tsv.bz2
-chinese-extraction/tatoeba/eng_sentences.tsv.bz2
-chinese-extraction/tatoeba/sentences_with_audio.csv
-chinese-extraction/tatoeba/sentences_with_audio.tar.bz2
+# chinese-extraction/: only scripts and docs are tracked; all data (Anki deck, Tatoeba exports, audio, reports) stays local
+/chinese-extraction/*
+!/chinese-extraction/*.md
+!/chinese-extraction/*.py
+!/chinese-extraction/*.sh
+!/chinese-extraction/*.mjs
+!/chinese-extraction/requirements.txt
+!/chinese-extraction/.gitignore
+!/chinese-extraction/migrations/
+!/chinese-extraction/tatoeba/
+/chinese-extraction/tatoeba/*
+!/chinese-extraction/tatoeba/*.md
 
 # Non-publishable data: Anki shared deck (personal study only) and its derived sentences; see chinese-dataset/sources.json
-chinese-extraction/anki/
-chinese/sentences/anki-tatoeba.json
 chinese-dataset/sentences/anki-tatoeba/
 chinese-dataset/sentences/tatoeba-unlicensed/
 
