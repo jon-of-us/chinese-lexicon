@@ -25,6 +25,9 @@ chinese-dataset/sentences/tatoeba-unlicensed/
 # Full local dataset archive (266 MB, exceeds GitHub's 100 MB file limit and includes non-publishable sets)
 chinese-dataset.zip
 
+# Legacy chinese/ folder: removed from git history, kept locally
+/chinese/
+
 # Python
 __pycache__/
 *.py[cod]
