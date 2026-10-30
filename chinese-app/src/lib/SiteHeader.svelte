@@ -22,7 +22,7 @@
 
 <header>
   <div class="bar">
-    <button class="brand" onclick={onHome} aria-label="Go to dictionary"><span class="brand-mark">字</span><span>Hànzì Atlas</span></button>
+    <button class="brand" onclick={onHome} aria-label="Go to dictionary"><span class="brand-mark">字</span><span>Chinese Lexicon</span></button>
     <nav class="sections" aria-label="Main sections">
       <button type="button" onclick={onHome}>Dictionary</button>
       <button type="button" onclick={onComponents}>Components</button>

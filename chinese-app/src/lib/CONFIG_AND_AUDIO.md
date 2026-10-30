@@ -8,7 +8,7 @@ This document explains the central configuration object, how user settings are p
 
 | Group | Contents |
 | --- | --- |
-| Top level | `appName` ("Hànzì Atlas"), `data` (limits for search and display, such as `searchResultsLimit: 30`) |
+| Top level | `appName` ("Chinese Lexicon"), `data` (limits for search and display, such as `searchResultsLimit: 30`) |
 | `training` | Sentence training parameters; see [training/README.md](training/README.md) |
 | `frequencyColorScale` | Character frequency color scale (reversed Inferno; rank 1 is brightest; `clampAtRank: 1000`) |
 | `visual.colors` / `visual.typography` | Colors and fonts |

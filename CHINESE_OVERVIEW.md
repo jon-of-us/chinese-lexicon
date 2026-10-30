@@ -1,4 +1,4 @@
-# Chinese Learning Dictionary Project Overview (Hànzì Atlas)
+# Chinese Learning Dictionary Project Overview (Chinese Lexicon)
 
 This document describes the Chinese learning app (`chinese-app/`, Svelte), the curated dataset it reads (`chinese-dataset/`), the legacy extraction pipeline (`chinese-extraction/`), and where the code for each module lives. For details, see the explanation files inside each module (index in section 6). Dataset contents, licensing, and open decisions are in sections 7 and 8.
 
@@ -18,7 +18,7 @@ Key point: **the app's data does not live inside `chinese-app/`**. It lives in t
 
 | Path | Type | Purpose |
 | --- | --- | --- |
-| `chinese-app/` | Source | Svelte 5 + Vite 8 + TypeScript app, named "Hànzì Atlas" |
+| `chinese-app/` | Source | Svelte 5 + Vite 8 + TypeScript app, named "Chinese Lexicon" |
 | `chinese-app/src/` | Source | All frontend code. Entry point `main.ts`, root component `App.svelte` |
 | `chinese-extraction/` | Source + raw data | Download scripts, Node build scripts, Python migrations, and raw data sources |
 | `chinese-dataset/` | Data (curated, hand-maintained) | Dictionary, frequency lists, audio, and sentence sets the app reads. See [chinese-dataset/README.md](chinese-dataset/README.md). |

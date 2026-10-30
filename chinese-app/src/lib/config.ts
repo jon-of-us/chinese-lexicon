@@ -1,5 +1,5 @@
 export const config = {
-    appName: "Hànzì Atlas",
+    appName: "Chinese Lexicon",
     data: { topWordsLimit: 12, searchResultsLimit: 30 },
     training: {
         // Sentence sets are folders in chinese-dataset/sentences: "hsk-sentences-audio", "tatoeba-nc", "tatoeba-unlicensed", "anki-tatoeba".
