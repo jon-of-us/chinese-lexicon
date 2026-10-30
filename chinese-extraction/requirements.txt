@@ -1,0 +1,2 @@
+# Maintained spaCy fork of PKUSeg, used only when a source has no usable split.
+spacy-pkuseg==1.0.1

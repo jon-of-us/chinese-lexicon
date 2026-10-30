@@ -1,0 +1,65 @@
+{
+  "cc-cedict": {
+    "name": "CC-CEDICT",
+    "url": "https://cc-cedict.org/wiki/",
+    "license": "CC BY-SA 4.0",
+    "publishable": true,
+    "commercial": true,
+    "attribution": "CC-CEDICT by MDBG, licensed CC BY-SA 4.0.",
+    "notes": "Definitions. License stated in the header of the dong-chinese dictionary/cedict.js (the chinese/dong-chinese submodule, legacy)."
+  },
+  "dong-chinese": {
+    "name": "Dong Chinese",
+    "url": "https://www.dong-chinese.com/",
+    "license": "CC BY-SA 4.0",
+    "publishable": true,
+    "commercial": true,
+    "attribution": "Dong Chinese (dong-chinese.com), licensed CC BY-SA 4.0. Frequency data credits SUBTLEX-CH, BLCU, Jun Da, and UniHan.",
+    "notes": "Etymology, character order, and frequency lists. License per the dong-chinese website (owner-stated). package.json says ISC."
+  },
+  "audio-cmn": {
+    "name": "audio-cmn",
+    "url": "https://github.com/hugolpz/audio-cmn",
+    "license": "CC BY-SA 4.0",
+    "publishable": true,
+    "commercial": true,
+    "attribution": "HSK word and syllable audio from hugolpz/audio-cmn. See word-audio/ATTRIBUTION.md.",
+    "notes": "HSK word and syllable audio. Speakers are credited in word-audio/ATTRIBUTION.md."
+  },
+  "hsk-sentences-audio": {
+    "name": "HSK sentences audio",
+    "url": null,
+    "license": "CC BY-SA 4.0",
+    "publishable": true,
+    "commercial": true,
+    "attribution": "Dataset license per the ATTRIBUTION file. Audio is synthetic (CosyVoice2, Apache-2.0).",
+    "notes": "The original source of the sentence texts is not verified."
+  },
+  "tatoeba-nc": {
+    "name": "Tatoeba (CC BY-NC 4.0 audio)",
+    "url": "https://tatoeba.org/",
+    "license": "CC BY-NC 4.0",
+    "publishable": true,
+    "commercial": false,
+    "attribution": "Audio by the uploader named in each record's audio_user field, from Tatoeba (tatoeba.org), licensed CC BY-NC 4.0.",
+    "notes": "30 Tatoeba recordings with CC BY-NC 4.0 audio. The license of the sentence text itself is not verified."
+  },
+  "tatoeba-unlicensed": {
+    "name": "Tatoeba (no audio license in export)",
+    "url": "https://tatoeba.org/",
+    "license": "unknown",
+    "publishable": false,
+    "commercial": false,
+    "attribution": "From Tatoeba (tatoeba.org). The audio license is not stated in the export.",
+    "notes": "536 converted Tatoeba records with no license in the export. Gitignored at sentences/tatoeba-unlicensed/ until resolved."
+  },
+  "anki-tatoeba": {
+    "name": "Anki shared deck (Tatoeba content)",
+    "url": null,
+    "license": "Anki shared deck, personal study only (owner-stated)",
+    "publishable": false,
+    "commercial": false,
+    "attribution": "Sentences and audio come from Tatoeba (tatoeba.org).",
+    "notes": "Gitignored at sentences/anki-tatoeba/; do not redistribute."
+  }
+}

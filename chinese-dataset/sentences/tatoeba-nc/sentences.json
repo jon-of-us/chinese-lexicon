@@ -1,0 +1,1486 @@
+{
+  "sources": [
+    "tatoeba-nc"
+  ],
+  "sentences": [
+    {
+      "id": "tatoeba-hsk1-3:410898",
+      "audio": {
+        "path": "988876.mp3",
+        "format": "mp3"
+      },
+      "transcription": "谁照顾孩子？",
+      "translation": {
+        "language": "en",
+        "text": "Who looks after the children?",
+        "words": [
+          "Who",
+          "looks",
+          "children",
+          "？"
+        ],
+        "alignment": [
+          0,
+          1,
+          4,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "谁",
+          "照顾",
+          "孩子",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "410898",
+        "hsk_level": 3,
+        "english_sentence_id": "40448",
+        "audio_id": "988876",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:413061",
+      "audio": {
+        "path": "988877.mp3",
+        "format": "mp3"
+      },
+      "transcription": "您成家了吗？",
+      "translation": {
+        "language": "en",
+        "text": "Are you married?",
+        "words": [
+          "you (courteous, as opposed to informal 你[ni3])",
+          "married",
+          "(modal particle intensifying preceding clause)",
+          "see 嗎啡|吗啡, morphine",
+          "？"
+        ],
+        "alignment": [
+          null,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "您",
+          "成家",
+          "了",
+          "吗",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "413061",
+        "hsk_level": 3,
+        "english_sentence_id": "413058",
+        "audio_id": "988877",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:413307",
+      "audio": {
+        "path": "988878.mp3",
+        "format": "mp3"
+      },
+      "transcription": "他出名了。",
+      "translation": {
+        "language": "en",
+        "text": "He became famous.",
+        "words": [
+          "He",
+          "became",
+          "He",
+          "。"
+        ],
+        "alignment": [
+          0,
+          1,
+          0,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "他",
+          "出名",
+          "了",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "413307",
+        "hsk_level": 1,
+        "english_sentence_id": "496933",
+        "audio_id": "988878",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:415599",
+      "audio": {
+        "path": "988880.mp3",
+        "format": "mp3"
+      },
+      "transcription": "请坐一下。",
+      "translation": {
+        "language": "en",
+        "text": "Please have a seat.",
+        "words": [
+          "Please",
+          "to take a seat",
+          "(used after a verb) give it a go",
+          "。"
+        ],
+        "alignment": [
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "请",
+          "坐",
+          "一下",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "415599",
+        "hsk_level": 1,
+        "english_sentence_id": "38572",
+        "audio_id": "988880",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:419672",
+      "audio": {
+        "path": "988881.mp3",
+        "format": "mp3"
+      },
+      "transcription": "你想吃什么？",
+      "translation": {
+        "language": "en",
+        "text": "What do you want to eat?",
+        "words": [
+          "you (informal, as opposed to courteous 您[nin2])",
+          "want",
+          "eat",
+          "What",
+          "？"
+        ],
+        "alignment": [
+          null,
+          3,
+          5,
+          0,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "你",
+          "想",
+          "吃",
+          "什么",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "419672",
+        "hsk_level": 1,
+        "english_sentence_id": "372015",
+        "audio_id": "988881",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:419685",
+      "audio": {
+        "path": "988882.mp3",
+        "format": "mp3"
+      },
+      "transcription": "你们是几位？",
+      "translation": {
+        "language": "en",
+        "text": "How many of you are there?",
+        "words": [
+          "you (plural)",
+          "are",
+          "there",
+          "How",
+          "？"
+        ],
+        "alignment": [
+          null,
+          null,
+          5,
+          0,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "你们",
+          "是",
+          "几",
+          "位",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "419685",
+        "hsk_level": 3,
+        "english_sentence_id": "68772",
+        "audio_id": "988882",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:421347",
+      "audio": {
+        "path": "988883.mp3",
+        "format": "mp3"
+      },
+      "transcription": "当然是的。",
+      "translation": {
+        "language": "en",
+        "text": "Yes, of course.",
+        "words": [
+          "course",
+          "Yes",
+          "。"
+        ],
+        "alignment": [
+          3,
+          0,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "当然",
+          "是的",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "421347",
+        "hsk_level": 3,
+        "english_sentence_id": "30530",
+        "audio_id": "988883",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:423156",
+      "audio": {
+        "path": "988884.mp3",
+        "format": "mp3"
+      },
+      "transcription": "我要买什么？",
+      "translation": {
+        "language": "en",
+        "text": "What should I buy?",
+        "words": [
+          "I",
+          "to demand",
+          "buy",
+          "What",
+          "？"
+        ],
+        "alignment": [
+          null,
+          null,
+          3,
+          0,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "我",
+          "要",
+          "买",
+          "什么",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "423156",
+        "hsk_level": 2,
+        "english_sentence_id": "423157",
+        "audio_id": "988884",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:427960",
+      "audio": {
+        "path": "988888.mp3",
+        "format": "mp3"
+      },
+      "transcription": "今晚谁上班？",
+      "translation": {
+        "language": "en",
+        "text": "Who's working tonight?",
+        "words": [
+          "tonight",
+          "who",
+          "to go to work",
+          "？"
+        ],
+        "alignment": [
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "今晚",
+          "谁",
+          "上班",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "427960",
+        "hsk_level": 2,
+        "english_sentence_id": "427959",
+        "audio_id": "988888",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:427989",
+      "audio": {
+        "path": "988889.mp3",
+        "format": "mp3"
+      },
+      "transcription": "您吃不吃肉？",
+      "translation": {
+        "language": "en",
+        "text": "Do you eat meat?",
+        "words": [
+          "you (courteous, as opposed to informal 你[ni3])",
+          "eat",
+          "(negative prefix)",
+          "eat",
+          "meat",
+          "？"
+        ],
+        "alignment": [
+          null,
+          2,
+          null,
+          2,
+          3,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "您",
+          "吃",
+          "不",
+          "吃",
+          "肉",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "427989",
+        "hsk_level": 2,
+        "english_sentence_id": "427988",
+        "audio_id": "988889",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:431126",
+      "audio": {
+        "path": "988892.mp3",
+        "format": "mp3"
+      },
+      "transcription": "生意怎么样？",
+      "translation": {
+        "language": "en",
+        "text": "How's business?",
+        "words": [
+          "business",
+          "how?",
+          "？"
+        ],
+        "alignment": [
+          1,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "生意",
+          "怎么样",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "431126",
+        "hsk_level": 2,
+        "english_sentence_id": "267432",
+        "audio_id": "988892",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:440087",
+      "audio": {
+        "path": "988893.mp3",
+        "format": "mp3"
+      },
+      "transcription": "服了你了。",
+      "translation": {
+        "language": "en",
+        "text": "You're the boss.",
+        "words": [
+          "boss",
+          "(modal particle intensifying preceding clause)",
+          "you (informal, as opposed to courteous 您[nin2])",
+          "(modal particle intensifying preceding clause)",
+          "。"
+        ],
+        "alignment": [
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "服",
+          "了",
+          "你",
+          "了",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "440087",
+        "hsk_level": 1,
+        "english_sentence_id": "440089",
+        "audio_id": "988893",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:443619",
+      "audio": {
+        "path": "988894.mp3",
+        "format": "mp3"
+      },
+      "transcription": "有个办法。",
+      "translation": {
+        "language": "en",
+        "text": "There is one way.",
+        "words": [
+          "There",
+          "individual",
+          "way",
+          "。"
+        ],
+        "alignment": [
+          0,
+          null,
+          3,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "有",
+          "个",
+          "办法",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "443619",
+        "hsk_level": 3,
+        "english_sentence_id": "443615",
+        "audio_id": "988894",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:457644",
+      "audio": {
+        "path": "988895.mp3",
+        "format": "mp3"
+      },
+      "transcription": "门票多少钱？",
+      "translation": {
+        "language": "en",
+        "text": "How much is the entrance fee?",
+        "words": [
+          "ticket (for theater, cinema etc)",
+          "How",
+          "surname Qian",
+          "？"
+        ],
+        "alignment": [
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "门票",
+          "多少",
+          "钱",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "457644",
+        "hsk_level": 2,
+        "english_sentence_id": "281941",
+        "audio_id": "988895",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10266043",
+      "audio": {
+        "path": "992916.mp3",
+        "format": "mp3"
+      },
+      "transcription": "法语课怎么样？",
+      "translation": {
+        "language": "en",
+        "text": "How was the French class?",
+        "words": [
+          "French",
+          "class",
+          "How",
+          "？"
+        ],
+        "alignment": [
+          3,
+          4,
+          0,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "法语",
+          "课",
+          "怎么样",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10266043",
+        "hsk_level": 3,
+        "english_sentence_id": "393407",
+        "audio_id": "992916",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10266087",
+      "audio": {
+        "path": "992917.mp3",
+        "format": "mp3"
+      },
+      "transcription": "这一点用都没。",
+      "translation": {
+        "language": "en",
+        "text": "That is completely useless.",
+        "words": [
+          "this",
+          "a bit",
+          "to use",
+          "surname Du",
+          "(negative prefix for verbs)",
+          "。"
+        ],
+        "alignment": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "这",
+          "一点",
+          "用",
+          "都",
+          "没",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10266087",
+        "hsk_level": 3,
+        "english_sentence_id": "1785974",
+        "audio_id": "992917",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10457866",
+      "audio": {
+        "path": "992927.mp3",
+        "format": "mp3"
+      },
+      "transcription": "完成你的工作。",
+      "translation": {
+        "language": "en",
+        "text": "Finish your work.",
+        "words": [
+          "to complete",
+          "your",
+          "of",
+          "work",
+          "。"
+        ],
+        "alignment": [
+          null,
+          1,
+          null,
+          2,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "完成",
+          "你",
+          "的",
+          "工作",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10457866",
+        "hsk_level": 3,
+        "english_sentence_id": "5323507",
+        "audio_id": "992927",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10460408",
+      "audio": {
+        "path": "992931.mp3",
+        "format": "mp3"
+      },
+      "transcription": "让我为你做这件事！",
+      "translation": {
+        "language": "en",
+        "text": "Let me do this for you.",
+        "words": [
+          "Let",
+          "me",
+          "me",
+          "you (informal, as opposed to courteous 您[nin2])",
+          "do",
+          "this",
+          "classifier for events, things, clothes etc",
+          "matter",
+          "！"
+        ],
+        "alignment": [
+          0,
+          1,
+          1,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "让",
+          "我",
+          "为",
+          "你",
+          "做",
+          "这",
+          "件",
+          "事",
+          "！"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10460408",
+        "hsk_level": 2,
+        "english_sentence_id": "3636226",
+        "audio_id": "992931",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10460409",
+      "audio": {
+        "path": "992932.mp3",
+        "format": "mp3"
+      },
+      "transcription": "让我为您做这件事！",
+      "translation": {
+        "language": "en",
+        "text": "Let me do this for you.",
+        "words": [
+          "Let",
+          "me",
+          "me",
+          "you (courteous, as opposed to informal 你[ni3])",
+          "do",
+          "this",
+          "classifier for events, things, clothes etc",
+          "matter",
+          "！"
+        ],
+        "alignment": [
+          0,
+          1,
+          1,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "让",
+          "我",
+          "为",
+          "您",
+          "做",
+          "这",
+          "件",
+          "事",
+          "！"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10460409",
+        "hsk_level": 2,
+        "english_sentence_id": "3636226",
+        "audio_id": "992932",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10460418",
+      "audio": {
+        "path": "992933.mp3",
+        "format": "mp3"
+      },
+      "transcription": "她看着我的眼睛。",
+      "translation": {
+        "language": "en",
+        "text": "She looked me in the eye.",
+        "words": [
+          "She",
+          "to look after",
+          "to come in contact with",
+          "me",
+          "(used at the end of a declarative sentence for emphasis)",
+          "looked",
+          "。"
+        ],
+        "alignment": [
+          0,
+          null,
+          null,
+          2,
+          null,
+          1,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "她",
+          "看",
+          "着",
+          "我",
+          "的",
+          "眼睛",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10460418",
+        "hsk_level": 2,
+        "english_sentence_id": "314390",
+        "audio_id": "992933",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10460422",
+      "audio": {
+        "path": "992934.mp3",
+        "format": "mp3"
+      },
+      "transcription": "什么都没动。",
+      "translation": {
+        "language": "en",
+        "text": "Nothing moved.",
+        "words": [
+          "what?",
+          "surname Du",
+          "(negative prefix for verbs)",
+          "moved",
+          "。"
+        ],
+        "alignment": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "什么",
+          "都",
+          "没",
+          "动",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10460422",
+        "hsk_level": 2,
+        "english_sentence_id": "8481072",
+        "audio_id": "992934",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10460434",
+      "audio": {
+        "path": "992935.mp3",
+        "format": "mp3"
+      },
+      "transcription": "那里发生什么了？",
+      "translation": {
+        "language": "en",
+        "text": "What happened there?",
+        "words": [
+          "there",
+          "happened",
+          "What",
+          "(modal particle intensifying preceding clause)",
+          "？"
+        ],
+        "alignment": [
+          2,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "那里",
+          "发生",
+          "什么",
+          "了",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10460434",
+        "hsk_level": 3,
+        "english_sentence_id": "4499235",
+        "audio_id": "992935",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10535638",
+      "audio": {
+        "path": "992944.mp3",
+        "format": "mp3"
+      },
+      "transcription": "那有时会发生。",
+      "translation": {
+        "language": "en",
+        "text": "That happens sometimes.",
+        "words": [
+          "that",
+          "happens",
+          "can",
+          "to happen",
+          "。"
+        ],
+        "alignment": [
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "那",
+          "有时",
+          "会",
+          "发生",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10535638",
+        "hsk_level": 3,
+        "english_sentence_id": "1476456",
+        "audio_id": "992944",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10537109",
+      "audio": {
+        "path": "992946.mp3",
+        "format": "mp3"
+      },
+      "transcription": "没那么冷。",
+      "translation": {
+        "language": "en",
+        "text": "It wasn't that cold.",
+        "words": [
+          "(negative prefix for verbs)",
+          "like that",
+          "cold",
+          "。"
+        ],
+        "alignment": [
+          null,
+          null,
+          3,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "没",
+          "那么",
+          "冷",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10537109",
+        "hsk_level": 1,
+        "english_sentence_id": "4494898",
+        "audio_id": "992946",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10548825",
+      "audio": {
+        "path": "992955.mp3",
+        "format": "mp3"
+      },
+      "transcription": "我今天不想起床。",
+      "translation": {
+        "language": "en",
+        "text": "I don't want to get out of bed today.",
+        "words": [
+          "I",
+          "today",
+          "(negative prefix)",
+          "want",
+          "to get out of bed",
+          "。"
+        ],
+        "alignment": [
+          null,
+          8,
+          null,
+          2,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "我",
+          "今天",
+          "不",
+          "想",
+          "起床",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10548825",
+        "hsk_level": 2,
+        "english_sentence_id": "7793816",
+        "audio_id": "992955",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10552168",
+      "audio": {
+        "path": "992959.mp3",
+        "format": "mp3"
+      },
+      "transcription": "您回答了什么？",
+      "translation": {
+        "language": "en",
+        "text": "What did you answer?",
+        "words": [
+          "you (courteous, as opposed to informal 你[ni3])",
+          "answer",
+          "(modal particle intensifying preceding clause)",
+          "What",
+          "？"
+        ],
+        "alignment": [
+          null,
+          3,
+          null,
+          0,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "您",
+          "回答",
+          "了",
+          "什么",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10552168",
+        "hsk_level": 3,
+        "english_sentence_id": "1426",
+        "audio_id": "992959",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10552169",
+      "audio": {
+        "path": "992960.mp3",
+        "format": "mp3"
+      },
+      "transcription": "您怎么回答的？",
+      "translation": {
+        "language": "en",
+        "text": "What did you answer?",
+        "words": [
+          "you (courteous, as opposed to informal 你[ni3])",
+          "what?",
+          "answer",
+          "of",
+          "？"
+        ],
+        "alignment": [
+          null,
+          null,
+          3,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "您",
+          "怎么",
+          "回答",
+          "的",
+          "？"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10552169",
+        "hsk_level": 3,
+        "english_sentence_id": "1426",
+        "audio_id": "992960",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:10570094",
+      "audio": {
+        "path": "992963.mp3",
+        "format": "mp3"
+      },
+      "transcription": "别吃太多。",
+      "translation": {
+        "language": "en",
+        "text": "Don't eat too much.",
+        "words": [
+          "much",
+          "eat",
+          "too",
+          "much",
+          "。"
+        ],
+        "alignment": [
+          3,
+          1,
+          2,
+          3,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "别",
+          "吃",
+          "太",
+          "多",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "10570094",
+        "hsk_level": 2,
+        "english_sentence_id": "324760",
+        "audio_id": "992963",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "GlossaMatik",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:13827607",
+      "audio": {
+        "path": "1284515.mp3",
+        "format": "mp3"
+      },
+      "transcription": "附近有一家花店。",
+      "translation": {
+        "language": "en",
+        "text": "There is a flower shop near by.",
+        "words": [
+          "near",
+          "There",
+          "shop",
+          "shop",
+          "。"
+        ],
+        "alignment": [
+          5,
+          0,
+          4,
+          4,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "附近",
+          "有",
+          "一家",
+          "花店",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "13827607",
+        "hsk_level": 3,
+        "english_sentence_id": "18737",
+        "audio_id": "1284515",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "zhoucantd",
+        "audio_attribution_url": null
+      }
+    },
+    {
+      "id": "tatoeba-hsk1-3:13843232",
+      "audio": {
+        "path": "1284525.mp3",
+        "format": "mp3"
+      },
+      "transcription": "我学习道本语很久了。",
+      "translation": {
+        "language": "en",
+        "text": "I've been studying Toki Pona for a long time.",
+        "words": [
+          "I",
+          "studying",
+          "Toki",
+          "(adverb of degree)",
+          "long",
+          "(modal particle intensifying preceding clause)",
+          "。"
+        ],
+        "alignment": [
+          null,
+          2,
+          3,
+          null,
+          7,
+          null,
+          null
+        ]
+      },
+      "word_split": {
+        "tokens": [
+          "我",
+          "学习",
+          "道本语",
+          "很",
+          "久",
+          "了",
+          "。"
+        ],
+        "metadata": {
+          "origin": "generated",
+          "tool": "spacy-pkuseg",
+          "tool_version": "1.0.1"
+        }
+      },
+      "source_metadata": {
+        "original_id": "13843232",
+        "hsk_level": 3,
+        "english_sentence_id": "13843240",
+        "audio_id": "1284525",
+        "audio_license": "CC BY-NC 4.0",
+        "audio_user": "zhoucantd",
+        "audio_attribution_url": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,7381 @@
+{
+  "sources": [
+    "dong-chinese"
+  ],
+  "characters": [
+    {
+      "index": 0,
+      "character": "我",
+      "mediaFrequency": 2055931,
+      "bestMediaRank": 2
+    },
+    {
+      "index": 1,
+      "character": "的",
+      "mediaFrequency": 1757054,
+      "bestMediaRank": 1
+    },
+    {
+      "index": 2,
+      "character": "你",
+      "mediaFrequency": 1443624,
+      "bestMediaRank": 3
+    },
+    {
+      "index": 3,
+      "character": "是",
+      "mediaFrequency": 1165330,
+      "bestMediaRank": 4
+    },
+    {
+      "index": 4,
+      "character": "了",
+      "mediaFrequency": 987057,
+      "bestMediaRank": 5
+    },
+    {
+      "index": 5,
+      "character": "不",
+      "mediaFrequency": 854710,
+      "bestMediaRank": 6
+    },
+    {
+      "index": 6,
+      "character": "们",
+      "mediaFrequency": 700770,
+      "bestMediaRank": 9
+    },
+    {
+      "index": 7,
+      "character": "这",
+      "mediaFrequency": 627147,
+      "bestMediaRank": 12
+    },
+    {
+      "index": 8,
+      "character": "一",
+      "mediaFrequency": 562771,
+      "bestMediaRank": 21
+    },
+    {
+      "index": 9,
+      "character": "他",
+      "mediaFrequency": 561282,
+      "bestMediaRank": 8
+    },
+    {
+      "index": 10,
+      "character": "么",
+      "mediaFrequency": 556069,
+      "bestMediaRank": 17
+    },
+    {
+      "index": 11,
+      "character": "在",
+      "mediaFrequency": 535868,
+      "bestMediaRank": 7
+    },
+    {
+      "index": 12,
+      "character": "有",
+      "mediaFrequency": 517111,
+      "bestMediaRank": 11
+    },
+    {
+      "index": 13,
+      "character": "个",
+      "mediaFrequency": 446204,
+      "bestMediaRank": 29
+    },
+    {
+      "index": 14,
+      "character": "好",
+      "mediaFrequency": 391031,
+      "bestMediaRank": 10
+    },
+    {
+      "index": 15,
+      "character": "那",
+      "mediaFrequency": 362366,
+      "bestMediaRank": 26
+    },
+    {
+      "index": 16,
+      "character": "来",
+      "mediaFrequency": 347379,
+      "bestMediaRank": 27
+    },
+    {
+      "index": 17,
+      "character": "要",
+      "mediaFrequency": 344145,
+      "bestMediaRank": 16
+    },
+    {
+      "index": 18,
+      "character": "就",
+      "mediaFrequency": 309031,
+      "bestMediaRank": 13
+    },
+    {
+      "index": 19,
+      "character": "什",
+      "mediaFrequency": 305008,
+      "bestMediaRank": 17
+    },
+    {
+      "index": 20,
+      "character": "人",
+      "mediaFrequency": 304529,
+      "bestMediaRank": 24
+    },
+    {
+      "index": 21,
+      "character": "会",
+      "mediaFrequency": 296486,
+      "bestMediaRank": 14
+    },
+    {
+      "index": 22,
+      "character": "没",
+      "mediaFrequency": 286380,
+      "bestMediaRank": 32
+    },
+    {
+      "index": 23,
+      "character": "到",
+      "mediaFrequency": 280090,
+      "bestMediaRank": 35
+    },
+    {
+      "index": 24,
+      "character": "说",
+      "mediaFrequency": 254395,
+      "bestMediaRank": 18
+    },
+    {
+      "index": 25,
+      "character": "吗",
+      "mediaFrequency": 253111,
+      "bestMediaRank": 15
+    },
+    {
+      "index": 26,
+      "character": "为",
+      "mediaFrequency": 240255,
+      "bestMediaRank": 72
+    },
+    {
+      "index": 27,
+      "character": "能",
+      "mediaFrequency": 232402,
+      "bestMediaRank": 30
+    },
+    {
+      "index": 28,
+      "character": "想",
+      "mediaFrequency": 232191,
+      "bestMediaRank": 20
+    },
+    {
+      "index": 29,
+      "character": "她",
+      "mediaFrequency": 230332,
+      "bestMediaRank": 19
+    },
+    {
+      "index": 30,
+      "character": "去",
+      "mediaFrequency": 229871,
+      "bestMediaRank": 31
+    },
+    {
+      "index": 31,
+      "character": "道",
+      "mediaFrequency": 215678,
+      "bestMediaRank": 23
+    },
+    {
+      "index": 32,
+      "character": "看",
+      "mediaFrequency": 205131,
+      "bestMediaRank": 50
+    },
+    {
+      "index": 33,
+      "character": "知",
+      "mediaFrequency": 204905,
+      "bestMediaRank": 23
+    },
+    {
+      "index": 34,
+      "character": "很",
+      "mediaFrequency": 200584,
+      "bestMediaRank": 22
+    },
+    {
+      "index": 35,
+      "character": "上",
+      "mediaFrequency": 198861,
+      "bestMediaRank": 45
+    },
+    {
+      "index": 36,
+      "character": "吧",
+      "mediaFrequency": 197052,
+      "bestMediaRank": 25
+    },
+    {
+      "index": 37,
+      "character": "可",
+      "mediaFrequency": 196762,
+      "bestMediaRank": 57
+    },
+    {
+      "index": 38,
+      "character": "得",
+      "mediaFrequency": 192388,
+      "bestMediaRank": 49
+    },
+    {
+      "index": 39,
+      "character": "还",
+      "mediaFrequency": 186256,
+      "bestMediaRank": 39
+    },
+    {
+      "index": 40,
+      "character": "过",
+      "mediaFrequency": 184925,
+      "bestMediaRank": 47
+    },
+    {
+      "index": 41,
+      "character": "对",
+      "mediaFrequency": 182412,
+      "bestMediaRank": 36
+    },
+    {
+      "index": 42,
+      "character": "都",
+      "mediaFrequency": 179219,
+      "bestMediaRank": 28
+    },
+    {
+      "index": 43,
+      "character": "以",
+      "mediaFrequency": 175167,
+      "bestMediaRank": 57
+    },
+    {
+      "index": 44,
+      "character": "里",
+      "mediaFrequency": 167530,
+      "bestMediaRank": 69
+    },
+    {
+      "index": 45,
+      "character": "也",
+      "mediaFrequency": 157884,
+      "bestMediaRank": 37
+    },
+    {
+      "index": 46,
+      "character": "样",
+      "mediaFrequency": 156029,
+      "bestMediaRank": 68
+    },
+    {
+      "index": 47,
+      "character": "事",
+      "mediaFrequency": 155605,
+      "bestMediaRank": 53
+    },
+    {
+      "index": 48,
+      "character": "和",
+      "mediaFrequency": 151680,
+      "bestMediaRank": 33
+    },
+    {
+      "index": 49,
+      "character": "时",
+      "mediaFrequency": 145725,
+      "bestMediaRank": 82
+    },
+    {
+      "index": 50,
+      "character": "生",
+      "mediaFrequency": 137173,
+      "bestMediaRank": 93
+    },
+    {
+      "index": 51,
+      "character": "真",
+      "mediaFrequency": 134288,
+      "bestMediaRank": 51
+    },
+    {
+      "index": 52,
+      "character": "现",
+      "mediaFrequency": 132065,
+      "bestMediaRank": 56
+    },
+    {
+      "index": 53,
+      "character": "啊",
+      "mediaFrequency": 130963,
+      "bestMediaRank": 38
+    },
+    {
+      "index": 54,
+      "character": "做",
+      "mediaFrequency": 130416,
+      "bestMediaRank": 42
+    },
+    {
+      "index": 55,
+      "character": "怎",
+      "mediaFrequency": 129142,
+      "bestMediaRank": 55
+    },
+    {
+      "index": 56,
+      "character": "下",
+      "mediaFrequency": 124838,
+      "bestMediaRank": 83
+    },
+    {
+      "index": 57,
+      "character": "把",
+      "mediaFrequency": 124534,
+      "bestMediaRank": 40
+    },
+    {
+      "index": 58,
+      "character": "让",
+      "mediaFrequency": 123809,
+      "bestMediaRank": 41
+    },
+    {
+      "index": 59,
+      "character": "但",
+      "mediaFrequency": 120959,
+      "bestMediaRank": 64
+    },
+    {
+      "index": 60,
+      "character": "给",
+      "mediaFrequency": 119008,
+      "bestMediaRank": 43
+    },
+    {
+      "index": 61,
+      "character": "谢",
+      "mediaFrequency": 117330,
+      "bestMediaRank": 85
+    },
+    {
+      "index": 62,
+      "character": "子",
+      "mediaFrequency": 116389,
+      "bestMediaRank": 116
+    },
+    {
+      "index": 63,
+      "character": "起",
+      "mediaFrequency": 116193,
+      "bestMediaRank": 117
+    },
+    {
+      "index": 64,
+      "character": "只",
+      "mediaFrequency": 116169,
+      "bestMediaRank": 61
+    },
+    {
+      "index": 65,
+      "character": "点",
+      "mediaFrequency": 112432,
+      "bestMediaRank": 58
+    },
+    {
+      "index": 66,
+      "character": "些",
+      "mediaFrequency": 112154,
+      "bestMediaRank": 119
+    },
+    {
+      "index": 67,
+      "character": "开",
+      "mediaFrequency": 106515,
+      "bestMediaRank": 135
+    },
+    {
+      "index": 68,
+      "character": "着",
+      "mediaFrequency": 105153,
+      "bestMediaRank": 52
+    },
+    {
+      "index": 69,
+      "character": "天",
+      "mediaFrequency": 104680,
+      "bestMediaRank": 88
+    },
+    {
+      "index": 70,
+      "character": "如",
+      "mediaFrequency": 104468,
+      "bestMediaRank": 60
+    },
+    {
+      "index": 71,
+      "character": "出",
+      "mediaFrequency": 100108,
+      "bestMediaRank": 105
+    },
+    {
+      "index": 72,
+      "character": "后",
+      "mediaFrequency": 95365,
+      "bestMediaRank": 145
+    },
+    {
+      "index": 73,
+      "character": "别",
+      "mediaFrequency": 94819,
+      "bestMediaRank": 62
+    },
+    {
+      "index": 74,
+      "character": "儿",
+      "mediaFrequency": 93703,
+      "bestMediaRank": 173
+    },
+    {
+      "index": 75,
+      "character": "大",
+      "mediaFrequency": 90397,
+      "bestMediaRank": 99
+    },
+    {
+      "index": 76,
+      "character": "所",
+      "mediaFrequency": 90248,
+      "bestMediaRank": 118
+    },
+    {
+      "index": 77,
+      "character": "家",
+      "mediaFrequency": 89275,
+      "bestMediaRank": 157
+    },
+    {
+      "index": 78,
+      "character": "意",
+      "mediaFrequency": 89069,
+      "bestMediaRank": 215
+    },
+    {
+      "index": 79,
+      "character": "话",
+      "mediaFrequency": 87973,
+      "bestMediaRank": 111
+    },
+    {
+      "index": 80,
+      "character": "果",
+      "mediaFrequency": 84801,
+      "bestMediaRank": 60
+    },
+    {
+      "index": 81,
+      "character": "然",
+      "mediaFrequency": 84485,
+      "bestMediaRank": 145
+    },
+    {
+      "index": 82,
+      "character": "自",
+      "mediaFrequency": 82473,
+      "bestMediaRank": 73
+    },
+    {
+      "index": 83,
+      "character": "多",
+      "mediaFrequency": 80635,
+      "bestMediaRank": 80
+    },
+    {
+      "index": 84,
+      "character": "回",
+      "mediaFrequency": 80474,
+      "bestMediaRank": 143
+    },
+    {
+      "index": 85,
+      "character": "该",
+      "mediaFrequency": 79885,
+      "bestMediaRank": 115
+    },
+    {
+      "index": 86,
+      "character": "妈",
+      "mediaFrequency": 78576,
+      "bestMediaRank": 167
+    },
+    {
+      "index": 87,
+      "character": "呢",
+      "mediaFrequency": 76752,
+      "bestMediaRank": 59
+    },
+    {
+      "index": 88,
+      "character": "再",
+      "mediaFrequency": 76709,
+      "bestMediaRank": 74
+    },
+    {
+      "index": 89,
+      "character": "觉",
+      "mediaFrequency": 76361,
+      "bestMediaRank": 87
+    },
+    {
+      "index": 90,
+      "character": "太",
+      "mediaFrequency": 75434,
+      "bestMediaRank": 67
+    },
+    {
+      "index": 91,
+      "character": "见",
+      "mediaFrequency": 74406,
+      "bestMediaRank": 147
+    },
+    {
+      "index": 92,
+      "character": "小",
+      "mediaFrequency": 74187,
+      "bestMediaRank": 125
+    },
+    {
+      "index": 93,
+      "character": "因",
+      "mediaFrequency": 73398,
+      "bestMediaRank": 72
+    },
+    {
+      "index": 94,
+      "character": "听",
+      "mediaFrequency": 72273,
+      "bestMediaRank": 75
+    },
+    {
+      "index": 95,
+      "character": "经",
+      "mediaFrequency": 71618,
+      "bestMediaRank": 84
+    },
+    {
+      "index": 96,
+      "character": "找",
+      "mediaFrequency": 71459,
+      "bestMediaRank": 94
+    },
+    {
+      "index": 97,
+      "character": "最",
+      "mediaFrequency": 71291,
+      "bestMediaRank": 95
+    },
+    {
+      "index": 98,
+      "character": "走",
+      "mediaFrequency": 71217,
+      "bestMediaRank": 66
+    },
+    {
+      "index": 99,
+      "character": "告",
+      "mediaFrequency": 69555,
+      "bestMediaRank": 71
+    },
+    {
+      "index": 100,
+      "character": "哦",
+      "mediaFrequency": 69380,
+      "bestMediaRank": 63
+    },
+    {
+      "index": 101,
+      "character": "定",
+      "mediaFrequency": 69085,
+      "bestMediaRank": 204
+    },
+    {
+      "index": 102,
+      "character": "等",
+      "mediaFrequency": 67765,
+      "bestMediaRank": 130
+    },
+    {
+      "index": 103,
+      "character": "而",
+      "mediaFrequency": 67735,
+      "bestMediaRank": 112
+    },
+    {
+      "index": 104,
+      "character": "被",
+      "mediaFrequency": 67057,
+      "bestMediaRank": 65
+    },
+    {
+      "index": 105,
+      "character": "先",
+      "mediaFrequency": 66548,
+      "bestMediaRank": 93
+    },
+    {
+      "index": 106,
+      "character": "跟",
+      "mediaFrequency": 65228,
+      "bestMediaRank": 70
+    },
+    {
+      "index": 107,
+      "character": "当",
+      "mediaFrequency": 65206,
+      "bestMediaRank": 146
+    },
+    {
+      "index": 108,
+      "character": "快",
+      "mediaFrequency": 64847,
+      "bestMediaRank": 77
+    },
+    {
+      "index": 109,
+      "character": "像",
+      "mediaFrequency": 64766,
+      "bestMediaRank": 89
+    },
+    {
+      "index": 110,
+      "character": "从",
+      "mediaFrequency": 64323,
+      "bestMediaRank": 92
+    },
+    {
+      "index": 111,
+      "character": "用",
+      "mediaFrequency": 64129,
+      "bestMediaRank": 81
+    },
+    {
+      "index": 112,
+      "character": "女",
+      "mediaFrequency": 64007,
+      "bestMediaRank": 258
+    },
+    {
+      "index": 113,
+      "character": "已",
+      "mediaFrequency": 63797,
+      "bestMediaRank": 84
+    },
+    {
+      "index": 114,
+      "character": "死",
+      "mediaFrequency": 63286,
+      "bestMediaRank": 103
+    },
+    {
+      "index": 115,
+      "character": "诉",
+      "mediaFrequency": 63021,
+      "bestMediaRank": 71
+    },
+    {
+      "index": 116,
+      "character": "前",
+      "mediaFrequency": 62732,
+      "bestMediaRank": 169
+    },
+    {
+      "index": 117,
+      "character": "它",
+      "mediaFrequency": 61201,
+      "bestMediaRank": 91
+    },
+    {
+      "index": 118,
+      "character": "错",
+      "mediaFrequency": 61141,
+      "bestMediaRank": 122
+    },
+    {
+      "index": 119,
+      "character": "打",
+      "mediaFrequency": 60973,
+      "bestMediaRank": 137
+    },
+    {
+      "index": 120,
+      "character": "发",
+      "mediaFrequency": 60383,
+      "bestMediaRank": 184
+    },
+    {
+      "index": 121,
+      "character": "孩",
+      "mediaFrequency": 60363,
+      "bestMediaRank": 116
+    },
+    {
+      "index": 122,
+      "character": "己",
+      "mediaFrequency": 57978,
+      "bestMediaRank": 73
+    },
+    {
+      "index": 123,
+      "character": "哪",
+      "mediaFrequency": 57849,
+      "bestMediaRank": 162
+    },
+    {
+      "index": 124,
+      "character": "心",
+      "mediaFrequency": 56050,
+      "bestMediaRank": 277
+    },
+    {
+      "index": 125,
+      "character": "欢",
+      "mediaFrequency": 54820,
+      "bestMediaRank": 96
+    },
+    {
+      "index": 126,
+      "character": "之",
+      "mediaFrequency": 54788,
+      "bestMediaRank": 245
+    },
+    {
+      "index": 127,
+      "character": "候",
+      "mediaFrequency": 54619,
+      "bestMediaRank": 82
+    },
+    {
+      "index": 128,
+      "character": "行",
+      "mediaFrequency": 54319,
+      "bestMediaRank": 165
+    },
+    {
+      "index": 129,
+      "character": "干",
+      "mediaFrequency": 54173,
+      "bestMediaRank": 107
+    },
+    {
+      "index": 130,
+      "character": "间",
+      "mediaFrequency": 54028,
+      "bestMediaRank": 140
+    },
+    {
+      "index": 131,
+      "character": "明",
+      "mediaFrequency": 53947,
+      "bestMediaRank": 175
+    },
+    {
+      "index": 132,
+      "character": "问",
+      "mediaFrequency": 53819,
+      "bestMediaRank": 131
+    },
+    {
+      "index": 133,
+      "character": "情",
+      "mediaFrequency": 53394,
+      "bestMediaRank": 151
+    },
+    {
+      "index": 134,
+      "character": "爸",
+      "mediaFrequency": 53014,
+      "bestMediaRank": 190
+    },
+    {
+      "index": 135,
+      "character": "爱",
+      "mediaFrequency": 52881,
+      "bestMediaRank": 138
+    },
+    {
+      "index": 136,
+      "character": "谁",
+      "mediaFrequency": 52782,
+      "bestMediaRank": 78
+    },
+    {
+      "index": 137,
+      "character": "次",
+      "mediaFrequency": 52288,
+      "bestMediaRank": 104
+    },
+    {
+      "index": 138,
+      "character": "地",
+      "mediaFrequency": 52258,
+      "bestMediaRank": 181
+    },
+    {
+      "index": 139,
+      "character": "中",
+      "mediaFrequency": 51809,
+      "bestMediaRank": 126
+    },
+    {
+      "index": 140,
+      "character": "作",
+      "mediaFrequency": 51513,
+      "bestMediaRank": 144
+    },
+    {
+      "index": 141,
+      "character": "喜",
+      "mediaFrequency": 51348,
+      "bestMediaRank": 96
+    },
+    {
+      "index": 142,
+      "character": "感",
+      "mediaFrequency": 50089,
+      "bestMediaRank": 194
+    },
+    {
+      "index": 143,
+      "character": "正",
+      "mediaFrequency": 49671,
+      "bestMediaRank": 211
+    },
+    {
+      "index": 144,
+      "character": "认",
+      "mediaFrequency": 48427,
+      "bestMediaRank": 171
+    },
+    {
+      "index": 145,
+      "character": "面",
+      "mediaFrequency": 48020,
+      "bestMediaRank": 347
+    },
+    {
+      "index": 146,
+      "character": "帮",
+      "mediaFrequency": 47551,
+      "bestMediaRank": 136
+    },
+    {
+      "index": 147,
+      "character": "信",
+      "mediaFrequency": 46924,
+      "bestMediaRank": 168
+    },
+    {
+      "index": 148,
+      "character": "电",
+      "mediaFrequency": 46489,
+      "bestMediaRank": 219
+    },
+    {
+      "index": 149,
+      "character": "进",
+      "mediaFrequency": 46438,
+      "bestMediaRank": 226
+    },
+    {
+      "index": 150,
+      "character": "实",
+      "mediaFrequency": 46230,
+      "bestMediaRank": 440
+    },
+    {
+      "index": 151,
+      "character": "关",
+      "mediaFrequency": 45453,
+      "bestMediaRank": 335
+    },
+    {
+      "index": 152,
+      "character": "应",
+      "mediaFrequency": 45225,
+      "bestMediaRank": 115
+    },
+    {
+      "index": 153,
+      "character": "晚",
+      "mediaFrequency": 44973,
+      "bestMediaRank": 262
+    },
+    {
+      "index": 154,
+      "character": "成",
+      "mediaFrequency": 44774,
+      "bestMediaRank": 285
+    },
+    {
+      "index": 155,
+      "character": "需",
+      "mediaFrequency": 44362,
+      "bestMediaRank": 101
+    },
+    {
+      "index": 156,
+      "character": "法",
+      "mediaFrequency": 43966,
+      "bestMediaRank": 417
+    },
+    {
+      "index": 157,
+      "character": "方",
+      "mediaFrequency": 43219,
+      "bestMediaRank": 181
+    },
+    {
+      "index": 158,
+      "character": "才",
+      "mediaFrequency": 42996,
+      "bestMediaRank": 120
+    },
+    {
+      "index": 159,
+      "character": "年",
+      "mediaFrequency": 42567,
+      "bestMediaRank": 141
+    },
+    {
+      "index": 160,
+      "character": "西",
+      "mediaFrequency": 42456,
+      "bestMediaRank": 114
+    },
+    {
+      "index": 161,
+      "character": "今",
+      "mediaFrequency": 42176,
+      "bestMediaRank": 174
+    },
+    {
+      "index": 162,
+      "character": "许",
+      "mediaFrequency": 41276,
+      "bestMediaRank": 164
+    },
+    {
+      "index": 163,
+      "character": "嘿",
+      "mediaFrequency": 41175,
+      "bestMediaRank": 109
+    },
+    {
+      "index": 164,
+      "character": "手",
+      "mediaFrequency": 41019,
+      "bestMediaRank": 252
+    },
+    {
+      "index": 165,
+      "character": "杀",
+      "mediaFrequency": 40523,
+      "bestMediaRank": 180
+    },
+    {
+      "index": 166,
+      "character": "直",
+      "mediaFrequency": 40405,
+      "bestMediaRank": 176
+    },
+    {
+      "index": 167,
+      "character": "东",
+      "mediaFrequency": 39474,
+      "bestMediaRank": 114
+    },
+    {
+      "index": 168,
+      "character": "常",
+      "mediaFrequency": 38977,
+      "bestMediaRank": 158
+    },
+    {
+      "index": 169,
+      "character": "比",
+      "mediaFrequency": 38605,
+      "bestMediaRank": 193
+    },
+    {
+      "index": 170,
+      "character": "带",
+      "mediaFrequency": 37973,
+      "bestMediaRank": 139
+    },
+    {
+      "index": 171,
+      "character": "种",
+      "mediaFrequency": 37764,
+      "bestMediaRank": 247
+    },
+    {
+      "index": 172,
+      "character": "叫",
+      "mediaFrequency": 36661,
+      "bestMediaRank": 127
+    },
+    {
+      "index": 173,
+      "character": "请",
+      "mediaFrequency": 36592,
+      "bestMediaRank": 142
+    },
+    {
+      "index": 174,
+      "character": "两",
+      "mediaFrequency": 36580,
+      "bestMediaRank": 121
+    },
+    {
+      "index": 175,
+      "character": "相",
+      "mediaFrequency": 35824,
+      "bestMediaRank": 168
+    },
+    {
+      "index": 176,
+      "character": "又",
+      "mediaFrequency": 35561,
+      "bestMediaRank": 124
+    },
+    {
+      "index": 177,
+      "character": "放",
+      "mediaFrequency": 35434,
+      "bestMediaRank": 216
+    },
+    {
+      "index": 178,
+      "character": "老",
+      "mediaFrequency": 35144,
+      "bestMediaRank": 238
+    },
+    {
+      "index": 179,
+      "character": "亲",
+      "mediaFrequency": 34969,
+      "bestMediaRank": 283
+    },
+    {
+      "index": 180,
+      "character": "嗯",
+      "mediaFrequency": 34639,
+      "bestMediaRank": 128
+    },
+    {
+      "index": 181,
+      "character": "全",
+      "mediaFrequency": 34537,
+      "bestMediaRank": 295
+    },
+    {
+      "index": 182,
+      "character": "拿",
+      "mediaFrequency": 34470,
+      "bestMediaRank": 133
+    },
+    {
+      "index": 183,
+      "character": "车",
+      "mediaFrequency": 34416,
+      "bestMediaRank": 178
+    },
+    {
+      "index": 184,
+      "character": "美",
+      "mediaFrequency": 34390,
+      "bestMediaRank": 293
+    },
+    {
+      "index": 185,
+      "character": "更",
+      "mediaFrequency": 33970,
+      "bestMediaRank": 134
+    },
+    {
+      "index": 186,
+      "character": "于",
+      "mediaFrequency": 33920,
+      "bestMediaRank": 343
+    },
+    {
+      "index": 187,
+      "character": "记",
+      "mediaFrequency": 33723,
+      "bestMediaRank": 265
+    },
+    {
+      "index": 188,
+      "character": "题",
+      "mediaFrequency": 33364,
+      "bestMediaRank": 131
+    },
+    {
+      "index": 189,
+      "character": "非",
+      "mediaFrequency": 33223,
+      "bestMediaRank": 158
+    },
+    {
+      "index": 190,
+      "character": "谈",
+      "mediaFrequency": 32972,
+      "bestMediaRank": 304
+    },
+    {
+      "index": 191,
+      "character": "分",
+      "mediaFrequency": 32956,
+      "bestMediaRank": 324
+    },
+    {
+      "index": 192,
+      "character": "完",
+      "mediaFrequency": 32814,
+      "bestMediaRank": 295
+    },
+    {
+      "index": 193,
+      "character": "其",
+      "mediaFrequency": 32628,
+      "bestMediaRank": 263
+    },
+    {
+      "index": 194,
+      "character": "白",
+      "mediaFrequency": 32519,
+      "bestMediaRank": 175
+    },
+    {
+      "index": 195,
+      "character": "始",
+      "mediaFrequency": 32126,
+      "bestMediaRank": 135
+    },
+    {
+      "index": 196,
+      "character": "工",
+      "mediaFrequency": 31777,
+      "bestMediaRank": 144
+    },
+    {
+      "index": 197,
+      "character": "第",
+      "mediaFrequency": 31413,
+      "bestMediaRank": 223
+    },
+    {
+      "index": 198,
+      "character": "朋",
+      "mediaFrequency": 31136,
+      "bestMediaRank": 166
+    },
+    {
+      "index": 199,
+      "character": "友",
+      "mediaFrequency": 31136,
+      "bestMediaRank": 166
+    },
+    {
+      "index": 200,
+      "character": "者",
+      "mediaFrequency": 30955,
+      "bestMediaRank": 268
+    },
+    {
+      "index": 201,
+      "character": "确",
+      "mediaFrequency": 30889,
+      "bestMediaRank": 365
+    },
+    {
+      "index": 202,
+      "character": "或",
+      "mediaFrequency": 30686,
+      "bestMediaRank": 268
+    },
+    {
+      "index": 203,
+      "character": "伙",
+      "mediaFrequency": 30643,
+      "bestMediaRank": 251
+    },
+    {
+      "index": 204,
+      "character": "受",
+      "mediaFrequency": 30413,
+      "bestMediaRank": 436
+    },
+    {
+      "index": 205,
+      "character": "活",
+      "mediaFrequency": 30220,
+      "bestMediaRank": 244
+    },
+    {
+      "index": 206,
+      "character": "接",
+      "mediaFrequency": 30156,
+      "bestMediaRank": 325
+    },
+    {
+      "index": 207,
+      "character": "吃",
+      "mediaFrequency": 30048,
+      "bestMediaRank": 153
+    },
+    {
+      "index": 208,
+      "character": "刚",
+      "mediaFrequency": 30012,
+      "bestMediaRank": 329
+    },
+    {
+      "index": 209,
+      "character": "何",
+      "mediaFrequency": 29979,
+      "bestMediaRank": 253
+    },
+    {
+      "index": 210,
+      "character": "离",
+      "mediaFrequency": 29741,
+      "bestMediaRank": 202
+    },
+    {
+      "index": 211,
+      "character": "住",
+      "mediaFrequency": 29474,
+      "bestMediaRank": 209
+    },
+    {
+      "index": 212,
+      "character": "望",
+      "mediaFrequency": 29392,
+      "bestMediaRank": 160
+    },
+    {
+      "index": 213,
+      "character": "钱",
+      "mediaFrequency": 29221,
+      "bestMediaRank": 148
+    },
+    {
+      "index": 214,
+      "character": "噢",
+      "mediaFrequency": 29190,
+      "bestMediaRank": 149
+    },
+    {
+      "index": 215,
+      "character": "解",
+      "mediaFrequency": 28931,
+      "bestMediaRank": 351
+    },
+    {
+      "index": 216,
+      "character": "同",
+      "mediaFrequency": 28914,
+      "bestMediaRank": 576
+    },
+    {
+      "index": 217,
+      "character": "机",
+      "mediaFrequency": 28818,
+      "bestMediaRank": 308
+    },
+    {
+      "index": 218,
+      "character": "思",
+      "mediaFrequency": 28700,
+      "bestMediaRank": 215
+    },
+    {
+      "index": 219,
+      "character": "计",
+      "mediaFrequency": 28538,
+      "bestMediaRank": 251
+    },
+    {
+      "index": 220,
+      "character": "本",
+      "mediaFrequency": 28504,
+      "bestMediaRank": 338
+    },
+    {
+      "index": 221,
+      "character": "名",
+      "mediaFrequency": 28226,
+      "bestMediaRank": 259
+    },
+    {
+      "index": 222,
+      "character": "件",
+      "mediaFrequency": 28194,
+      "bestMediaRank": 210
+    },
+    {
+      "index": 223,
+      "character": "重",
+      "mediaFrequency": 27665,
+      "bestMediaRank": 303
+    },
+    {
+      "index": 224,
+      "character": "国",
+      "mediaFrequency": 27345,
+      "bestMediaRank": 293
+    },
+    {
+      "index": 225,
+      "character": "动",
+      "mediaFrequency": 27175,
+      "bestMediaRank": 409
+    },
+    {
+      "index": 226,
+      "character": "将",
+      "mediaFrequency": 27084,
+      "bestMediaRank": 172
+    },
+    {
+      "index": 227,
+      "character": "几",
+      "mediaFrequency": 26953,
+      "bestMediaRank": 185
+    },
+    {
+      "index": 228,
+      "character": "变",
+      "mediaFrequency": 26823,
+      "bestMediaRank": 334
+    },
+    {
+      "index": 229,
+      "character": "希",
+      "mediaFrequency": 26658,
+      "bestMediaRank": 160
+    },
+    {
+      "index": 230,
+      "character": "无",
+      "mediaFrequency": 26313,
+      "bestMediaRank": 417
+    },
+    {
+      "index": 231,
+      "character": "高",
+      "mediaFrequency": 26020,
+      "bestMediaRank": 236
+    },
+    {
+      "index": 232,
+      "character": "办",
+      "mediaFrequency": 25951,
+      "bestMediaRank": 424
+    },
+    {
+      "index": 233,
+      "character": "系",
+      "mediaFrequency": 25863,
+      "bestMediaRank": 335
+    },
+    {
+      "index": 234,
+      "character": "任",
+      "mediaFrequency": 25857,
+      "bestMediaRank": 253
+    },
+    {
+      "index": 235,
+      "character": "必",
+      "mediaFrequency": 25483,
+      "bestMediaRank": 214
+    },
+    {
+      "index": 236,
+      "character": "新",
+      "mediaFrequency": 25369,
+      "bestMediaRank": 229
+    },
+    {
+      "index": 237,
+      "character": "嗨",
+      "mediaFrequency": 25335,
+      "bestMediaRank": 170
+    },
+    {
+      "index": 238,
+      "character": "结",
+      "mediaFrequency": 25297,
+      "bestMediaRank": 354
+    },
+    {
+      "index": 239,
+      "character": "歉",
+      "mediaFrequency": 25002,
+      "bestMediaRank": 192
+    },
+    {
+      "index": 240,
+      "character": "学",
+      "mediaFrequency": 24892,
+      "bestMediaRank": 447
+    },
+    {
+      "index": 241,
+      "character": "保",
+      "mediaFrequency": 24676,
+      "bestMediaRank": 446
+    },
+    {
+      "index": 242,
+      "character": "男",
+      "mediaFrequency": 24640,
+      "bestMediaRank": 306
+    },
+    {
+      "index": 243,
+      "character": "每",
+      "mediaFrequency": 24622,
+      "bestMediaRank": 348
+    },
+    {
+      "index": 244,
+      "character": "准",
+      "mediaFrequency": 24431,
+      "bestMediaRank": 187
+    },
+    {
+      "index": 245,
+      "character": "加",
+      "mediaFrequency": 24065,
+      "bestMediaRank": 423
+    },
+    {
+      "index": 246,
+      "character": "警",
+      "mediaFrequency": 24027,
+      "bestMediaRank": 318
+    },
+    {
+      "index": 247,
+      "character": "总",
+      "mediaFrequency": 23999,
+      "bestMediaRank": 364
+    },
+    {
+      "index": 248,
+      "character": "少",
+      "mediaFrequency": 23996,
+      "bestMediaRank": 360
+    },
+    {
+      "index": 249,
+      "character": "玩",
+      "mediaFrequency": 23982,
+      "bestMediaRank": 282
+    },
+    {
+      "index": 250,
+      "character": "长",
+      "mediaFrequency": 23877,
+      "bestMediaRank": 294
+    },
+    {
+      "index": 251,
+      "character": "抱",
+      "mediaFrequency": 23802,
+      "bestMediaRank": 192
+    },
+    {
+      "index": 252,
+      "character": "且",
+      "mediaFrequency": 23793,
+      "bestMediaRank": 212
+    },
+    {
+      "index": 253,
+      "character": "并",
+      "mediaFrequency": 23783,
+      "bestMediaRank": 213
+    },
+    {
+      "index": 254,
+      "character": "表",
+      "mediaFrequency": 23727,
+      "bestMediaRank": 474
+    },
+    {
+      "index": 255,
+      "character": "位",
+      "mediaFrequency": 23603,
+      "bestMediaRank": 239
+    },
+    {
+      "index": 256,
+      "character": "力",
+      "mediaFrequency": 23504,
+      "bestMediaRank": 528
+    },
+    {
+      "index": 257,
+      "character": "算",
+      "mediaFrequency": 23458,
+      "bestMediaRank": 276
+    },
+    {
+      "index": 258,
+      "character": "切",
+      "mediaFrequency": 23397,
+      "bestMediaRank": 191
+    },
+    {
+      "index": 259,
+      "character": "公",
+      "mediaFrequency": 23176,
+      "bestMediaRank": 355
+    },
+    {
+      "index": 260,
+      "character": "身",
+      "mediaFrequency": 23166,
+      "bestMediaRank": 460
+    },
+    {
+      "index": 261,
+      "character": "安",
+      "mediaFrequency": 23158,
+      "bestMediaRank": 369
+    },
+    {
+      "index": 262,
+      "character": "够",
+      "mediaFrequency": 22995,
+      "bestMediaRank": 287
+    },
+    {
+      "index": 263,
+      "character": "边",
+      "mediaFrequency": 22994,
+      "bestMediaRank": 507
+    },
+    {
+      "index": 264,
+      "character": "兴",
+      "mediaFrequency": 22906,
+      "bestMediaRank": 236
+    },
+    {
+      "index": 265,
+      "character": "难",
+      "mediaFrequency": 22851,
+      "bestMediaRank": 345
+    },
+    {
+      "index": 266,
+      "character": "呃",
+      "mediaFrequency": 22734,
+      "bestMediaRank": 183
+    },
+    {
+      "index": 267,
+      "character": "理",
+      "mediaFrequency": 22216,
+      "bestMediaRank": 517
+    },
+    {
+      "index": 268,
+      "character": "备",
+      "mediaFrequency": 22202,
+      "bestMediaRank": 187
+    },
+    {
+      "index": 269,
+      "character": "部",
+      "mediaFrequency": 21710,
+      "bestMediaRank": 607
+    },
+    {
+      "index": 270,
+      "character": "害",
+      "mediaFrequency": 21295,
+      "bestMediaRank": 529
+    },
+    {
+      "index": 271,
+      "character": "证",
+      "mediaFrequency": 21165,
+      "bestMediaRank": 446
+    },
+    {
+      "index": 272,
+      "character": "医",
+      "mediaFrequency": 21070,
+      "bestMediaRank": 248
+    },
+    {
+      "index": 273,
+      "character": "肯",
+      "mediaFrequency": 20727,
+      "bestMediaRank": 218
+    },
+    {
+      "index": 274,
+      "character": "此",
+      "mediaFrequency": 20666,
+      "bestMediaRank": 415
+    },
+    {
+      "index": 275,
+      "character": "头",
+      "mediaFrequency": 20537,
+      "bestMediaRank": 307
+    },
+    {
+      "index": 276,
+      "character": "查",
+      "mediaFrequency": 19956,
+      "bestMediaRank": 468
+    },
+    {
+      "index": 277,
+      "character": "管",
+      "mediaFrequency": 19808,
+      "bestMediaRank": 395
+    },
+    {
+      "index": 278,
+      "character": "房",
+      "mediaFrequency": 19471,
+      "bestMediaRank": 418
+    },
+    {
+      "index": 279,
+      "character": "向",
+      "mediaFrequency": 19375,
+      "bestMediaRank": 231
+    },
+    {
+      "index": 280,
+      "character": "须",
+      "mediaFrequency": 19320,
+      "bestMediaRank": 214
+    },
+    {
+      "index": 281,
+      "character": "父",
+      "mediaFrequency": 19019,
+      "bestMediaRank": 288
+    },
+    {
+      "index": 282,
+      "character": "队",
+      "mediaFrequency": 18858,
+      "bestMediaRank": 416
+    },
+    {
+      "index": 283,
+      "character": "处",
+      "mediaFrequency": 18736,
+      "bestMediaRank": 517
+    },
+    {
+      "index": 284,
+      "character": "早",
+      "mediaFrequency": 18513,
+      "bestMediaRank": 292
+    },
+    {
+      "index": 285,
+      "character": "士",
+      "mediaFrequency": 18401,
+      "bestMediaRank": 337
+    },
+    {
+      "index": 286,
+      "character": "字",
+      "mediaFrequency": 18332,
+      "bestMediaRank": 259
+    },
+    {
+      "index": 287,
+      "character": "搞",
+      "mediaFrequency": 18263,
+      "bestMediaRank": 221
+    },
+    {
+      "index": 288,
+      "character": "棒",
+      "mediaFrequency": 18253,
+      "bestMediaRank": 222
+    },
+    {
+      "index": 289,
+      "character": "选",
+      "mediaFrequency": 18236,
+      "bestMediaRank": 432
+    },
+    {
+      "index": 290,
+      "character": "乐",
+      "mediaFrequency": 18215,
+      "bestMediaRank": 596
+    },
+    {
+      "index": 291,
+      "character": "特",
+      "mediaFrequency": 18077,
+      "bestMediaRank": 465
+    },
+    {
+      "index": 292,
+      "character": "失",
+      "mediaFrequency": 17952,
+      "bestMediaRank": 533
+    },
+    {
+      "index": 293,
+      "character": "求",
+      "mediaFrequency": 17786,
+      "bestMediaRank": 328
+    },
+    {
+      "index": 294,
+      "character": "识",
+      "mediaFrequency": 17604,
+      "bestMediaRank": 260
+    },
+    {
+      "index": 295,
+      "character": "掉",
+      "mediaFrequency": 17596,
+      "bestMediaRank": 241
+    },
+    {
+      "index": 296,
+      "character": "场",
+      "mediaFrequency": 17514,
+      "bestMediaRank": 326
+    },
+    {
+      "index": 297,
+      "character": "舞",
+      "mediaFrequency": 17430,
+      "bestMediaRank": 452
+    },
+    {
+      "index": 298,
+      "character": "您",
+      "mediaFrequency": 17279,
+      "bestMediaRank": 230
+    },
+    {
+      "index": 299,
+      "character": "号",
+      "mediaFrequency": 17248,
+      "bestMediaRank": 297
+    },
+    {
+      "index": 300,
+      "character": "马",
+      "mediaFrequency": 17209,
+      "bestMediaRank": 339
+    },
+    {
+      "index": 301,
+      "character": "约",
+      "mediaFrequency": 17093,
+      "bestMediaRank": 539
+    },
+    {
+      "index": 302,
+      "character": "坐",
+      "mediaFrequency": 16981,
+      "bestMediaRank": 261
+    },
+    {
+      "index": 303,
+      "character": "三",
+      "mediaFrequency": 16916,
+      "bestMediaRank": 233
+    },
+    {
+      "index": 304,
+      "character": "命",
+      "mediaFrequency": 16910,
+      "bestMediaRank": 564
+    },
+    {
+      "index": 305,
+      "character": "目",
+      "mediaFrequency": 16792,
+      "bestMediaRank": 540
+    },
+    {
+      "index": 306,
+      "character": "照",
+      "mediaFrequency": 16755,
+      "bestMediaRank": 396
+    },
+    {
+      "index": 307,
+      "character": "远",
+      "mediaFrequency": 16606,
+      "bestMediaRank": 357
+    },
+    {
+      "index": 308,
+      "character": "官",
+      "mediaFrequency": 16550,
+      "bestMediaRank": 492
+    },
+    {
+      "index": 309,
+      "character": "根",
+      "mediaFrequency": 16534,
+      "bestMediaRank": 342
+    },
+    {
+      "index": 310,
+      "character": "嘛",
+      "mediaFrequency": 16472,
+      "bestMediaRank": 237
+    },
+    {
+      "index": 311,
+      "character": "外",
+      "mediaFrequency": 16338,
+      "bestMediaRank": 585
+    },
+    {
+      "index": 312,
+      "character": "怕",
+      "mediaFrequency": 16292,
+      "bestMediaRank": 529
+    },
+    {
+      "index": 313,
+      "character": "喝",
+      "mediaFrequency": 16253,
+      "bestMediaRank": 264
+    },
+    {
+      "index": 314,
+      "character": "枪",
+      "mediaFrequency": 16215,
+      "bestMediaRank": 298
+    },
+    {
+      "index": 315,
+      "character": "决",
+      "mediaFrequency": 16206,
+      "bestMediaRank": 340
+    },
+    {
+      "index": 316,
+      "character": "息",
+      "mediaFrequency": 16146,
+      "bestMediaRank": 411
+    },
+    {
+      "index": 317,
+      "character": "伤",
+      "mediaFrequency": 16097,
+      "bestMediaRank": 591
+    },
+    {
+      "index": 318,
+      "character": "员",
+      "mediaFrequency": 16057,
+      "bestMediaRank": 493
+    },
+    {
+      "index": 319,
+      "character": "张",
+      "mediaFrequency": 16001,
+      "bestMediaRank": 320
+    },
+    {
+      "index": 320,
+      "character": "停",
+      "mediaFrequency": 15926,
+      "bestMediaRank": 380
+    },
+    {
+      "index": 321,
+      "character": "酒",
+      "mediaFrequency": 15926,
+      "bestMediaRank": 530
+    },
+    {
+      "index": 322,
+      "character": "原",
+      "mediaFrequency": 15870,
+      "bestMediaRank": 434
+    },
+    {
+      "index": 323,
+      "character": "案",
+      "mediaFrequency": 15772,
+      "bestMediaRank": 525
+    },
+    {
+      "index": 324,
+      "character": "买",
+      "mediaFrequency": 15766,
+      "bestMediaRank": 246
+    },
+    {
+      "index": 325,
+      "character": "底",
+      "mediaFrequency": 15738,
+      "bestMediaRank": 350
+    },
+    {
+      "index": 326,
+      "character": "通",
+      "mediaFrequency": 15643,
+      "bestMediaRank": 541
+    },
+    {
+      "index": 327,
+      "character": "与",
+      "mediaFrequency": 15625,
+      "bestMediaRank": 267
+    },
+    {
+      "index": 328,
+      "character": "留",
+      "mediaFrequency": 15464,
+      "bestMediaRank": 374
+    },
+    {
+      "index": 329,
+      "character": "至",
+      "mediaFrequency": 15438,
+      "bestMediaRank": 470
+    },
+    {
+      "index": 330,
+      "character": "弟",
+      "mediaFrequency": 15383,
+      "bestMediaRank": 400
+    },
+    {
+      "index": 331,
+      "character": "笑",
+      "mediaFrequency": 15374,
+      "bestMediaRank": 504
+    },
+    {
+      "index": 332,
+      "character": "近",
+      "mediaFrequency": 15224,
+      "bestMediaRank": 593
+    },
+    {
+      "index": 333,
+      "character": "姐",
+      "mediaFrequency": 15073,
+      "bestMediaRank": 408
+    },
+    {
+      "index": 334,
+      "character": "周",
+      "mediaFrequency": 14975,
+      "bestMediaRank": 375
+    },
+    {
+      "index": 335,
+      "character": "演",
+      "mediaFrequency": 14771,
+      "bestMediaRank": 500
+    },
+    {
+      "index": 336,
+      "character": "由",
+      "mediaFrequency": 14721,
+      "bestMediaRank": 573
+    },
+    {
+      "index": 337,
+      "character": "服",
+      "mediaFrequency": 14659,
+      "bestMediaRank": 420
+    },
+    {
+      "index": 338,
+      "character": "宝",
+      "mediaFrequency": 14610,
+      "bestMediaRank": 296
+    },
+    {
+      "index": 339,
+      "character": "帝",
+      "mediaFrequency": 14605,
+      "bestMediaRank": 257
+    },
+    {
+      "index": 340,
+      "character": "蛋",
+      "mediaFrequency": 14488,
+      "bestMediaRank": 444
+    },
+    {
+      "index": 341,
+      "character": "试",
+      "mediaFrequency": 14347,
+      "bestMediaRank": 459
+    },
+    {
+      "index": 342,
+      "character": "物",
+      "mediaFrequency": 14140,
+      "bestMediaRank": 783
+    },
+    {
+      "index": 343,
+      "character": "条",
+      "mediaFrequency": 14084,
+      "bestMediaRank": 286
+    },
+    {
+      "index": 344,
+      "character": "忙",
+      "mediaFrequency": 14067,
+      "bestMediaRank": 413
+    },
+    {
+      "index": 345,
+      "character": "婚",
+      "mediaFrequency": 14010,
+      "bestMediaRank": 513
+    },
+    {
+      "index": 346,
+      "character": "气",
+      "mediaFrequency": 13962,
+      "bestMediaRank": 805
+    },
+    {
+      "index": 347,
+      "character": "跑",
+      "mediaFrequency": 13862,
+      "bestMediaRank": 290
+    },
+    {
+      "index": 348,
+      "character": "师",
+      "mediaFrequency": 13678,
+      "bestMediaRank": 496
+    },
+    {
+      "index": 349,
+      "character": "写",
+      "mediaFrequency": 13589,
+      "bestMediaRank": 269
+    },
+    {
+      "index": 350,
+      "character": "穿",
+      "mediaFrequency": 13586,
+      "bestMediaRank": 270
+    },
+    {
+      "index": 351,
+      "character": "弄",
+      "mediaFrequency": 13574,
+      "bestMediaRank": 271
+    },
+    {
+      "index": 352,
+      "character": "钟",
+      "mediaFrequency": 13518,
+      "bestMediaRank": 324
+    },
+    {
+      "index": 353,
+      "character": "消",
+      "mediaFrequency": 13517,
+      "bestMediaRank": 411
+    },
+    {
+      "index": 354,
+      "character": "神",
+      "mediaFrequency": 13505,
+      "bestMediaRank": 763
+    },
+    {
+      "index": 355,
+      "character": "啦",
+      "mediaFrequency": 13369,
+      "bestMediaRank": 274
+    },
+    {
+      "index": 356,
+      "character": "却",
+      "mediaFrequency": 13346,
+      "bestMediaRank": 275
+    },
+    {
+      "index": 357,
+      "character": "疯",
+      "mediaFrequency": 13325,
+      "bestMediaRank": 511
+    },
+    {
+      "index": 358,
+      "character": "世",
+      "mediaFrequency": 13288,
+      "bestMediaRank": 301
+    },
+    {
+      "index": 359,
+      "character": "片",
+      "mediaFrequency": 13284,
+      "bestMediaRank": 396
+    },
+    {
+      "index": 360,
+      "character": "哥",
+      "mediaFrequency": 13277,
+      "bestMediaRank": 846
+    },
+    {
+      "index": 361,
+      "character": "提",
+      "mediaFrequency": 13274,
+      "bestMediaRank": 618
+    },
+    {
+      "index": 362,
+      "character": "担",
+      "mediaFrequency": 13238,
+      "bestMediaRank": 277
+    },
+    {
+      "index": 363,
+      "character": "继",
+      "mediaFrequency": 13221,
+      "bestMediaRank": 278
+    },
+    {
+      "index": 364,
+      "character": "续",
+      "mediaFrequency": 13221,
+      "bestMediaRank": 278
+    },
+    {
+      "index": 365,
+      "character": "送",
+      "mediaFrequency": 13212,
+      "bestMediaRank": 279
+    },
+    {
+      "index": 366,
+      "character": "使",
+      "mediaFrequency": 13181,
+      "bestMediaRank": 659
+    },
+    {
+      "index": 367,
+      "character": "份",
+      "mediaFrequency": 13108,
+      "bestMediaRank": 349
+    },
+    {
+      "index": 368,
+      "character": "兄",
+      "mediaFrequency": 13098,
+      "bestMediaRank": 400
+    },
+    {
+      "index": 369,
+      "character": "另",
+      "mediaFrequency": 13071,
+      "bestMediaRank": 384
+    },
+    {
+      "index": 370,
+      "character": "绝",
+      "mediaFrequency": 12946,
+      "bestMediaRank": 491
+    },
+    {
+      "index": 371,
+      "character": "抓",
+      "mediaFrequency": 12911,
+      "bestMediaRank": 407
+    },
+    {
+      "index": 372,
+      "character": "赛",
+      "mediaFrequency": 12865,
+      "bestMediaRank": 331
+    },
+    {
+      "index": 373,
+      "character": "性",
+      "mediaFrequency": 12844,
+      "bestMediaRank": 702
+    },
+    {
+      "index": 374,
+      "character": "利",
+      "mediaFrequency": 12803,
+      "bestMediaRank": 984
+    },
+    {
+      "index": 375,
+      "character": "日",
+      "mediaFrequency": 12778,
+      "bestMediaRank": 761
+    },
+    {
+      "index": 376,
+      "character": "清",
+      "mediaFrequency": 12684,
+      "bestMediaRank": 367
+    },
+    {
+      "index": 377,
+      "character": "持",
+      "mediaFrequency": 12569,
+      "bestMediaRank": 628
+    },
+    {
+      "index": 378,
+      "character": "救",
+      "mediaFrequency": 12558,
+      "bestMediaRank": 422
+    },
+    {
+      "index": 379,
+      "character": "况",
+      "mediaFrequency": 12511,
+      "bestMediaRank": 333
+    },
+    {
+      "index": 380,
+      "character": "察",
+      "mediaFrequency": 12455,
+      "bestMediaRank": 318
+    },
+    {
+      "index": 381,
+      "character": "克",
+      "mediaFrequency": 12346,
+      "bestMediaRank": 621
+    },
+    {
+      "index": 382,
+      "character": "月",
+      "mediaFrequency": 12253,
+      "bestMediaRank": 291
+    },
+    {
+      "index": 383,
+      "character": "报",
+      "mediaFrequency": 12100,
+      "bestMediaRank": 797
+    },
+    {
+      "index": 384,
+      "character": "主",
+      "mediaFrequency": 12082,
+      "bestMediaRank": 548
+    },
+    {
+      "index": 385,
+      "character": "睡",
+      "mediaFrequency": 12030,
+      "bestMediaRank": 425
+    },
+    {
+      "index": 386,
+      "character": "怪",
+      "mediaFrequency": 11984,
+      "bestMediaRank": 571
+    },
+    {
+      "index": 387,
+      "character": "跳",
+      "mediaFrequency": 11955,
+      "bestMediaRank": 404
+    },
+    {
+      "index": 388,
+      "character": "贝",
+      "mediaFrequency": 11950,
+      "bestMediaRank": 296
+    },
+    {
+      "index": 389,
+      "character": "愿",
+      "mediaFrequency": 11930,
+      "bestMediaRank": 376
+    },
+    {
+      "index": 390,
+      "character": "狗",
+      "mediaFrequency": 11808,
+      "bestMediaRank": 299
+    },
+    {
+      "index": 391,
+      "character": "运",
+      "mediaFrequency": 11762,
+      "bestMediaRank": 888
+    },
+    {
+      "index": 392,
+      "character": "门",
+      "mediaFrequency": 11729,
+      "bestMediaRank": 389
+    },
+    {
+      "index": 393,
+      "character": "界",
+      "mediaFrequency": 11721,
+      "bestMediaRank": 301
+    },
+    {
+      "index": 394,
+      "character": "司",
+      "mediaFrequency": 11596,
+      "bestMediaRank": 355
+    },
+    {
+      "index": 395,
+      "character": "岁",
+      "mediaFrequency": 11556,
+      "bestMediaRank": 309
+    },
+    {
+      "index": 396,
+      "character": "入",
+      "mediaFrequency": 11478,
+      "bestMediaRank": 600
+    },
+    {
+      "index": 397,
+      "character": "单",
+      "mediaFrequency": 11394,
+      "bestMediaRank": 637
+    },
+    {
+      "index": 398,
+      "character": "久",
+      "mediaFrequency": 11358,
+      "bestMediaRank": 482
+    },
+    {
+      "index": 399,
+      "character": "节",
+      "mediaFrequency": 11334,
+      "bestMediaRank": 540
+    },
+    {
+      "index": 400,
+      "character": "喂",
+      "mediaFrequency": 11286,
+      "bestMediaRank": 315
+    },
+    {
+      "index": 401,
+      "character": "母",
+      "mediaFrequency": 11276,
+      "bestMediaRank": 546
+    },
+    {
+      "index": 402,
+      "character": "待",
+      "mediaFrequency": 11261,
+      "bestMediaRank": 551
+    },
+    {
+      "index": 403,
+      "character": "教",
+      "mediaFrequency": 11244,
+      "bestMediaRank": 631
+    },
+    {
+      "index": 404,
+      "character": "二",
+      "mediaFrequency": 11228,
+      "bestMediaRank": 527
+    },
+    {
+      "index": 405,
+      "character": "夫",
+      "mediaFrequency": 11197,
+      "bestMediaRank": 550
+    },
+    {
+      "index": 406,
+      "character": "体",
+      "mediaFrequency": 11115,
+      "bestMediaRank": 651
+    },
+    {
+      "index": 407,
+      "character": "混",
+      "mediaFrequency": 11054,
+      "bestMediaRank": 444
+    },
+    {
+      "index": 408,
+      "character": "脑",
+      "mediaFrequency": 11049,
+      "bestMediaRank": 957
+    },
+    {
+      "index": 409,
+      "character": "亮",
+      "mediaFrequency": 11032,
+      "bestMediaRank": 323
+    },
+    {
+      "index": 410,
+      "character": "漂",
+      "mediaFrequency": 11032,
+      "bestMediaRank": 323
+    },
+    {
+      "index": 411,
+      "character": "鬼",
+      "mediaFrequency": 11024,
+      "bestMediaRank": 745
+    },
+    {
+      "index": 412,
+      "character": "象",
+      "mediaFrequency": 10946,
+      "bestMediaRank": 647
+    },
+    {
+      "index": 413,
+      "character": "赢",
+      "mediaFrequency": 10918,
+      "bestMediaRank": 410
+    },
+    {
+      "index": 414,
+      "character": "球",
+      "mediaFrequency": 10868,
+      "bestMediaRank": 467
+    },
+    {
+      "index": 415,
+      "character": "统",
+      "mediaFrequency": 10817,
+      "bestMediaRank": 589
+    },
+    {
+      "index": 416,
+      "character": "忘",
+      "mediaFrequency": 10752,
+      "bestMediaRank": 469
+    },
+    {
+      "index": 417,
+      "character": "曾",
+      "mediaFrequency": 10740,
+      "bestMediaRank": 583
+    },
+    {
+      "index": 418,
+      "character": "糟",
+      "mediaFrequency": 10726,
+      "bestMediaRank": 595
+    },
+    {
+      "index": 419,
+      "character": "歌",
+      "mediaFrequency": 10706,
+      "bestMediaRank": 534
+    },
+    {
+      "index": 420,
+      "character": "呀",
+      "mediaFrequency": 10700,
+      "bestMediaRank": 332
+    },
+    {
+      "index": 421,
+      "character": "尽",
+      "mediaFrequency": 10665,
+      "bestMediaRank": 1005
+    },
+    {
+      "index": 422,
+      "character": "指",
+      "mediaFrequency": 10634,
+      "bestMediaRank": 580
+    },
+    {
+      "index": 423,
+      "character": "紧",
+      "mediaFrequency": 10630,
+      "bestMediaRank": 663
+    },
+    {
+      "index": 424,
+      "character": "整",
+      "mediaFrequency": 10404,
+      "bestMediaRank": 498
+    },
+    {
+      "index": 425,
+      "character": "影",
+      "mediaFrequency": 10334,
+      "bestMediaRank": 458
+    },
+    {
+      "index": 426,
+      "character": "音",
+      "mediaFrequency": 10299,
+      "bestMediaRank": 594
+    },
+    {
+      "index": 427,
+      "character": "坏",
+      "mediaFrequency": 10265,
+      "bestMediaRank": 433
+    },
+    {
+      "index": 428,
+      "character": "室",
+      "mediaFrequency": 10261,
+      "bestMediaRank": 568
+    },
+    {
+      "index": 429,
+      "character": "乎",
+      "mediaFrequency": 10241,
+      "bestMediaRank": 962
+    },
+    {
+      "index": 430,
+      "character": "派",
+      "mediaFrequency": 10232,
+      "bestMediaRank": 559
+    },
+    {
+      "index": 431,
+      "character": "否",
+      "mediaFrequency": 10230,
+      "bestMediaRank": 521
+    },
+    {
+      "index": 432,
+      "character": "答",
+      "mediaFrequency": 10112,
+      "bestMediaRank": 769
+    },
+    {
+      "index": 433,
+      "character": "敢",
+      "mediaFrequency": 10094,
+      "bestMediaRank": 399
+    },
+    {
+      "index": 434,
+      "character": "站",
+      "mediaFrequency": 10081,
+      "bestMediaRank": 353
+    },
+    {
+      "index": 435,
+      "character": "束",
+      "mediaFrequency": 10050,
+      "bestMediaRank": 354
+    },
+    {
+      "index": 436,
+      "character": "永",
+      "mediaFrequency": 10036,
+      "bestMediaRank": 357
+    },
+    {
+      "index": 437,
+      "character": "助",
+      "mediaFrequency": 10033,
+      "bestMediaRank": 358
+    },
+    {
+      "index": 438,
+      "character": "参",
+      "mediaFrequency": 10006,
+      "bestMediaRank": 423
+    },
+    {
+      "index": 439,
+      "character": "星",
+      "mediaFrequency": 9975,
+      "bestMediaRank": 812
+    },
+    {
+      "index": 440,
+      "character": "哇",
+      "mediaFrequency": 9951,
+      "bestMediaRank": 361
+    },
+    {
+      "index": 441,
+      "character": "奇",
+      "mediaFrequency": 9943,
+      "bestMediaRank": 571
+    },
+    {
+      "index": 442,
+      "character": "简",
+      "mediaFrequency": 9932,
+      "bestMediaRank": 637
+    },
+    {
+      "index": 443,
+      "character": "昨",
+      "mediaFrequency": 9917,
+      "bestMediaRank": 608
+    },
+    {
+      "index": 444,
+      "character": "合",
+      "mediaFrequency": 9891,
+      "bestMediaRank": 925
+    },
+    {
+      "index": 445,
+      "character": "声",
+      "mediaFrequency": 9838,
+      "bestMediaRank": 594
+    },
+    {
+      "index": 446,
+      "character": "楚",
+      "mediaFrequency": 9836,
+      "bestMediaRank": 367
+    },
+    {
+      "index": 447,
+      "character": "律",
+      "mediaFrequency": 9791,
+      "bestMediaRank": 496
+    },
+    {
+      "index": 448,
+      "character": "故",
+      "mediaFrequency": 9791,
+      "bestMediaRank": 510
+    },
+    {
+      "index": 449,
+      "character": "收",
+      "mediaFrequency": 9783,
+      "bestMediaRank": 691
+    },
+    {
+      "index": 450,
+      "character": "幸",
+      "mediaFrequency": 9778,
+      "bestMediaRank": 888
+    },
+    {
+      "index": 451,
+      "character": "色",
+      "mediaFrequency": 9719,
+      "bestMediaRank": 1069
+    },
+    {
+      "index": 452,
+      "character": "代",
+      "mediaFrequency": 9577,
+      "bestMediaRank": 869
+    },
+    {
+      "index": 453,
+      "character": "令",
+      "mediaFrequency": 9572,
+      "bestMediaRank": 523
+    },
+    {
+      "index": 454,
+      "character": "除",
+      "mediaFrequency": 9446,
+      "bestMediaRank": 626
+    },
+    {
+      "index": 455,
+      "character": "改",
+      "mediaFrequency": 9396,
+      "bestMediaRank": 451
+    },
+    {
+      "index": 456,
+      "character": "路",
+      "mediaFrequency": 9392,
+      "bestMediaRank": 479
+    },
+    {
+      "index": 457,
+      "character": "反",
+      "mediaFrequency": 9370,
+      "bestMediaRank": 1126
+    },
+    {
+      "index": 458,
+      "character": "块",
+      "mediaFrequency": 9365,
+      "bestMediaRank": 372
+    },
+    {
+      "index": 459,
+      "character": "据",
+      "mediaFrequency": 9349,
+      "bestMediaRank": 634
+    },
+    {
+      "index": 460,
+      "character": "险",
+      "mediaFrequency": 9221,
+      "bestMediaRank": 581
+    },
+    {
+      "index": 461,
+      "character": "趣",
+      "mediaFrequency": 9218,
+      "bestMediaRank": 617
+    },
+    {
+      "index": 462,
+      "character": "内",
+      "mediaFrequency": 9212,
+      "bestMediaRank": 520
+    },
+    {
+      "index": 463,
+      "character": "眼",
+      "mediaFrequency": 9212,
+      "bestMediaRank": 584
+    },
+    {
+      "index": 464,
+      "character": "烦",
+      "mediaFrequency": 9180,
+      "bestMediaRank": 455
+    },
+    {
+      "index": 465,
+      "character": "划",
+      "mediaFrequency": 9169,
+      "bestMediaRank": 377
+    },
+    {
+      "index": 466,
+      "character": "首",
+      "mediaFrequency": 9125,
+      "bestMediaRank": 598
+    },
+    {
+      "index": 467,
+      "character": "犯",
+      "mediaFrequency": 9073,
+      "bestMediaRank": 752
+    },
+    {
+      "index": 468,
+      "character": "俩",
+      "mediaFrequency": 9037,
+      "bestMediaRank": 379
+    },
+    {
+      "index": 469,
+      "character": "杯",
+      "mediaFrequency": 9003,
+      "bestMediaRank": 445
+    },
+    {
+      "index": 470,
+      "character": "花",
+      "mediaFrequency": 8947,
+      "bestMediaRank": 386
+    },
+    {
+      "index": 471,
+      "character": "议",
+      "mediaFrequency": 8917,
+      "bestMediaRank": 817
+    },
+    {
+      "index": 472,
+      "character": "飞",
+      "mediaFrequency": 8914,
+      "bestMediaRank": 645
+    },
+    {
+      "index": 473,
+      "character": "校",
+      "mediaFrequency": 8897,
+      "bestMediaRank": 447
+    },
+    {
+      "index": 474,
+      "character": "越",
+      "mediaFrequency": 8889,
+      "bestMediaRank": 711
+    },
+    {
+      "index": 475,
+      "character": "战",
+      "mediaFrequency": 8825,
+      "bestMediaRank": 979
+    },
+    {
+      "index": 476,
+      "character": "显",
+      "mediaFrequency": 8787,
+      "bestMediaRank": 876
+    },
+    {
+      "index": 477,
+      "character": "止",
+      "mediaFrequency": 8761,
+      "bestMediaRank": 748
+    },
+    {
+      "index": 478,
+      "character": "迎",
+      "mediaFrequency": 8674,
+      "bestMediaRank": 398
+    },
+    {
+      "index": 479,
+      "character": "讨",
+      "mediaFrequency": 8657,
+      "bestMediaRank": 582
+    },
+    {
+      "index": 480,
+      "character": "差",
+      "mediaFrequency": 8652,
+      "bestMediaRank": 932
+    },
+    {
+      "index": 481,
+      "character": "组",
+      "mediaFrequency": 8651,
+      "bestMediaRank": 861
+    },
+    {
+      "index": 482,
+      "character": "拍",
+      "mediaFrequency": 8594,
+      "bestMediaRank": 475
+    },
+    {
+      "index": 483,
+      "character": "器",
+      "mediaFrequency": 8521,
+      "bestMediaRank": 854
+    },
+    {
+      "index": 484,
+      "character": "制",
+      "mediaFrequency": 8520,
+      "bestMediaRank": 592
+    },
+    {
+      "index": 485,
+      "character": "英",
+      "mediaFrequency": 8516,
+      "bestMediaRank": 1079
+    },
+    {
+      "index": 486,
+      "character": "嘴",
+      "mediaFrequency": 8513,
+      "bestMediaRank": 403
+    },
+    {
+      "index": 487,
+      "character": "控",
+      "mediaFrequency": 8511,
+      "bestMediaRank": 592
+    },
+    {
+      "index": 488,
+      "character": "注",
+      "mediaFrequency": 8498,
+      "bestMediaRank": 466
+    },
+    {
+      "index": 489,
+      "character": "护",
+      "mediaFrequency": 8459,
+      "bestMediaRank": 471
+    },
+    {
+      "index": 490,
+      "character": "拜",
+      "mediaFrequency": 8456,
+      "bestMediaRank": 405
+    },
+    {
+      "index": 491,
+      "character": "托",
+      "mediaFrequency": 8456,
+      "bestMediaRank": 405
+    },
+    {
+      "index": 492,
+      "character": "联",
+      "mediaFrequency": 8282,
+      "bestMediaRank": 558
+    },
+    {
+      "index": 493,
+      "character": "黑",
+      "mediaFrequency": 8271,
+      "bestMediaRank": 697
+    },
+    {
+      "index": 494,
+      "character": "交",
+      "mediaFrequency": 8266,
+      "bestMediaRank": 863
+    },
+    {
+      "index": 495,
+      "character": "满",
+      "mediaFrequency": 8266,
+      "bestMediaRank": 938
+    },
+    {
+      "index": 496,
+      "character": "拉",
+      "mediaFrequency": 8219,
+      "bestMediaRank": 419
+    },
+    {
+      "index": 497,
+      "character": "便",
+      "mediaFrequency": 8204,
+      "bestMediaRank": 789
+    },
+    {
+      "index": 498,
+      "character": "讲",
+      "mediaFrequency": 8168,
+      "bestMediaRank": 490
+    },
+    {
+      "index": 499,
+      "character": "衣",
+      "mediaFrequency": 8130,
+      "bestMediaRank": 420
+    },
+    {
+      "index": 500,
+      "character": "调",
+      "mediaFrequency": 8120,
+      "bestMediaRank": 532
+    },
+    {
+      "index": 501,
+      "character": "式",
+      "mediaFrequency": 8043,
+      "bestMediaRank": 681
+    },
+    {
+      "index": 502,
+      "character": "唯",
+      "mediaFrequency": 8023,
+      "bestMediaRank": 426
+    },
+    {
+      "index": 503,
+      "character": "半",
+      "mediaFrequency": 8022,
+      "bestMediaRank": 612
+    },
+    {
+      "index": 504,
+      "character": "探",
+      "mediaFrequency": 8009,
+      "bestMediaRank": 549
+    },
+    {
+      "index": 505,
+      "character": "易",
+      "mediaFrequency": 8008,
+      "bestMediaRank": 627
+    },
+    {
+      "index": 506,
+      "character": "随",
+      "mediaFrequency": 8007,
+      "bestMediaRank": 789
+    },
+    {
+      "index": 507,
+      "character": "未",
+      "mediaFrequency": 7988,
+      "bestMediaRank": 901
+    },
+    {
+      "index": 508,
+      "character": "闭",
+      "mediaFrequency": 7894,
+      "bestMediaRank": 431
+    },
+    {
+      "index": 509,
+      "character": "唱",
+      "mediaFrequency": 7891,
+      "bestMediaRank": 536
+    },
+    {
+      "index": 510,
+      "character": "择",
+      "mediaFrequency": 7885,
+      "bestMediaRank": 432
+    },
+    {
+      "index": 511,
+      "character": "妹",
+      "mediaFrequency": 7864,
+      "bestMediaRank": 950
+    },
+    {
+      "index": 512,
+      "character": "吸",
+      "mediaFrequency": 7802,
+      "bestMediaRank": 1195
+    },
+    {
+      "index": 513,
+      "character": "付",
+      "mediaFrequency": 7740,
+      "bestMediaRank": 740
+    },
+    {
+      "index": 514,
+      "character": "连",
+      "mediaFrequency": 7706,
+      "bestMediaRank": 437
+    },
+    {
+      "index": 515,
+      "character": "类",
+      "mediaFrequency": 7703,
+      "bestMediaRank": 808
+    },
+    {
+      "index": 516,
+      "character": "罪",
+      "mediaFrequency": 7688,
+      "bestMediaRank": 895
+    },
+    {
+      "index": 517,
+      "character": "录",
+      "mediaFrequency": 7662,
+      "bestMediaRank": 707
+    },
+    {
+      "index": 518,
+      "character": "戏",
+      "mediaFrequency": 7661,
+      "bestMediaRank": 578
+    },
+    {
+      "index": 519,
+      "character": "超",
+      "mediaFrequency": 7645,
+      "bestMediaRank": 931
+    },
+    {
+      "index": 520,
+      "character": "挺",
+      "mediaFrequency": 7603,
+      "bestMediaRank": 441
+    },
+    {
+      "index": 521,
+      "character": "释",
+      "mediaFrequency": 7599,
+      "bestMediaRank": 555
+    },
+    {
+      "index": 522,
+      "character": "万",
+      "mediaFrequency": 7599,
+      "bestMediaRank": 557
+    },
+    {
+      "index": 523,
+      "character": "祝",
+      "mediaFrequency": 7595,
+      "bestMediaRank": 754
+    },
+    {
+      "index": 524,
+      "character": "水",
+      "mediaFrequency": 7581,
+      "bestMediaRank": 443
+    },
+    {
+      "index": 525,
+      "character": "醒",
+      "mediaFrequency": 7570,
+      "bestMediaRank": 604
+    },
+    {
+      "index": 526,
+      "character": "卖",
+      "mediaFrequency": 7475,
+      "bestMediaRank": 448
+    },
+    {
+      "index": 527,
+      "character": "靠",
+      "mediaFrequency": 7457,
+      "bestMediaRank": 566
+    },
+    {
+      "index": 528,
+      "character": "麻",
+      "mediaFrequency": 7376,
+      "bestMediaRank": 455
+    },
+    {
+      "index": 529,
+      "character": "论",
+      "mediaFrequency": 7376,
+      "bestMediaRank": 1011
+    },
+    {
+      "index": 530,
+      "character": "礼",
+      "mediaFrequency": 7369,
+      "bestMediaRank": 783
+    },
+    {
+      "index": 531,
+      "character": "票",
+      "mediaFrequency": 7365,
+      "bestMediaRank": 845
+    },
+    {
+      "index": 532,
+      "character": "庭",
+      "mediaFrequency": 7339,
+      "bestMediaRank": 646
+    },
+    {
+      "index": 533,
+      "character": "务",
+      "mediaFrequency": 7316,
+      "bestMediaRank": 657
+    },
+    {
+      "index": 534,
+      "character": "术",
+      "mediaFrequency": 7267,
+      "bestMediaRank": 847
+    },
+    {
+      "index": 535,
+      "character": "病",
+      "mediaFrequency": 7207,
+      "bestMediaRank": 826
+    },
+    {
+      "index": 536,
+      "character": "糕",
+      "mediaFrequency": 7200,
+      "bestMediaRank": 625
+    },
+    {
+      "index": 537,
+      "character": "极",
+      "mediaFrequency": 7179,
+      "bestMediaRank": 575
+    },
+    {
+      "index": 538,
+      "character": "支",
+      "mediaFrequency": 7162,
+      "bestMediaRank": 811
+    },
+    {
+      "index": 539,
+      "character": "书",
+      "mediaFrequency": 7152,
+      "bestMediaRank": 464
+    },
+    {
+      "index": 540,
+      "character": "静",
+      "mediaFrequency": 7127,
+      "bestMediaRank": 750
+    },
+    {
+      "index": 541,
+      "character": "甚",
+      "mediaFrequency": 7100,
+      "bestMediaRank": 470
+    },
+    {
+      "index": 542,
+      "character": "终",
+      "mediaFrequency": 7060,
+      "bestMediaRank": 736
+    },
+    {
+      "index": 543,
+      "character": "线",
+      "mediaFrequency": 7058,
+      "bestMediaRank": 827
+    },
+    {
+      "index": 544,
+      "character": "轻",
+      "mediaFrequency": 7036,
+      "bestMediaRank": 831
+    },
+    {
+      "index": 545,
+      "character": "踪",
+      "mediaFrequency": 7011,
+      "bestMediaRank": 989
+    },
+    {
+      "index": 546,
+      "character": "呆",
+      "mediaFrequency": 6983,
+      "bestMediaRank": 480
+    },
+    {
+      "index": 547,
+      "character": "四",
+      "mediaFrequency": 6979,
+      "bestMediaRank": 481
+    },
+    {
+      "index": 548,
+      "character": "饭",
+      "mediaFrequency": 6979,
+      "bestMediaRank": 1336
+    },
+    {
+      "index": 549,
+      "character": "则",
+      "mediaFrequency": 6925,
+      "bestMediaRank": 824
+    },
+    {
+      "index": 550,
+      "character": "懂",
+      "mediaFrequency": 6923,
+      "bestMediaRank": 485
+    },
+    {
+      "index": 551,
+      "character": "视",
+      "mediaFrequency": 6900,
+      "bestMediaRank": 668
+    },
+    {
+      "index": 552,
+      "character": "恐",
+      "mediaFrequency": 6886,
+      "bestMediaRank": 1004
+    },
+    {
+      "index": 553,
+      "character": "装",
+      "mediaFrequency": 6876,
+      "bestMediaRank": 648
+    },
+    {
+      "index": 554,
+      "character": "业",
+      "mediaFrequency": 6852,
+      "bestMediaRank": 1420
+    },
+    {
+      "index": 555,
+      "character": "梦",
+      "mediaFrequency": 6843,
+      "bestMediaRank": 776
+    },
+    {
+      "index": 556,
+      "character": "弹",
+      "mediaFrequency": 6789,
+      "bestMediaRank": 1173
+    },
+    {
+      "index": 557,
+      "character": "监",
+      "mediaFrequency": 6755,
+      "bestMediaRank": 685
+    },
+    {
+      "index": 558,
+      "character": "练",
+      "mediaFrequency": 6719,
+      "bestMediaRank": 993
+    },
+    {
+      "index": 559,
+      "character": "喔",
+      "mediaFrequency": 6700,
+      "bestMediaRank": 497
+    },
+    {
+      "index": 560,
+      "character": "元",
+      "mediaFrequency": 6646,
+      "bestMediaRank": 684
+    },
+    {
+      "index": 561,
+      "character": "造",
+      "mediaFrequency": 6640,
+      "bestMediaRank": 1266
+    },
+    {
+      "index": 562,
+      "character": "介",
+      "mediaFrequency": 6636,
+      "bestMediaRank": 775
+    },
+    {
+      "index": 563,
+      "character": "责",
+      "mediaFrequency": 6629,
+      "bestMediaRank": 771
+    },
+    {
+      "index": 564,
+      "character": "狱",
+      "mediaFrequency": 6622,
+      "bestMediaRank": 685
+    },
+    {
+      "index": 565,
+      "character": "精",
+      "mediaFrequency": 6552,
+      "bestMediaRank": 763
+    },
+    {
+      "index": 566,
+      "character": "换",
+      "mediaFrequency": 6541,
+      "bestMediaRank": 512
+    },
+    {
+      "index": 567,
+      "character": "慢",
+      "mediaFrequency": 6527,
+      "bestMediaRank": 1042
+    },
+    {
+      "index": 568,
+      "character": "猜",
+      "mediaFrequency": 6521,
+      "bestMediaRank": 514
+    },
+    {
+      "index": 569,
+      "character": "杰",
+      "mediaFrequency": 6520,
+      "bestMediaRank": 621
+    },
+    {
+      "index": 570,
+      "character": "咱",
+      "mediaFrequency": 6519,
+      "bestMediaRank": 515
+    },
+    {
+      "index": 571,
+      "character": "血",
+      "mediaFrequency": 6519,
+      "bestMediaRank": 679
+    },
+    {
+      "index": 572,
+      "character": "冷",
+      "mediaFrequency": 6519,
+      "bestMediaRank": 750
+    },
+    {
+      "index": 573,
+      "character": "床",
+      "mediaFrequency": 6505,
+      "bestMediaRank": 516
+    },
+    {
+      "index": 574,
+      "character": "狂",
+      "mediaFrequency": 6501,
+      "bestMediaRank": 690
+    },
+    {
+      "index": 575,
+      "character": "妻",
+      "mediaFrequency": 6494,
+      "bestMediaRank": 518
+    },
+    {
+      "index": 576,
+      "character": "密",
+      "mediaFrequency": 6492,
+      "bestMediaRank": 649
+    },
+    {
+      "index": 577,
+      "character": "容",
+      "mediaFrequency": 6478,
+      "bestMediaRank": 627
+    },
+    {
+      "index": 578,
+      "character": "尸",
+      "mediaFrequency": 6468,
+      "bestMediaRank": 651
+    },
+    {
+      "index": 579,
+      "character": "段",
+      "mediaFrequency": 6430,
+      "bestMediaRank": 522
+    },
+    {
+      "index": 580,
+      "character": "恶",
+      "mediaFrequency": 6400,
+      "bestMediaRank": 1057
+    },
+    {
+      "index": 581,
+      "character": "炸",
+      "mediaFrequency": 6368,
+      "bestMediaRank": 1205
+    },
+    {
+      "index": 582,
+      "character": "努",
+      "mediaFrequency": 6360,
+      "bestMediaRank": 528
+    },
+    {
+      "index": 583,
+      "character": "客",
+      "mediaFrequency": 6358,
+      "bestMediaRank": 1265
+    },
+    {
+      "index": 584,
+      "character": "店",
+      "mediaFrequency": 6354,
+      "bestMediaRank": 732
+    },
+    {
+      "index": 585,
+      "character": "秘",
+      "mediaFrequency": 6340,
+      "bestMediaRank": 649
+    },
+    {
+      "index": 586,
+      "character": "功",
+      "mediaFrequency": 6305,
+      "bestMediaRank": 535
+    },
+    {
+      "index": 587,
+      "character": "某",
+      "mediaFrequency": 6303,
+      "bestMediaRank": 1164
+    },
+    {
+      "index": 588,
+      "character": "考",
+      "mediaFrequency": 6295,
+      "bestMediaRank": 537
+    },
+    {
+      "index": 589,
+      "character": "虑",
+      "mediaFrequency": 6295,
+      "bestMediaRank": 537
+    },
+    {
+      "index": 590,
+      "character": "检",
+      "mediaFrequency": 6246,
+      "bestMediaRank": 654
+    },
+    {
+      "index": 591,
+      "character": "习",
+      "mediaFrequency": 6245,
+      "bestMediaRank": 1218
+    },
+    {
+      "index": 592,
+      "character": "历",
+      "mediaFrequency": 6226,
+      "bestMediaRank": 801
+    },
+    {
+      "index": 593,
+      "character": "值",
+      "mediaFrequency": 6199,
+      "bestMediaRank": 995
+    },
+    {
+      "index": 594,
+      "character": "辆",
+      "mediaFrequency": 6190,
+      "bestMediaRank": 547
+    },
+    {
+      "index": 595,
+      "character": "傻",
+      "mediaFrequency": 6173,
+      "bestMediaRank": 747
+    },
+    {
+      "index": 596,
+      "character": "屁",
+      "mediaFrequency": 6136,
+      "bestMediaRank": 821
+    },
+    {
+      "index": 597,
+      "character": "包",
+      "mediaFrequency": 6124,
+      "bestMediaRank": 839
+    },
+    {
+      "index": 598,
+      "character": "丈",
+      "mediaFrequency": 6115,
+      "bestMediaRank": 550
+    },
+    {
+      "index": 599,
+      "character": "街",
+      "mediaFrequency": 6107,
+      "bestMediaRank": 956
+    },
+    {
+      "index": 600,
+      "character": "强",
+      "mediaFrequency": 6099,
+      "bestMediaRank": 669
+    },
+    {
+      "index": 601,
+      "character": "倒",
+      "mediaFrequency": 6092,
+      "bestMediaRank": 553
+    },
+    {
+      "index": 602,
+      "character": "度",
+      "mediaFrequency": 6084,
+      "bestMediaRank": 1394
+    },
+    {
+      "index": 603,
+      "character": "往",
+      "mediaFrequency": 6083,
+      "bestMediaRank": 556
+    },
+    {
+      "index": 604,
+      "character": "集",
+      "mediaFrequency": 6074,
+      "bestMediaRank": 731
+    },
+    {
+      "index": 605,
+      "character": "治",
+      "mediaFrequency": 6056,
+      "bestMediaRank": 911
+    },
+    {
+      "index": 606,
+      "character": "军",
+      "mediaFrequency": 6055,
+      "bestMediaRank": 1334
+    },
+    {
+      "index": 607,
+      "character": "投",
+      "mediaFrequency": 6039,
+      "bestMediaRank": 845
+    },
+    {
+      "index": 608,
+      "character": "句",
+      "mediaFrequency": 5984,
+      "bestMediaRank": 562
+    },
+    {
+      "index": 609,
+      "character": "圣",
+      "mediaFrequency": 5969,
+      "bestMediaRank": 1286
+    },
+    {
+      "index": 610,
+      "character": "赶",
+      "mediaFrequency": 5966,
+      "bestMediaRank": 1039
+    },
+    {
+      "index": 611,
+      "character": "及",
+      "mediaFrequency": 5943,
+      "bestMediaRank": 864
+    },
+    {
+      "index": 612,
+      "character": "五",
+      "mediaFrequency": 5903,
+      "bestMediaRank": 563
+    },
+    {
+      "index": 613,
+      "character": "油",
+      "mediaFrequency": 5889,
+      "bestMediaRank": 717
+    },
+    {
+      "index": 614,
+      "character": "魔",
+      "mediaFrequency": 5851,
+      "bestMediaRank": 1501
+    },
+    {
+      "index": 615,
+      "character": "松",
+      "mediaFrequency": 5836,
+      "bestMediaRank": 765
+    },
+    {
+      "index": 616,
+      "character": "痛",
+      "mediaFrequency": 5834,
+      "bestMediaRank": 855
+    },
+    {
+      "index": 617,
+      "character": "排",
+      "mediaFrequency": 5791,
+      "bestMediaRank": 829
+    },
+    {
+      "index": 618,
+      "character": "闻",
+      "mediaFrequency": 5778,
+      "bestMediaRank": 900
+    },
+    {
+      "index": 619,
+      "character": "城",
+      "mediaFrequency": 5777,
+      "bestMediaRank": 923
+    },
+    {
+      "index": 620,
+      "character": "午",
+      "mediaFrequency": 5765,
+      "bestMediaRank": 1026
+    },
+    {
+      "index": 621,
+      "character": "达",
+      "mediaFrequency": 5761,
+      "bestMediaRank": 1170
+    },
+    {
+      "index": 622,
+      "character": "谎",
+      "mediaFrequency": 5741,
+      "bestMediaRank": 853
+    },
+    {
+      "index": 623,
+      "character": "游",
+      "mediaFrequency": 5732,
+      "bestMediaRank": 578
+    },
+    {
+      "index": 624,
+      "character": "危",
+      "mediaFrequency": 5711,
+      "bestMediaRank": 581
+    },
+    {
+      "index": 625,
+      "character": "厌",
+      "mediaFrequency": 5691,
+      "bestMediaRank": 582
+    },
+    {
+      "index": 626,
+      "character": "睛",
+      "mediaFrequency": 5673,
+      "bestMediaRank": 584
+    },
+    {
+      "index": 627,
+      "character": "船",
+      "mediaFrequency": 5639,
+      "bestMediaRank": 739
+    },
+    {
+      "index": 628,
+      "character": "娘",
+      "mediaFrequency": 5639,
+      "bestMediaRank": 834
+    },
+    {
+      "index": 629,
+      "character": "耶",
+      "mediaFrequency": 5624,
+      "bestMediaRank": 760
+    },
+    {
+      "index": 630,
+      "character": "碰",
+      "mediaFrequency": 5596,
+      "bestMediaRank": 774
+    },
+    {
+      "index": 631,
+      "character": "期",
+      "mediaFrequency": 5573,
+      "bestMediaRank": 812
+    },
+    {
+      "index": 632,
+      "character": "数",
+      "mediaFrequency": 5567,
+      "bestMediaRank": 1101
+    },
+    {
+      "index": 633,
+      "character": "究",
+      "mediaFrequency": 5543,
+      "bestMediaRank": 941
+    },
+    {
+      "index": 634,
+      "character": "杂",
+      "mediaFrequency": 5523,
+      "bestMediaRank": 1214
+    },
+    {
+      "index": 635,
+      "character": "台",
+      "mediaFrequency": 5515,
+      "bestMediaRank": 866
+    },
+    {
+      "index": 636,
+      "character": "十",
+      "mediaFrequency": 5510,
+      "bestMediaRank": 865
+    },
+    {
+      "index": 637,
+      "character": "偷",
+      "mediaFrequency": 5501,
+      "bestMediaRank": 597
+    },
+    {
+      "index": 638,
+      "character": "光",
+      "mediaFrequency": 5479,
+      "bestMediaRank": 828
+    },
+    {
+      "index": 639,
+      "character": "示",
+      "mediaFrequency": 5477,
+      "bestMediaRank": 1453
+    },
+    {
+      "index": 640,
+      "character": "哈",
+      "mediaFrequency": 5460,
+      "bestMediaRank": 603
+    },
+    {
+      "index": 641,
+      "character": "味",
+      "mediaFrequency": 5447,
+      "bestMediaRank": 1032
+    },
+    {
+      "index": 642,
+      "character": "口",
+      "mediaFrequency": 5426,
+      "bestMediaRank": 758
+    },
+    {
+      "index": 643,
+      "character": "激",
+      "mediaFrequency": 5421,
+      "bestMediaRank": 1357
+    },
+    {
+      "index": 644,
+      "character": "院",
+      "mediaFrequency": 5391,
+      "bestMediaRank": 610
+    },
+    {
+      "index": 645,
+      "character": "各",
+      "mediaFrequency": 5373,
+      "bestMediaRank": 786
+    },
+    {
+      "index": 646,
+      "character": "破",
+      "mediaFrequency": 5282,
+      "bestMediaRank": 1052
+    },
+    {
+      "index": 647,
+      "character": "复",
+      "mediaFrequency": 5281,
+      "bestMediaRank": 1300
+    },
+    {
+      "index": 648,
+      "character": "斯",
+      "mediaFrequency": 5262,
+      "bestMediaRank": 620
+    },
+    {
+      "index": 649,
+      "character": "餐",
+      "mediaFrequency": 5219,
+      "bestMediaRank": 1208
+    },
+    {
+      "index": 650,
+      "character": "展",
+      "mediaFrequency": 5203,
+      "bestMediaRank": 1525
+    },
+    {
+      "index": 651,
+      "character": "假",
+      "mediaFrequency": 5180,
+      "bestMediaRank": 939
+    },
+    {
+      "index": 652,
+      "character": "建",
+      "mediaFrequency": 5173,
+      "bestMediaRank": 817
+    },
+    {
+      "index": 653,
+      "character": "虽",
+      "mediaFrequency": 5141,
+      "bestMediaRank": 629
+    },
+    {
+      "index": 654,
+      "character": "适",
+      "mediaFrequency": 5121,
+      "bestMediaRank": 1094
+    },
+    {
+      "index": 655,
+      "character": "击",
+      "mediaFrequency": 5119,
+      "bestMediaRank": 1107
+    },
+    {
+      "index": 656,
+      "character": "怀",
+      "mediaFrequency": 5094,
+      "bestMediaRank": 1041
+    },
+    {
+      "index": 657,
+      "character": "脸",
+      "mediaFrequency": 5093,
+      "bestMediaRank": 636
+    },
+    {
+      "index": 658,
+      "character": "空",
+      "mediaFrequency": 5092,
+      "bestMediaRank": 1280
+    },
+    {
+      "index": 659,
+      "character": "恩",
+      "mediaFrequency": 5073,
+      "bestMediaRank": 642
+    },
+    {
+      "index": 660,
+      "character": "火",
+      "mediaFrequency": 5069,
+      "bestMediaRank": 882
+    },
+    {
+      "index": 661,
+      "character": "撒",
+      "mediaFrequency": 5058,
+      "bestMediaRank": 853
+    },
+    {
+      "index": 662,
+      "character": "卡",
+      "mediaFrequency": 5039,
+      "bestMediaRank": 889
+    },
+    {
+      "index": 663,
+      "character": "置",
+      "mediaFrequency": 4985,
+      "bestMediaRank": 952
+    },
+    {
+      "index": 664,
+      "character": "似",
+      "mediaFrequency": 4984,
+      "bestMediaRank": 962
+    },
+    {
+      "index": 665,
+      "character": "叔",
+      "mediaFrequency": 4970,
+      "bestMediaRank": 1175
+    },
+    {
+      "index": 666,
+      "character": "季",
+      "mediaFrequency": 4967,
+      "bestMediaRank": 653
+    },
+    {
+      "index": 667,
+      "character": "剩",
+      "mediaFrequency": 4937,
+      "bestMediaRank": 975
+    },
+    {
+      "index": 668,
+      "character": "骗",
+      "mediaFrequency": 4908,
+      "bestMediaRank": 905
+    },
+    {
+      "index": 669,
+      "character": "政",
+      "mediaFrequency": 4886,
+      "bestMediaRank": 878
+    },
+    {
+      "index": 670,
+      "character": "转",
+      "mediaFrequency": 4884,
+      "bestMediaRank": 660
+    },
+    {
+      "index": 671,
+      "character": "博",
+      "mediaFrequency": 4881,
+      "bestMediaRank": 661
+    },
+    {
+      "index": 672,
+      "character": "承",
+      "mediaFrequency": 4855,
+      "bestMediaRank": 873
+    },
+    {
+      "index": 673,
+      "character": "陪",
+      "mediaFrequency": 4843,
+      "bestMediaRank": 988
+    },
+    {
+      "index": 674,
+      "character": "弃",
+      "mediaFrequency": 4823,
+      "bestMediaRank": 666
+    },
+    {
+      "index": 675,
+      "character": "仍",
+      "mediaFrequency": 4808,
+      "bestMediaRank": 1027
+    },
+    {
+      "index": 676,
+      "character": "概",
+      "mediaFrequency": 4804,
+      "bestMediaRank": 671
+    },
+    {
+      "index": 677,
+      "character": "蠢",
+      "mediaFrequency": 4800,
+      "bestMediaRank": 1160
+    },
+    {
+      "index": 678,
+      "character": "药",
+      "mediaFrequency": 4788,
+      "bestMediaRank": 674
+    },
+    {
+      "index": 679,
+      "character": "区",
+      "mediaFrequency": 4717,
+      "bestMediaRank": 958
+    },
+    {
+      "index": 680,
+      "character": "居",
+      "mediaFrequency": 4689,
+      "bestMediaRank": 1043
+    },
+    {
+      "index": 681,
+      "character": "市",
+      "mediaFrequency": 4687,
+      "bestMediaRank": 923
+    },
+    {
+      "index": 682,
+      "character": "读",
+      "mediaFrequency": 4661,
+      "bestMediaRank": 686
+    },
+    {
+      "index": 683,
+      "character": "瞧",
+      "mediaFrequency": 4634,
+      "bestMediaRank": 689
+    },
+    {
+      "index": 684,
+      "character": "码",
+      "mediaFrequency": 4627,
+      "bestMediaRank": 970
+    },
+    {
+      "index": 685,
+      "character": "追",
+      "mediaFrequency": 4627,
+      "bestMediaRank": 1029
+    },
+    {
+      "index": 686,
+      "character": "量",
+      "mediaFrequency": 4573,
+      "bestMediaRank": 964
+    },
+    {
+      "index": 687,
+      "character": "纽",
+      "mediaFrequency": 4566,
+      "bestMediaRank": 695
+    },
+    {
+      "index": 688,
+      "character": "态",
+      "mediaFrequency": 4551,
+      "bestMediaRank": 1439
+    },
+    {
+      "index": 689,
+      "character": "响",
+      "mediaFrequency": 4490,
+      "bestMediaRank": 983
+    },
+    {
+      "index": 690,
+      "character": "享",
+      "mediaFrequency": 4458,
+      "bestMediaRank": 978
+    },
+    {
+      "index": 691,
+      "character": "班",
+      "mediaFrequency": 4456,
+      "bestMediaRank": 1284
+    },
+    {
+      "index": 692,
+      "character": "顾",
+      "mediaFrequency": 4451,
+      "bestMediaRank": 713
+    },
+    {
+      "index": 693,
+      "character": "架",
+      "mediaFrequency": 4433,
+      "bestMediaRank": 1285
+    },
+    {
+      "index": 694,
+      "character": "红",
+      "mediaFrequency": 4423,
+      "bestMediaRank": 1023
+    },
+    {
+      "index": 695,
+      "character": "聪",
+      "mediaFrequency": 4415,
+      "bestMediaRank": 715
+    },
+    {
+      "index": 696,
+      "character": "际",
+      "mediaFrequency": 4410,
+      "bestMediaRank": 718
+    },
+    {
+      "index": 697,
+      "character": "规",
+      "mediaFrequency": 4410,
+      "bestMediaRank": 1715
+    },
+    {
+      "index": 698,
+      "character": "甜",
+      "mediaFrequency": 4400,
+      "bestMediaRank": 719
+    },
+    {
+      "index": 699,
+      "character": "突",
+      "mediaFrequency": 4366,
+      "bestMediaRank": 726
+    },
+    {
+      "index": 700,
+      "character": "啥",
+      "mediaFrequency": 4366,
+      "bestMediaRank": 727
+    },
+    {
+      "index": 701,
+      "character": "费",
+      "mediaFrequency": 4357,
+      "bestMediaRank": 1113
+    },
+    {
+      "index": 702,
+      "character": "独",
+      "mediaFrequency": 4354,
+      "bestMediaRank": 1575
+    },
+    {
+      "index": 703,
+      "character": "仅",
+      "mediaFrequency": 4313,
+      "bestMediaRank": 1659
+    },
+    {
+      "index": 704,
+      "character": "酷",
+      "mediaFrequency": 4289,
+      "bestMediaRank": 733
+    },
+    {
+      "index": 705,
+      "character": "逃",
+      "mediaFrequency": 4289,
+      "bestMediaRank": 1086
+    },
+    {
+      "index": 706,
+      "character": "刻",
+      "mediaFrequency": 4276,
+      "bestMediaRank": 1224
+    },
+    {
+      "index": 707,
+      "character": "亡",
+      "mediaFrequency": 4274,
+      "bestMediaRank": 735
+    },
+    {
+      "index": 708,
+      "character": "志",
+      "mediaFrequency": 4268,
+      "bestMediaRank": 1214
+    },
+    {
+      "index": 709,
+      "character": "拥",
+      "mediaFrequency": 4267,
+      "bestMediaRank": 737
+    },
+    {
+      "index": 710,
+      "character": "取",
+      "mediaFrequency": 4230,
+      "bestMediaRank": 1245
+    },
+    {
+      "index": 711,
+      "character": "遍",
+      "mediaFrequency": 4218,
+      "bestMediaRank": 742
+    },
+    {
+      "index": 712,
+      "character": "足",
+      "mediaFrequency": 4216,
+      "bestMediaRank": 1020
+    },
+    {
+      "index": 713,
+      "character": "步",
+      "mediaFrequency": 4208,
+      "bestMediaRank": 743
+    },
+    {
+      "index": 714,
+      "character": "压",
+      "mediaFrequency": 4208,
+      "bestMediaRank": 1152
+    },
+    {
+      "index": 715,
+      "character": "啡",
+      "mediaFrequency": 4195,
+      "bestMediaRank": 746
+    },
+    {
+      "index": 716,
+      "character": "咖",
+      "mediaFrequency": 4195,
+      "bestMediaRank": 746
+    },
+    {
+      "index": 717,
+      "character": "阻",
+      "mediaFrequency": 4179,
+      "bestMediaRank": 748
+    },
+    {
+      "index": 718,
+      "character": "扔",
+      "mediaFrequency": 4145,
+      "bestMediaRank": 753
+    },
+    {
+      "index": 719,
+      "character": "标",
+      "mediaFrequency": 4123,
+      "bestMediaRank": 759
+    },
+    {
+      "index": 720,
+      "character": "般",
+      "mediaFrequency": 4112,
+      "bestMediaRank": 1134
+    },
+    {
+      "index": 721,
+      "character": "洛",
+      "mediaFrequency": 4095,
+      "bestMediaRank": 1142
+    },
+    {
+      "index": 722,
+      "character": "丢",
+      "mediaFrequency": 4088,
+      "bestMediaRank": 766
+    },
+    {
+      "index": 723,
+      "character": "休",
+      "mediaFrequency": 4075,
+      "bestMediaRank": 767
+    },
+    {
+      "index": 724,
+      "character": "凶",
+      "mediaFrequency": 4064,
+      "bestMediaRank": 770
+    },
+    {
+      "index": 725,
+      "character": "负",
+      "mediaFrequency": 4060,
+      "bestMediaRank": 771
+    },
+    {
+      "index": 726,
+      "character": "品",
+      "mediaFrequency": 4048,
+      "bestMediaRank": 1178
+    },
+    {
+      "index": 727,
+      "character": "竟",
+      "mediaFrequency": 4005,
+      "bestMediaRank": 1282
+    },
+    {
+      "index": 728,
+      "character": "滚",
+      "mediaFrequency": 3992,
+      "bestMediaRank": 781
+    },
+    {
+      "index": 729,
+      "character": "谋",
+      "mediaFrequency": 3989,
+      "bestMediaRank": 782
+    },
+    {
+      "index": 730,
+      "character": "戴",
+      "mediaFrequency": 3987,
+      "bestMediaRank": 785
+    },
+    {
+      "index": 731,
+      "character": "误",
+      "mediaFrequency": 3979,
+      "bestMediaRank": 787
+    },
+    {
+      "index": 732,
+      "character": "急",
+      "mediaFrequency": 3952,
+      "bestMediaRank": 1343
+    },
+    {
+      "index": 733,
+      "character": "灵",
+      "mediaFrequency": 3951,
+      "bestMediaRank": 1200
+    },
+    {
+      "index": 734,
+      "character": "藏",
+      "mediaFrequency": 3933,
+      "bestMediaRank": 791
+    },
+    {
+      "index": 735,
+      "character": "落",
+      "mediaFrequency": 3930,
+      "bestMediaRank": 1306
+    },
+    {
+      "index": 736,
+      "character": "项",
+      "mediaFrequency": 3929,
+      "bestMediaRank": 1331
+    },
+    {
+      "index": 737,
+      "character": "浪",
+      "mediaFrequency": 3911,
+      "bestMediaRank": 1113
+    },
+    {
+      "index": 738,
+      "character": "替",
+      "mediaFrequency": 3906,
+      "bestMediaRank": 799
+    },
+    {
+      "index": 739,
+      "character": "六",
+      "mediaFrequency": 3898,
+      "bestMediaRank": 802
+    },
+    {
+      "index": 740,
+      "character": "德",
+      "mediaFrequency": 3884,
+      "bestMediaRank": 1162
+    },
+    {
+      "index": 741,
+      "character": "败",
+      "mediaFrequency": 3860,
+      "bestMediaRank": 1131
+    },
+    {
+      "index": 742,
+      "character": "毒",
+      "mediaFrequency": 3857,
+      "bestMediaRank": 1178
+    },
+    {
+      "index": 743,
+      "character": "冲",
+      "mediaFrequency": 3852,
+      "bestMediaRank": 809
+    },
+    {
+      "index": 744,
+      "character": "王",
+      "mediaFrequency": 3850,
+      "bestMediaRank": 1381
+    },
+    {
+      "index": 745,
+      "character": "顺",
+      "mediaFrequency": 3838,
+      "bestMediaRank": 1411
+    },
+    {
+      "index": 746,
+      "character": "脚",
+      "mediaFrequency": 3836,
+      "bestMediaRank": 813
+    },
+    {
+      "index": 747,
+      "character": "毁",
+      "mediaFrequency": 3836,
+      "bestMediaRank": 815
+    },
+    {
+      "index": 748,
+      "character": "旅",
+      "mediaFrequency": 3834,
+      "bestMediaRank": 1350
+    },
+    {
+      "index": 749,
+      "character": "迟",
+      "mediaFrequency": 3824,
+      "bestMediaRank": 1206
+    },
+    {
+      "index": 750,
+      "character": "奶",
+      "mediaFrequency": 3820,
+      "bestMediaRank": 1459
+    },
+    {
+      "index": 751,
+      "character": "套",
+      "mediaFrequency": 3816,
+      "bestMediaRank": 819
+    },
+    {
+      "index": 752,
+      "character": "哭",
+      "mediaFrequency": 3813,
+      "bestMediaRank": 820
+    },
+    {
+      "index": 753,
+      "character": "股",
+      "mediaFrequency": 3804,
+      "bestMediaRank": 821
+    },
+    {
+      "index": 754,
+      "character": "秀",
+      "mediaFrequency": 3803,
+      "bestMediaRank": 1215
+    },
+    {
+      "index": 755,
+      "character": "画",
+      "mediaFrequency": 3795,
+      "bestMediaRank": 825
+    },
+    {
+      "index": 756,
+      "character": "状",
+      "mediaFrequency": 3776,
+      "bestMediaRank": 1439
+    },
+    {
+      "index": 757,
+      "character": "操",
+      "mediaFrequency": 3775,
+      "bestMediaRank": 832
+    },
+    {
+      "index": 758,
+      "character": "抢",
+      "mediaFrequency": 3769,
+      "bestMediaRank": 1289
+    },
+    {
+      "index": 759,
+      "character": "姑",
+      "mediaFrequency": 3765,
+      "bestMediaRank": 834
+    },
+    {
+      "index": 760,
+      "character": "角",
+      "mediaFrequency": 3758,
+      "bestMediaRank": 1210
+    },
+    {
+      "index": 761,
+      "character": "权",
+      "mediaFrequency": 3755,
+      "bestMediaRank": 1366
+    },
+    {
+      "index": 762,
+      "character": "按",
+      "mediaFrequency": 3752,
+      "bestMediaRank": 836
+    },
+    {
+      "index": 763,
+      "character": "惊",
+      "mediaFrequency": 3752,
+      "bestMediaRank": 1351
+    },
+    {
+      "index": 764,
+      "character": "匙",
+      "mediaFrequency": 3751,
+      "bestMediaRank": 837
+    },
+    {
+      "index": 765,
+      "character": "钥",
+      "mediaFrequency": 3751,
+      "bestMediaRank": 837
+    },
+    {
+      "index": 766,
+      "character": "腿",
+      "mediaFrequency": 3747,
+      "bestMediaRank": 840
+    },
+    {
+      "index": 767,
+      "character": "魂",
+      "mediaFrequency": 3746,
+      "bestMediaRank": 1200
+    },
+    {
+      "index": 768,
+      "character": "级",
+      "mediaFrequency": 3744,
+      "bestMediaRank": 1199
+    },
+    {
+      "index": 769,
+      "character": "笨",
+      "mediaFrequency": 3744,
+      "bestMediaRank": 1230
+    },
+    {
+      "index": 770,
+      "character": "金",
+      "mediaFrequency": 3737,
+      "bestMediaRank": 1187
+    },
+    {
+      "index": 771,
+      "character": "诞",
+      "mediaFrequency": 3735,
+      "bestMediaRank": 1368
+    },
+    {
+      "index": 772,
+      "character": "顿",
+      "mediaFrequency": 3723,
+      "bestMediaRank": 1219
+    },
+    {
+      "index": 773,
+      "character": "聊",
+      "mediaFrequency": 3723,
+      "bestMediaRank": 1477
+    },
+    {
+      "index": 774,
+      "character": "搭",
+      "mediaFrequency": 3707,
+      "bestMediaRank": 1390
+    },
+    {
+      "index": 775,
+      "character": "堂",
+      "mediaFrequency": 3694,
+      "bestMediaRank": 1313
+    },
+    {
+      "index": 776,
+      "character": "挑",
+      "mediaFrequency": 3666,
+      "bestMediaRank": 1416
+    },
+    {
+      "index": 777,
+      "character": "武",
+      "mediaFrequency": 3654,
+      "bestMediaRank": 854
+    },
+    {
+      "index": 778,
+      "character": "苦",
+      "mediaFrequency": 3648,
+      "bestMediaRank": 855
+    },
+    {
+      "index": 779,
+      "character": "困",
+      "mediaFrequency": 3638,
+      "bestMediaRank": 1338
+    },
+    {
+      "index": 780,
+      "character": "存",
+      "mediaFrequency": 3627,
+      "bestMediaRank": 859
+    },
+    {
+      "index": 781,
+      "character": "搬",
+      "mediaFrequency": 3598,
+      "bestMediaRank": 867
+    },
+    {
+      "index": 782,
+      "character": "平",
+      "mediaFrequency": 3598,
+      "bestMediaRank": 1235
+    },
+    {
+      "index": 783,
+      "character": "档",
+      "mediaFrequency": 3596,
+      "bestMediaRank": 1390
+    },
+    {
+      "index": 784,
+      "character": "坚",
+      "mediaFrequency": 3584,
+      "bestMediaRank": 870
+    },
+    {
+      "index": 785,
+      "character": "义",
+      "mediaFrequency": 3580,
+      "bestMediaRank": 871
+    },
+    {
+      "index": 786,
+      "character": "楼",
+      "mediaFrequency": 3580,
+      "bestMediaRank": 872
+    },
+    {
+      "index": 787,
+      "character": "誓",
+      "mediaFrequency": 3570,
+      "bestMediaRank": 874
+    },
+    {
+      "index": 788,
+      "character": "局",
+      "mediaFrequency": 3563,
+      "bestMediaRank": 877
+    },
+    {
+      "index": 789,
+      "character": "府",
+      "mediaFrequency": 3549,
+      "bestMediaRank": 878
+    },
+    {
+      "index": 790,
+      "character": "背",
+      "mediaFrequency": 3542,
+      "bestMediaRank": 1395
+    },
+    {
+      "index": 791,
+      "character": "风",
+      "mediaFrequency": 3537,
+      "bestMediaRank": 1507
+    },
+    {
+      "index": 792,
+      "character": "遇",
+      "mediaFrequency": 3536,
+      "bestMediaRank": 883
+    },
+    {
+      "index": 793,
+      "character": "户",
+      "mediaFrequency": 3535,
+      "bestMediaRank": 1318
+    },
+    {
+      "index": 794,
+      "character": "猫",
+      "mediaFrequency": 3524,
+      "bestMediaRank": 884
+    },
+    {
+      "index": 795,
+      "character": "即",
+      "mediaFrequency": 3516,
+      "bestMediaRank": 885
+    },
+    {
+      "index": 796,
+      "character": "赌",
+      "mediaFrequency": 3511,
+      "bestMediaRank": 1452
+    },
+    {
+      "index": 797,
+      "character": "洗",
+      "mediaFrequency": 3495,
+      "bestMediaRank": 890
+    },
+    {
+      "index": 798,
+      "character": "格",
+      "mediaFrequency": 3489,
+      "bestMediaRank": 1544
+    },
+    {
+      "index": 799,
+      "character": "捕",
+      "mediaFrequency": 3466,
+      "bestMediaRank": 1354
+    },
+    {
+      "index": 800,
+      "character": "挂",
+      "mediaFrequency": 3463,
+      "bestMediaRank": 896
+    },
+    {
+      "index": 801,
+      "character": "绑",
+      "mediaFrequency": 3458,
+      "bestMediaRank": 1305
+    },
+    {
+      "index": 802,
+      "character": "痴",
+      "mediaFrequency": 3446,
+      "bestMediaRank": 898
+    },
+    {
+      "index": 803,
+      "character": "怜",
+      "mediaFrequency": 3428,
+      "bestMediaRank": 903
+    },
+    {
+      "index": 804,
+      "character": "吓",
+      "mediaFrequency": 3408,
+      "bestMediaRank": 910
+    },
+    {
+      "index": 805,
+      "character": "传",
+      "mediaFrequency": 3402,
+      "bestMediaRank": 1337
+    },
+    {
+      "index": 806,
+      "character": "疗",
+      "mediaFrequency": 3399,
+      "bestMediaRank": 911
+    },
+    {
+      "index": 807,
+      "character": "谅",
+      "mediaFrequency": 3399,
+      "bestMediaRank": 912
+    },
+    {
+      "index": 808,
+      "character": "较",
+      "mediaFrequency": 3388,
+      "bestMediaRank": 914
+    },
+    {
+      "index": 809,
+      "character": "双",
+      "mediaFrequency": 3384,
+      "bestMediaRank": 916
+    },
+    {
+      "index": 810,
+      "character": "织",
+      "mediaFrequency": 3373,
+      "bestMediaRank": 919
+    },
+    {
+      "index": 811,
+      "character": "冒",
+      "mediaFrequency": 3367,
+      "bestMediaRank": 1542
+    },
+    {
+      "index": 812,
+      "character": "围",
+      "mediaFrequency": 3355,
+      "bestMediaRank": 1442
+    },
+    {
+      "index": 813,
+      "character": "板",
+      "mediaFrequency": 3349,
+      "bestMediaRank": 924
+    },
+    {
+      "index": 814,
+      "character": "专",
+      "mediaFrequency": 3342,
+      "bestMediaRank": 1581
+    },
+    {
+      "index": 815,
+      "character": "乱",
+      "mediaFrequency": 3332,
+      "bestMediaRank": 928
+    },
+    {
+      "index": 816,
+      "character": "词",
+      "mediaFrequency": 3331,
+      "bestMediaRank": 929
+    },
+    {
+      "index": 817,
+      "character": "尔",
+      "mediaFrequency": 3327,
+      "bestMediaRank": 930
+    },
+    {
+      "index": 818,
+      "character": "婆",
+      "mediaFrequency": 3320,
+      "bestMediaRank": 934
+    },
+    {
+      "index": 819,
+      "character": "验",
+      "mediaFrequency": 3316,
+      "bestMediaRank": 1491
+    },
+    {
+      "index": 820,
+      "character": "笔",
+      "mediaFrequency": 3315,
+      "bestMediaRank": 937
+    },
+    {
+      "index": 821,
+      "character": "研",
+      "mediaFrequency": 3305,
+      "bestMediaRank": 941
+    },
+    {
+      "index": 822,
+      "character": "附",
+      "mediaFrequency": 3300,
+      "bestMediaRank": 943
+    },
+    {
+      "index": 823,
+      "character": "恋",
+      "mediaFrequency": 3298,
+      "bestMediaRank": 944
+    },
+    {
+      "index": 824,
+      "character": "扰",
+      "mediaFrequency": 3292,
+      "bestMediaRank": 945
+    },
+    {
+      "index": 825,
+      "character": "雇",
+      "mediaFrequency": 3286,
+      "bestMediaRank": 1602
+    },
+    {
+      "index": 826,
+      "character": "脏",
+      "mediaFrequency": 3269,
+      "bestMediaRank": 1503
+    },
+    {
+      "index": 827,
+      "character": "索",
+      "mediaFrequency": 3267,
+      "bestMediaRank": 947
+    },
+    {
+      "index": 828,
+      "character": "立",
+      "mediaFrequency": 3267,
+      "bestMediaRank": 1455
+    },
+    {
+      "index": 829,
+      "character": "引",
+      "mediaFrequency": 3263,
+      "bestMediaRank": 1645
+    },
+    {
+      "index": 830,
+      "character": "爷",
+      "mediaFrequency": 3250,
+      "bestMediaRank": 1662
+    },
+    {
+      "index": 831,
+      "character": "砸",
+      "mediaFrequency": 3232,
+      "bestMediaRank": 955
+    },
+    {
+      "index": 832,
+      "character": "价",
+      "mediaFrequency": 3217,
+      "bestMediaRank": 1610
+    },
+    {
+      "index": 833,
+      "character": "撞",
+      "mediaFrequency": 3186,
+      "bestMediaRank": 959
+    },
+    {
+      "index": 834,
+      "character": "借",
+      "mediaFrequency": 3185,
+      "bestMediaRank": 960
+    },
+    {
+      "index": 835,
+      "character": "秒",
+      "mediaFrequency": 3174,
+      "bestMediaRank": 961
+    },
+    {
+      "index": 836,
+      "character": "团",
+      "mediaFrequency": 3161,
+      "bestMediaRank": 1537
+    },
+    {
+      "index": 837,
+      "character": "供",
+      "mediaFrequency": 3143,
+      "bestMediaRank": 967
+    },
+    {
+      "index": 838,
+      "character": "威",
+      "mediaFrequency": 3141,
+      "bestMediaRank": 968
+    },
+    {
+      "index": 839,
+      "character": "胁",
+      "mediaFrequency": 3141,
+      "bestMediaRank": 968
+    },
+    {
+      "index": 840,
+      "character": "输",
+      "mediaFrequency": 3138,
+      "bestMediaRank": 969
+    },
+    {
+      "index": 841,
+      "character": "纸",
+      "mediaFrequency": 3134,
+      "bestMediaRank": 1598
+    },
+    {
+      "index": 842,
+      "character": "座",
+      "mediaFrequency": 3132,
+      "bestMediaRank": 972
+    },
+    {
+      "index": 843,
+      "character": "程",
+      "mediaFrequency": 3122,
+      "bestMediaRank": 1630
+    },
+    {
+      "index": 844,
+      "character": "千",
+      "mediaFrequency": 3114,
+      "bestMediaRank": 1709
+    },
+    {
+      "index": 845,
+      "character": "印",
+      "mediaFrequency": 3111,
+      "bestMediaRank": 1554
+    },
+    {
+      "index": 846,
+      "character": "严",
+      "mediaFrequency": 3110,
+      "bestMediaRank": 976
+    },
+    {
+      "index": 847,
+      "character": "细",
+      "mediaFrequency": 3096,
+      "bestMediaRank": 1611
+    },
+    {
+      "index": 848,
+      "character": "争",
+      "mediaFrequency": 3095,
+      "bestMediaRank": 979
+    },
+    {
+      "index": 849,
+      "character": "恭",
+      "mediaFrequency": 3093,
+      "bestMediaRank": 980
+    },
+    {
+      "index": 850,
+      "character": "莱",
+      "mediaFrequency": 3084,
+      "bestMediaRank": 1604
+    },
+    {
+      "index": 851,
+      "character": "恨",
+      "mediaFrequency": 3077,
+      "bestMediaRank": 985
+    },
+    {
+      "index": 852,
+      "character": "脱",
+      "mediaFrequency": 3062,
+      "bestMediaRank": 987
+    },
+    {
+      "index": 853,
+      "character": "布",
+      "mediaFrequency": 3047,
+      "bestMediaRank": 1729
+    },
+    {
+      "index": 854,
+      "character": "训",
+      "mediaFrequency": 3039,
+      "bestMediaRank": 993
+    },
+    {
+      "index": 855,
+      "character": "米",
+      "mediaFrequency": 3034,
+      "bestMediaRank": 994
+    },
+    {
+      "index": 856,
+      "character": "阿",
+      "mediaFrequency": 3031,
+      "bestMediaRank": 996
+    },
+    {
+      "index": 857,
+      "character": "热",
+      "mediaFrequency": 3025,
+      "bestMediaRank": 999
+    },
+    {
+      "index": 858,
+      "character": "银",
+      "mediaFrequency": 3003,
+      "bestMediaRank": 1003
+    },
+    {
+      "index": 859,
+      "character": "屋",
+      "mediaFrequency": 3003,
+      "bestMediaRank": 1681
+    },
+    {
+      "index": 860,
+      "character": "具",
+      "mediaFrequency": 3000,
+      "bestMediaRank": 1583
+    },
+    {
+      "index": 861,
+      "character": "怖",
+      "mediaFrequency": 2994,
+      "bestMediaRank": 1004
+    },
+    {
+      "index": 862,
+      "character": "岛",
+      "mediaFrequency": 2950,
+      "bestMediaRank": 1017
+    },
+    {
+      "index": 863,
+      "character": "模",
+      "mediaFrequency": 2949,
+      "bestMediaRank": 1018
+    },
+    {
+      "index": 864,
+      "character": "饿",
+      "mediaFrequency": 2943,
+      "bestMediaRank": 1021
+    },
+    {
+      "index": 865,
+      "character": "言",
+      "mediaFrequency": 2941,
+      "bestMediaRank": 1784
+    },
+    {
+      "index": 866,
+      "character": "蓝",
+      "mediaFrequency": 2933,
+      "bestMediaRank": 1674
+    },
+    {
+      "index": 867,
+      "character": "鸡",
+      "mediaFrequency": 2931,
+      "bestMediaRank": 1024
+    },
+    {
+      "index": 868,
+      "character": "养",
+      "mediaFrequency": 2929,
+      "bestMediaRank": 1025
+    },
+    {
+      "index": 869,
+      "character": "旦",
+      "mediaFrequency": 2922,
+      "bestMediaRank": 1028
+    },
+    {
+      "index": 870,
+      "character": "退",
+      "mediaFrequency": 2915,
+      "bestMediaRank": 1686
+    },
+    {
+      "index": 871,
+      "character": "群",
+      "mediaFrequency": 2903,
+      "bestMediaRank": 1034
+    },
+    {
+      "index": 872,
+      "character": "巴",
+      "mediaFrequency": 2902,
+      "bestMediaRank": 1652
+    },
+    {
+      "index": 873,
+      "character": "疑",
+      "mediaFrequency": 2888,
+      "bestMediaRank": 1041
+    },
+    {
+      "index": 874,
+      "character": "基",
+      "mediaFrequency": 2885,
+      "bestMediaRank": 1748
+    },
+    {
+      "index": 875,
+      "character": "拒",
+      "mediaFrequency": 2880,
+      "bestMediaRank": 1045
+    },
+    {
+      "index": 876,
+      "character": "雷",
+      "mediaFrequency": 2873,
+      "bestMediaRank": 1047
+    },
+    {
+      "index": 877,
+      "character": "烧",
+      "mediaFrequency": 2867,
+      "bestMediaRank": 1049
+    },
+    {
+      "index": 878,
+      "character": "夜",
+      "mediaFrequency": 2837,
+      "bestMediaRank": 1059
+    },
+    {
+      "index": 879,
+      "character": "婊",
+      "mediaFrequency": 2829,
+      "bestMediaRank": 1060
+    },
+    {
+      "index": 880,
+      "character": "属",
+      "mediaFrequency": 2827,
+      "bestMediaRank": 1061
+    },
+    {
+      "index": 881,
+      "character": "乔",
+      "mediaFrequency": 2818,
+      "bestMediaRank": 1771
+    },
+    {
+      "index": 882,
+      "character": "蹈",
+      "mediaFrequency": 2814,
+      "bestMediaRank": 1062
+    },
+    {
+      "index": 883,
+      "character": "租",
+      "mediaFrequency": 2804,
+      "bestMediaRank": 1750
+    },
+    {
+      "index": 884,
+      "character": "尼",
+      "mediaFrequency": 2802,
+      "bestMediaRank": 1067
+    },
+    {
+      "index": 885,
+      "character": "锁",
+      "mediaFrequency": 2790,
+      "bestMediaRank": 1072
+    },
+    {
+      "index": 886,
+      "character": "既",
+      "mediaFrequency": 2783,
+      "bestMediaRank": 1077
+    },
+    {
+      "index": 887,
+      "character": "雄",
+      "mediaFrequency": 2779,
+      "bestMediaRank": 1079
+    },
+    {
+      "index": 888,
+      "character": "副",
+      "mediaFrequency": 2774,
+      "bestMediaRank": 1082
+    },
+    {
+      "index": 889,
+      "character": "吻",
+      "mediaFrequency": 2773,
+      "bestMediaRank": 1084
+    },
+    {
+      "index": 890,
+      "character": "刺",
+      "mediaFrequency": 2764,
+      "bestMediaRank": 1807
+    },
+    {
+      "index": 891,
+      "character": "刀",
+      "mediaFrequency": 2741,
+      "bestMediaRank": 1091
+    },
+    {
+      "index": 892,
+      "character": "允",
+      "mediaFrequency": 2734,
+      "bestMediaRank": 1095
+    },
+    {
+      "index": 893,
+      "character": "念",
+      "mediaFrequency": 2733,
+      "bestMediaRank": 1786
+    },
+    {
+      "index": 894,
+      "character": "获",
+      "mediaFrequency": 2722,
+      "bestMediaRank": 1098
+    },
+    {
+      "index": 895,
+      "character": "寓",
+      "mediaFrequency": 2706,
+      "bestMediaRank": 1102
+    },
+    {
+      "index": 896,
+      "character": "谓",
+      "mediaFrequency": 2705,
+      "bestMediaRank": 1917
+    },
+    {
+      "index": 897,
+      "character": "文",
+      "mediaFrequency": 2698,
+      "bestMediaRank": 1103
+    },
+    {
+      "index": 898,
+      "character": "寻",
+      "mediaFrequency": 2684,
+      "bestMediaRank": 1106
+    },
+    {
+      "index": 899,
+      "character": "攻",
+      "mediaFrequency": 2677,
+      "bestMediaRank": 1107
+    },
+    {
+      "index": 900,
+      "character": "烂",
+      "mediaFrequency": 2676,
+      "bestMediaRank": 1108
+    },
+    {
+      "index": 901,
+      "character": "科",
+      "mediaFrequency": 2668,
+      "bestMediaRank": 1862
+    },
+    {
+      "index": 902,
+      "character": "邀",
+      "mediaFrequency": 2661,
+      "bestMediaRank": 1110
+    },
+    {
+      "index": 903,
+      "character": "躲",
+      "mediaFrequency": 2632,
+      "bestMediaRank": 1119
+    },
+    {
+      "index": 904,
+      "character": "逼",
+      "mediaFrequency": 2626,
+      "bestMediaRank": 1122
+    },
+    {
+      "index": 905,
+      "character": "欠",
+      "mediaFrequency": 2623,
+      "bestMediaRank": 1123
+    },
+    {
+      "index": 906,
+      "character": "轮",
+      "mediaFrequency": 2619,
+      "bestMediaRank": 1124
+    },
+    {
+      "index": 907,
+      "character": "图",
+      "mediaFrequency": 2618,
+      "bestMediaRank": 1125
+    },
+    {
+      "index": 908,
+      "character": "舒",
+      "mediaFrequency": 2590,
+      "bestMediaRank": 1130
+    },
+    {
+      "index": 909,
+      "character": "绍",
+      "mediaFrequency": 2583,
+      "bestMediaRank": 1136
+    },
+    {
+      "index": 910,
+      "character": "食",
+      "mediaFrequency": 2561,
+      "bestMediaRank": 1141
+    },
+    {
+      "index": 911,
+      "character": "矶",
+      "mediaFrequency": 2561,
+      "bestMediaRank": 1142
+    },
+    {
+      "index": 912,
+      "character": "杉",
+      "mediaFrequency": 2561,
+      "bestMediaRank": 1142
+    },
+    {
+      "index": 913,
+      "character": "憾",
+      "mediaFrequency": 2560,
+      "bestMediaRank": 1143
+    },
+    {
+      "index": 914,
+      "character": "遗",
+      "mediaFrequency": 2560,
+      "bestMediaRank": 1143
+    },
+    {
+      "index": 915,
+      "character": "设",
+      "mediaFrequency": 2558,
+      "bestMediaRank": 1146
+    },
+    {
+      "index": 916,
+      "character": "封",
+      "mediaFrequency": 2558,
+      "bestMediaRank": 1147
+    },
+    {
+      "index": 917,
+      "character": "丽",
+      "mediaFrequency": 2544,
+      "bestMediaRank": 1151
+    },
+    {
+      "index": 918,
+      "character": "诺",
+      "mediaFrequency": 2535,
+      "bestMediaRank": 1990
+    },
+    {
+      "index": 919,
+      "character": "汰",
+      "mediaFrequency": 2534,
+      "bestMediaRank": 1154
+    },
+    {
+      "index": 920,
+      "character": "淘",
+      "mediaFrequency": 2534,
+      "bestMediaRank": 1154
+    },
+    {
+      "index": 921,
+      "character": "鱼",
+      "mediaFrequency": 2532,
+      "bestMediaRank": 1155
+    },
+    {
+      "index": 922,
+      "character": "厉",
+      "mediaFrequency": 2532,
+      "bestMediaRank": 1156
+    },
+    {
+      "index": 923,
+      "character": "射",
+      "mediaFrequency": 2530,
+      "bestMediaRank": 1157
+    },
+    {
+      "index": 924,
+      "character": "醉",
+      "mediaFrequency": 2524,
+      "bestMediaRank": 1159
+    },
+    {
+      "index": 925,
+      "character": "私",
+      "mediaFrequency": 2515,
+      "bestMediaRank": 1163
+    },
+    {
+      "index": 926,
+      "character": "伟",
+      "mediaFrequency": 2504,
+      "bestMediaRank": 1166
+    },
+    {
+      "index": 927,
+      "character": "奋",
+      "mediaFrequency": 2504,
+      "bestMediaRank": 1167
+    },
+    {
+      "index": 928,
+      "character": "观",
+      "mediaFrequency": 2503,
+      "bestMediaRank": 1168
+    },
+    {
+      "index": 929,
+      "character": "众",
+      "mediaFrequency": 2503,
+      "bestMediaRank": 1168
+    },
+    {
+      "index": 930,
+      "character": "臭",
+      "mediaFrequency": 2499,
+      "bestMediaRank": 1169
+    },
+    {
+      "index": 931,
+      "character": "圾",
+      "mediaFrequency": 2485,
+      "bestMediaRank": 1174
+    },
+    {
+      "index": 932,
+      "character": "垃",
+      "mediaFrequency": 2485,
+      "bestMediaRank": 1174
+    },
+    {
+      "index": 933,
+      "character": "疼",
+      "mediaFrequency": 2477,
+      "bestMediaRank": 1177
+    },
+    {
+      "index": 934,
+      "character": "签",
+      "mediaFrequency": 2469,
+      "bestMediaRank": 1179
+    },
+    {
+      "index": 935,
+      "character": "颗",
+      "mediaFrequency": 2462,
+      "bestMediaRank": 1182
+    },
+    {
+      "index": 936,
+      "character": "肉",
+      "mediaFrequency": 2456,
+      "bestMediaRank": 1184
+    },
+    {
+      "index": 937,
+      "character": "测",
+      "mediaFrequency": 2453,
+      "bestMediaRank": 1185
+    },
+    {
+      "index": 938,
+      "character": "彩",
+      "mediaFrequency": 2453,
+      "bestMediaRank": 1186
+    },
+    {
+      "index": 939,
+      "character": "袭",
+      "mediaFrequency": 2442,
+      "bestMediaRank": 1190
+    },
+    {
+      "index": 940,
+      "character": "朝",
+      "mediaFrequency": 2436,
+      "bestMediaRank": 1194
+    },
+    {
+      "index": 941,
+      "character": "呼",
+      "mediaFrequency": 2435,
+      "bestMediaRank": 1195
+    },
+    {
+      "index": 942,
+      "character": "愉",
+      "mediaFrequency": 2416,
+      "bestMediaRank": 1204
+    },
+    {
+      "index": 943,
+      "character": "爆",
+      "mediaFrequency": 2413,
+      "bestMediaRank": 1205
+    },
+    {
+      "index": 944,
+      "character": "括",
+      "mediaFrequency": 2376,
+      "bestMediaRank": 1221
+    },
+    {
+      "index": 945,
+      "character": "累",
+      "mediaFrequency": 2375,
+      "bestMediaRank": 1222
+    },
+    {
+      "index": 946,
+      "character": "汽",
+      "mediaFrequency": 2373,
+      "bestMediaRank": 1223
+    },
+    {
+      "index": 947,
+      "character": "广",
+      "mediaFrequency": 2357,
+      "bestMediaRank": 1226
+    },
+    {
+      "index": 948,
+      "character": "鞋",
+      "mediaFrequency": 2332,
+      "bestMediaRank": 1238
+    },
+    {
+      "index": 949,
+      "character": "盯",
+      "mediaFrequency": 2329,
+      "bestMediaRank": 1240
+    },
+    {
+      "index": 950,
+      "character": "堆",
+      "mediaFrequency": 2326,
+      "bestMediaRank": 1242
+    },
+    {
+      "index": 951,
+      "character": "史",
+      "mediaFrequency": 2325,
+      "bestMediaRank": 1243
+    },
+    {
+      "index": 952,
+      "character": "深",
+      "mediaFrequency": 2324,
+      "bestMediaRank": 1244
+    },
+    {
+      "index": 953,
+      "character": "俱",
+      "mediaFrequency": 2317,
+      "bestMediaRank": 1247
+    },
+    {
+      "index": 954,
+      "character": "拯",
+      "mediaFrequency": 2314,
+      "bestMediaRank": 1249
+    },
+    {
+      "index": 955,
+      "character": "啤",
+      "mediaFrequency": 2310,
+      "bestMediaRank": 1251
+    },
+    {
+      "index": 956,
+      "character": "咬",
+      "mediaFrequency": 2304,
+      "bestMediaRank": 1252
+    },
+    {
+      "index": 957,
+      "character": "短",
+      "mediaFrequency": 2303,
+      "bestMediaRank": 1253
+    },
+    {
+      "index": 958,
+      "character": "透",
+      "mediaFrequency": 2290,
+      "bestMediaRank": 1256
+    },
+    {
+      "index": 959,
+      "character": "愚",
+      "mediaFrequency": 2276,
+      "bestMediaRank": 1259
+    },
+    {
+      "index": 960,
+      "character": "帅",
+      "mediaFrequency": 2268,
+      "bestMediaRank": 1261
+    },
+    {
+      "index": 961,
+      "character": "踢",
+      "mediaFrequency": 2266,
+      "bestMediaRank": 1262
+    },
+    {
+      "index": 962,
+      "character": "邦",
+      "mediaFrequency": 2261,
+      "bestMediaRank": 1263
+    },
+    {
+      "index": 963,
+      "character": "评",
+      "mediaFrequency": 2253,
+      "bestMediaRank": 1264
+    },
+    {
+      "index": 964,
+      "character": "委",
+      "mediaFrequency": 2253,
+      "bestMediaRank": 1264
+    },
+    {
+      "index": 965,
+      "character": "末",
+      "mediaFrequency": 2250,
+      "bestMediaRank": 1268
+    },
+    {
+      "index": 966,
+      "character": "推",
+      "mediaFrequency": 2249,
+      "bestMediaRank": 1272
+    },
+    {
+      "index": 967,
+      "character": "键",
+      "mediaFrequency": 2248,
+      "bestMediaRank": 1274
+    },
+    {
+      "index": 968,
+      "character": "充",
+      "mediaFrequency": 2248,
+      "bestMediaRank": 1276
+    },
+    {
+      "index": 969,
+      "character": "断",
+      "mediaFrequency": 2246,
+      "bestMediaRank": 1277
+    },
+    {
+      "index": 970,
+      "character": "课",
+      "mediaFrequency": 2226,
+      "bestMediaRank": 1290
+    },
+    {
+      "index": 971,
+      "character": "惯",
+      "mediaFrequency": 2223,
+      "bestMediaRank": 1291
+    },
+    {
+      "index": 972,
+      "character": "躺",
+      "mediaFrequency": 2220,
+      "bestMediaRank": 1295
+    },
+    {
+      "index": 973,
+      "character": "山",
+      "mediaFrequency": 2213,
+      "bestMediaRank": 1297
+    },
+    {
+      "index": 974,
+      "character": "恢",
+      "mediaFrequency": 2207,
+      "bestMediaRank": 1300
+    },
+    {
+      "index": 975,
+      "character": "聚",
+      "mediaFrequency": 2206,
+      "bestMediaRank": 1302
+    },
+    {
+      "index": 976,
+      "character": "孕",
+      "mediaFrequency": 2206,
+      "bestMediaRank": 1303
+    },
+    {
+      "index": 977,
+      "character": "园",
+      "mediaFrequency": 2206,
+      "bestMediaRank": 1304
+    },
+    {
+      "index": 978,
+      "character": "料",
+      "mediaFrequency": 2191,
+      "bestMediaRank": 1308
+    },
+    {
+      "index": 979,
+      "character": "资",
+      "mediaFrequency": 2191,
+      "bestMediaRank": 1308
+    },
+    {
+      "index": 980,
+      "character": "净",
+      "mediaFrequency": 2189,
+      "bestMediaRank": 1309
+    },
+    {
+      "index": 981,
+      "character": "姻",
+      "mediaFrequency": 2187,
+      "bestMediaRank": 1310
+    },
+    {
+      "index": 982,
+      "character": "皮",
+      "mediaFrequency": 2173,
+      "bestMediaRank": 1314
+    },
+    {
+      "index": 983,
+      "character": "鸟",
+      "mediaFrequency": 2172,
+      "bestMediaRank": 1315
+    },
+    {
+      "index": 984,
+      "character": "爽",
+      "mediaFrequency": 2172,
+      "bestMediaRank": 1316
+    },
+    {
+      "index": 985,
+      "character": "健",
+      "mediaFrequency": 2168,
+      "bestMediaRank": 1317
+    },
+    {
+      "index": 986,
+      "character": "康",
+      "mediaFrequency": 2168,
+      "bestMediaRank": 1317
+    },
+    {
+      "index": 987,
+      "character": "圈",
+      "mediaFrequency": 2168,
+      "bestMediaRank": 1319
+    },
+    {
+      "index": 988,
+      "character": "袋",
+      "mediaFrequency": 2165,
+      "bestMediaRank": 1320
+    },
+    {
+      "index": 989,
+      "character": "嘘",
+      "mediaFrequency": 2161,
+      "bestMediaRank": 1322
+    },
+    {
+      "index": 990,
+      "character": "福",
+      "mediaFrequency": 2151,
+      "bestMediaRank": 1327
+    },
+    {
+      "index": 991,
+      "character": "树",
+      "mediaFrequency": 2150,
+      "bestMediaRank": 1328
+    },
+    {
+      "index": 992,
+      "character": "技",
+      "mediaFrequency": 2136,
+      "bestMediaRank": 1335
+    },
+    {
+      "index": 993,
+      "character": "忆",
+      "mediaFrequency": 2128,
+      "bestMediaRank": 1341
+    },
+    {
+      "index": 994,
+      "character": "州",
+      "mediaFrequency": 2116,
+      "bestMediaRank": 1347
+    },
+    {
+      "index": 995,
+      "character": "毫",
+      "mediaFrequency": 2114,
+      "bestMediaRank": 1348
+    },
+    {
+      "index": 996,
+      "character": "逮",
+      "mediaFrequency": 2104,
+      "bestMediaRank": 1354
+    },
+    {
+      "index": 997,
+      "character": "吵",
+      "mediaFrequency": 2099,
+      "bestMediaRank": 1355
+    },
+    {
+      "index": 998,
+      "character": "旁",
+      "mediaFrequency": 2098,
+      "bestMediaRank": 1356
+    },
+    {
+      "index": 999,
+      "character": "傲",
+      "mediaFrequency": 2094,
+      "bestMediaRank": 1358
+    },
+    {
+      "index": 1000,
+      "character": "骄",
+      "mediaFrequency": 2094,
+      "bestMediaRank": 1358
+    },
+    {
+      "index": 1001,
+      "character": "牌",
+      "mediaFrequency": 2091,
+      "bestMediaRank": 1361
+    },
+    {
+      "index": 1002,
+      "character": "八",
+      "mediaFrequency": 2090,
+      "bestMediaRank": 1362
+    },
+    {
+      "index": 1003,
+      "character": "毛",
+      "mediaFrequency": 2068,
+      "bestMediaRank": 1372
+    },
+    {
+      "index": 1004,
+      "character": "吉",
+      "mediaFrequency": 2062,
+      "bestMediaRank": 1376
+    },
+    {
+      "index": 1005,
+      "character": "惹",
+      "mediaFrequency": 2062,
+      "bestMediaRank": 1377
+    },
+    {
+      "index": 1006,
+      "character": "抽",
+      "mediaFrequency": 2054,
+      "bestMediaRank": 1379
+    },
+    {
+      "index": 1007,
+      "character": "冠",
+      "mediaFrequency": 2047,
+      "bestMediaRank": 1382
+    },
+    {
+      "index": 1008,
+      "character": "尝",
+      "mediaFrequency": 2045,
+      "bestMediaRank": 1383
+    },
+    {
+      "index": 1009,
+      "character": "敌",
+      "mediaFrequency": 2031,
+      "bestMediaRank": 1389
+    },
+    {
+      "index": 1010,
+      "character": "帐",
+      "mediaFrequency": 2025,
+      "bestMediaRank": 1392
+    },
+    {
+      "index": 1011,
+      "character": "翰",
+      "mediaFrequency": 2015,
+      "bestMediaRank": 1398
+    },
+    {
+      "index": 1012,
+      "character": "猪",
+      "mediaFrequency": 2011,
+      "bestMediaRank": 1403
+    },
+    {
+      "index": 1013,
+      "character": "牛",
+      "mediaFrequency": 1990,
+      "bestMediaRank": 1407
+    },
+    {
+      "index": 1014,
+      "character": "瓶",
+      "mediaFrequency": 1989,
+      "bestMediaRank": 1408
+    },
+    {
+      "index": 1015,
+      "character": "瓜",
+      "mediaFrequency": 1981,
+      "bestMediaRank": 1413
+    },
+    {
+      "index": 1016,
+      "character": "嫁",
+      "mediaFrequency": 1979,
+      "bestMediaRank": 1415
+    },
+    {
+      "index": 1017,
+      "character": "七",
+      "mediaFrequency": 1972,
+      "bestMediaRank": 1419
+    },
+    {
+      "index": 1018,
+      "character": "职",
+      "mediaFrequency": 1965,
+      "bestMediaRank": 1420
+    },
+    {
+      "index": 1019,
+      "character": "菜",
+      "mediaFrequency": 1963,
+      "bestMediaRank": 1421
+    },
+    {
+      "index": 1020,
+      "character": "址",
+      "mediaFrequency": 1959,
+      "bestMediaRank": 1423
+    },
+    {
+      "index": 1021,
+      "character": "赚",
+      "mediaFrequency": 1959,
+      "bestMediaRank": 1425
+    },
+    {
+      "index": 1022,
+      "character": "唔",
+      "mediaFrequency": 1947,
+      "bestMediaRank": 1433
+    },
+    {
+      "index": 1023,
+      "character": "祷",
+      "mediaFrequency": 1945,
+      "bestMediaRank": 1435
+    },
+    {
+      "index": 1024,
+      "character": "祈",
+      "mediaFrequency": 1945,
+      "bestMediaRank": 1435
+    },
+    {
+      "index": 1025,
+      "character": "编",
+      "mediaFrequency": 1943,
+      "bestMediaRank": 1436
+    },
+    {
+      "index": 1026,
+      "character": "拾",
+      "mediaFrequency": 1941,
+      "bestMediaRank": 1437
+    },
+    {
+      "index": 1027,
+      "character": "亚",
+      "mediaFrequency": 1934,
+      "bestMediaRank": 1441
+    },
+    {
+      "index": 1028,
+      "character": "彼",
+      "mediaFrequency": 1920,
+      "bestMediaRank": 1447
+    },
+    {
+      "index": 1029,
+      "character": "荣",
+      "mediaFrequency": 1919,
+      "bestMediaRank": 1448
+    },
+    {
+      "index": 1030,
+      "character": "爬",
+      "mediaFrequency": 1916,
+      "bestMediaRank": 1451
+    },
+    {
+      "index": 1031,
+      "character": "伍",
+      "mediaFrequency": 1914,
+      "bestMediaRank": 1454
+    },
+    {
+      "index": 1032,
+      "character": "吐",
+      "mediaFrequency": 1911,
+      "bestMediaRank": 1458
+    },
+    {
+      "index": 1033,
+      "character": "配",
+      "mediaFrequency": 1909,
+      "bestMediaRank": 1460
+    },
+    {
+      "index": 1034,
+      "character": "尊",
+      "mediaFrequency": 1900,
+      "bestMediaRank": 1467
+    },
+    {
+      "index": 1035,
+      "character": "授",
+      "mediaFrequency": 1898,
+      "bestMediaRank": 1468
+    },
+    {
+      "index": 1036,
+      "character": "语",
+      "mediaFrequency": 1892,
+      "bestMediaRank": 1470
+    },
+    {
+      "index": 1037,
+      "character": "丝",
+      "mediaFrequency": 1890,
+      "bestMediaRank": 1472
+    },
+    {
+      "index": 1038,
+      "character": "寄",
+      "mediaFrequency": 1886,
+      "bestMediaRank": 1475
+    },
+    {
+      "index": 1039,
+      "character": "纹",
+      "mediaFrequency": 1879,
+      "bestMediaRank": 1478
+    },
+    {
+      "index": 1040,
+      "character": "庆",
+      "mediaFrequency": 1878,
+      "bestMediaRank": 1479
+    },
+    {
+      "index": 1041,
+      "character": "偶",
+      "mediaFrequency": 1873,
+      "bestMediaRank": 1482
+    },
+    {
+      "index": 1042,
+      "character": "裤",
+      "mediaFrequency": 1871,
+      "bestMediaRank": 1484
+    },
+    {
+      "index": 1043,
+      "character": "侦",
+      "mediaFrequency": 1869,
+      "bestMediaRank": 1488
+    },
+    {
+      "index": 1044,
+      "character": "拖",
+      "mediaFrequency": 1857,
+      "bestMediaRank": 1490
+    },
+    {
+      "index": 1045,
+      "character": "吹",
+      "mediaFrequency": 1845,
+      "bestMediaRank": 1493
+    },
+    {
+      "index": 1046,
+      "character": "修",
+      "mediaFrequency": 1842,
+      "bestMediaRank": 1496
+    },
+    {
+      "index": 1047,
+      "character": "耍",
+      "mediaFrequency": 1824,
+      "bestMediaRank": 1508
+    },
+    {
+      "index": 1048,
+      "character": "罗",
+      "mediaFrequency": 1823,
+      "bestMediaRank": 1509
+    },
+    {
+      "index": 1049,
+      "character": "族",
+      "mediaFrequency": 1822,
+      "bestMediaRank": 1510
+    },
+    {
+      "index": 1050,
+      "character": "低",
+      "mediaFrequency": 1820,
+      "bestMediaRank": 1512
+    },
+    {
+      "index": 1051,
+      "character": "斗",
+      "mediaFrequency": 1817,
+      "bestMediaRank": 1514
+    },
+    {
+      "index": 1052,
+      "character": "社",
+      "mediaFrequency": 1805,
+      "bestMediaRank": 1518
+    },
+    {
+      "index": 1053,
+      "character": "邻",
+      "mediaFrequency": 1803,
+      "bestMediaRank": 1521
+    },
+    {
+      "index": 1054,
+      "character": "瑞",
+      "mediaFrequency": 1789,
+      "bestMediaRank": 1534
+    },
+    {
+      "index": 1055,
+      "character": "尿",
+      "mediaFrequency": 1788,
+      "bestMediaRank": 1535
+    },
+    {
+      "index": 1056,
+      "character": "屎",
+      "mediaFrequency": 1787,
+      "bestMediaRank": 1536
+    },
+    {
+      "index": 1057,
+      "character": "审",
+      "mediaFrequency": 1784,
+      "bestMediaRank": 1537
+    },
+    {
+      "index": 1058,
+      "character": "左",
+      "mediaFrequency": 1773,
+      "bestMediaRank": 1545
+    },
+    {
+      "index": 1059,
+      "character": "海",
+      "mediaFrequency": 1772,
+      "bestMediaRank": 1546
+    },
+    {
+      "index": 1060,
+      "character": "胜",
+      "mediaFrequency": 1769,
+      "bestMediaRank": 1548
+    },
+    {
+      "index": 1061,
+      "character": "普",
+      "mediaFrequency": 1765,
+      "bestMediaRank": 1550
+    },
+    {
+      "index": 1062,
+      "character": "估",
+      "mediaFrequency": 1748,
+      "bestMediaRank": 1557
+    },
+    {
+      "index": 1063,
+      "character": "右",
+      "mediaFrequency": 1738,
+      "bestMediaRank": 1564
+    },
+    {
+      "index": 1064,
+      "character": "举",
+      "mediaFrequency": 1738,
+      "bestMediaRank": 1565
+    },
+    {
+      "index": 1065,
+      "character": "著",
+      "mediaFrequency": 1729,
+      "bestMediaRank": 1578
+    },
+    {
+      "index": 1066,
+      "character": "墨",
+      "mediaFrequency": 1723,
+      "bestMediaRank": 1584
+    },
+    {
+      "index": 1067,
+      "character": "馆",
+      "mediaFrequency": 1722,
+      "bestMediaRank": 1585
+    },
+    {
+      "index": 1068,
+      "character": "邪",
+      "mediaFrequency": 1720,
+      "bestMediaRank": 1586
+    },
+    {
+      "index": 1069,
+      "character": "层",
+      "mediaFrequency": 1716,
+      "bestMediaRank": 1590
+    },
+    {
+      "index": 1070,
+      "character": "挖",
+      "mediaFrequency": 1716,
+      "bestMediaRank": 1591
+    },
+    {
+      "index": 1071,
+      "character": "免",
+      "mediaFrequency": 1713,
+      "bestMediaRank": 1594
+    },
+    {
+      "index": 1072,
+      "character": "塞",
+      "mediaFrequency": 1708,
+      "bestMediaRank": 1601
+    },
+    {
+      "index": 1073,
+      "character": "颜",
+      "mediaFrequency": 1703,
+      "bestMediaRank": 1603
+    },
+    {
+      "index": 1074,
+      "character": "坞",
+      "mediaFrequency": 1702,
+      "bestMediaRank": 1604
+    },
+    {
+      "index": 1075,
+      "character": "仔",
+      "mediaFrequency": 1696,
+      "bestMediaRank": 1611
+    },
+    {
+      "index": 1076,
+      "character": "巧",
+      "mediaFrequency": 1693,
+      "bestMediaRank": 1612
+    },
+    {
+      "index": 1077,
+      "character": "辣",
+      "mediaFrequency": 1689,
+      "bestMediaRank": 1615
+    },
+    {
+      "index": 1078,
+      "character": "互",
+      "mediaFrequency": 1688,
+      "bestMediaRank": 1616
+    },
+    {
+      "index": 1079,
+      "character": "招",
+      "mediaFrequency": 1688,
+      "bestMediaRank": 1618
+    },
+    {
+      "index": 1080,
+      "character": "墙",
+      "mediaFrequency": 1687,
+      "bestMediaRank": 1620
+    },
+    {
+      "index": 1081,
+      "character": "流",
+      "mediaFrequency": 1683,
+      "bestMediaRank": 1621
+    },
+    {
+      "index": 1082,
+      "character": "厕",
+      "mediaFrequency": 1682,
+      "bestMediaRank": 1622
+    },
+    {
+      "index": 1083,
+      "character": "辜",
+      "mediaFrequency": 1681,
+      "bestMediaRank": 1623
+    },
+    {
+      "index": 1084,
+      "character": "彻",
+      "mediaFrequency": 1680,
+      "bestMediaRank": 1624
+    },
+    {
+      "index": 1085,
+      "character": "翻",
+      "mediaFrequency": 1676,
+      "bestMediaRank": 1628
+    },
+    {
+      "index": 1086,
+      "character": "摆",
+      "mediaFrequency": 1674,
+      "bestMediaRank": 1629
+    },
+    {
+      "index": 1087,
+      "character": "申",
+      "mediaFrequency": 1668,
+      "bestMediaRank": 1632
+    },
+    {
+      "index": 1088,
+      "character": "烤",
+      "mediaFrequency": 1666,
+      "bestMediaRank": 1635
+    },
+    {
+      "index": 1089,
+      "character": "民",
+      "mediaFrequency": 1661,
+      "bestMediaRank": 1640
+    },
+    {
+      "index": 1090,
+      "character": "惧",
+      "mediaFrequency": 1659,
+      "bestMediaRank": 1641
+    },
+    {
+      "index": 1091,
+      "character": "讶",
+      "mediaFrequency": 1643,
+      "bestMediaRank": 1649
+    },
+    {
+      "index": 1092,
+      "character": "灯",
+      "mediaFrequency": 1643,
+      "bestMediaRank": 1650
+    },
+    {
+      "index": 1093,
+      "character": "桌",
+      "mediaFrequency": 1641,
+      "bestMediaRank": 1651
+    },
+    {
+      "index": 1094,
+      "character": "毕",
+      "mediaFrequency": 1638,
+      "bestMediaRank": 1653
+    },
+    {
+      "index": 1095,
+      "character": "暗",
+      "mediaFrequency": 1635,
+      "bestMediaRank": 1655
+    },
+    {
+      "index": 1096,
+      "character": "稍",
+      "mediaFrequency": 1632,
+      "bestMediaRank": 1658
+    },
+    {
+      "index": 1097,
+      "character": "厨",
+      "mediaFrequency": 1623,
+      "bestMediaRank": 1665
+    },
+    {
+      "index": 1098,
+      "character": "殊",
+      "mediaFrequency": 1619,
+      "bestMediaRank": 1666
+    },
+    {
+      "index": 1099,
+      "character": "扯",
+      "mediaFrequency": 1617,
+      "bestMediaRank": 1667
+    },
+    {
+      "index": 1100,
+      "character": "兵",
+      "mediaFrequency": 1611,
+      "bestMediaRank": 1673
+    },
+    {
+      "index": 1101,
+      "character": "型",
+      "mediaFrequency": 1604,
+      "bestMediaRank": 1678
+    },
+    {
+      "index": 1102,
+      "character": "呐",
+      "mediaFrequency": 1603,
+      "bestMediaRank": 1679
+    },
+    {
+      "index": 1103,
+      "character": "敦",
+      "mediaFrequency": 1589,
+      "bestMediaRank": 1689
+    },
+    {
+      "index": 1104,
+      "character": "伦",
+      "mediaFrequency": 1589,
+      "bestMediaRank": 1689
+    },
+    {
+      "index": 1105,
+      "character": "镇",
+      "mediaFrequency": 1586,
+      "bestMediaRank": 1692
+    },
+    {
+      "index": 1106,
+      "character": "奖",
+      "mediaFrequency": 1583,
+      "bestMediaRank": 1694
+    },
+    {
+      "index": 1107,
+      "character": "冰",
+      "mediaFrequency": 1582,
+      "bestMediaRank": 1696
+    },
+    {
+      "index": 1108,
+      "character": "戒",
+      "mediaFrequency": 1582,
+      "bestMediaRank": 1697
+    },
+    {
+      "index": 1109,
+      "character": "洞",
+      "mediaFrequency": 1581,
+      "bestMediaRank": 1699
+    },
+    {
+      "index": 1110,
+      "character": "贺",
+      "mediaFrequency": 1581,
+      "bestMediaRank": 1700
+    },
+    {
+      "index": 1111,
+      "character": "若",
+      "mediaFrequency": 1575,
+      "bestMediaRank": 1703
+    },
+    {
+      "index": 1112,
+      "character": "饼",
+      "mediaFrequency": 1561,
+      "bestMediaRank": 1714
+    },
+    {
+      "index": 1113,
+      "character": "帽",
+      "mediaFrequency": 1553,
+      "bestMediaRank": 1719
+    },
+    {
+      "index": 1114,
+      "character": "协",
+      "mediaFrequency": 1553,
+      "bestMediaRank": 1720
+    },
+    {
+      "index": 1115,
+      "character": "搜",
+      "mediaFrequency": 1549,
+      "bestMediaRank": 1726
+    },
+    {
+      "index": 1116,
+      "character": "产",
+      "mediaFrequency": 1548,
+      "bestMediaRank": 1727
+    },
+    {
+      "index": 1117,
+      "character": "触",
+      "mediaFrequency": 1544,
+      "bestMediaRank": 1731
+    },
+    {
+      "index": 1118,
+      "character": "劫",
+      "mediaFrequency": 1541,
+      "bestMediaRank": 1733
+    },
+    {
+      "index": 1119,
+      "character": "矩",
+      "mediaFrequency": 1538,
+      "bestMediaRank": 1736
+    },
+    {
+      "index": 1120,
+      "character": "糖",
+      "mediaFrequency": 1530,
+      "bestMediaRank": 1742
+    },
+    {
+      "index": 1121,
+      "character": "旧",
+      "mediaFrequency": 1530,
+      "bestMediaRank": 1743
+    },
+    {
+      "index": 1122,
+      "character": "析",
+      "mediaFrequency": 1521,
+      "bestMediaRank": 1751
+    },
+    {
+      "index": 1123,
+      "character": "叛",
+      "mediaFrequency": 1519,
+      "bestMediaRank": 1754
+    },
+    {
+      "index": 1124,
+      "character": "趟",
+      "mediaFrequency": 1519,
+      "bestMediaRank": 1755
+    },
+    {
+      "index": 1125,
+      "character": "摄",
+      "mediaFrequency": 1518,
+      "bestMediaRank": 1757
+    },
+    {
+      "index": 1126,
+      "character": "导",
+      "mediaFrequency": 1516,
+      "bestMediaRank": 1759
+    },
+    {
+      "index": 1127,
+      "character": "致",
+      "mediaFrequency": 1516,
+      "bestMediaRank": 1759
+    },
+    {
+      "index": 1128,
+      "character": "箱",
+      "mediaFrequency": 1505,
+      "bestMediaRank": 1767
+    },
+    {
+      "index": 1129,
+      "character": "稣",
+      "mediaFrequency": 1504,
+      "bestMediaRank": 1768
+    },
+    {
+      "index": 1130,
+      "character": "宣",
+      "mediaFrequency": 1502,
+      "bestMediaRank": 1770
+    },
+    {
+      "index": 1131,
+      "character": "执",
+      "mediaFrequency": 1497,
+      "bestMediaRank": 1772
+    },
+    {
+      "index": 1132,
+      "character": "货",
+      "mediaFrequency": 1486,
+      "bestMediaRank": 1779
+    },
+    {
+      "index": 1133,
+      "character": "磨",
+      "mediaFrequency": 1482,
+      "bestMediaRank": 1781
+    },
+    {
+      "index": 1134,
+      "character": "折",
+      "mediaFrequency": 1482,
+      "bestMediaRank": 1781
+    },
+    {
+      "index": 1135,
+      "character": "熊",
+      "mediaFrequency": 1470,
+      "bestMediaRank": 1785
+    },
+    {
+      "index": 1136,
+      "character": "倍",
+      "mediaFrequency": 1468,
+      "bestMediaRank": 1789
+    },
+    {
+      "index": 1137,
+      "character": "擦",
+      "mediaFrequency": 1465,
+      "bestMediaRank": 1790
+    },
+    {
+      "index": 1138,
+      "character": "尤",
+      "mediaFrequency": 1464,
+      "bestMediaRank": 1791
+    },
+    {
+      "index": 1139,
+      "character": "卷",
+      "mediaFrequency": 1464,
+      "bestMediaRank": 1792
+    },
+    {
+      "index": 1140,
+      "character": "盒",
+      "mediaFrequency": 1463,
+      "bestMediaRank": 1794
+    },
+    {
+      "index": 1141,
+      "character": "艘",
+      "mediaFrequency": 1462,
+      "bestMediaRank": 1795
+    },
+    {
+      "index": 1142,
+      "character": "共",
+      "mediaFrequency": 1460,
+      "bestMediaRank": 1799
+    },
+    {
+      "index": 1143,
+      "character": "序",
+      "mediaFrequency": 1449,
+      "bestMediaRank": 1808
+    },
+    {
+      "index": 1144,
+      "character": "炒",
+      "mediaFrequency": 1449,
+      "bestMediaRank": 1810
+    },
+    {
+      "index": 1145,
+      "character": "绪",
+      "mediaFrequency": 1446,
+      "bestMediaRank": 1811
+    },
+    {
+      "index": 1146,
+      "character": "创",
+      "mediaFrequency": 1446,
+      "bestMediaRank": 1814
+    },
+    {
+      "index": 1147,
+      "character": "暴",
+      "mediaFrequency": 1440,
+      "bestMediaRank": 1817
+    },
+    {
+      "index": 1148,
+      "character": "艺",
+      "mediaFrequency": 1436,
+      "bestMediaRank": 1821
+    },
+    {
+      "index": 1149,
+      "character": "速",
+      "mediaFrequency": 1433,
+      "bestMediaRank": 1824
+    },
+    {
+      "index": 1150,
+      "character": "姆",
+      "mediaFrequency": 1433,
+      "bestMediaRank": 1826
+    },
+    {
+      "index": 1151,
+      "character": "汤",
+      "mediaFrequency": 1433,
+      "bestMediaRank": 1826
+    },
+    {
+      "index": 1152,
+      "character": "牲",
+      "mediaFrequency": 1431,
+      "bestMediaRank": 1827
+    },
+    {
+      "index": 1153,
+      "character": "牺",
+      "mediaFrequency": 1431,
+      "bestMediaRank": 1827
+    },
+    {
+      "index": 1154,
+      "character": "勇",
+      "mediaFrequency": 1430,
+      "bestMediaRank": 1828
+    },
+    {
+      "index": 1155,
+      "character": "愤",
+      "mediaFrequency": 1428,
+      "bestMediaRank": 1829
+    },
+    {
+      "index": 1156,
+      "character": "怒",
+      "mediaFrequency": 1428,
+      "bestMediaRank": 1829
+    },
+    {
+      "index": 1157,
+      "character": "咪",
+      "mediaFrequency": 1425,
+      "bestMediaRank": 1833
+    },
+    {
+      "index": 1158,
+      "character": "范",
+      "mediaFrequency": 1423,
+      "bestMediaRank": 1836
+    },
+    {
+      "index": 1159,
+      "character": "称",
+      "mediaFrequency": 1423,
+      "bestMediaRank": 1837
+    },
+    {
+      "index": 1160,
+      "character": "骑",
+      "mediaFrequency": 1423,
+      "bestMediaRank": 1838
+    },
+    {
+      "index": 1161,
+      "character": "阳",
+      "mediaFrequency": 1419,
+      "bestMediaRank": 1840
+    },
+    {
+      "index": 1162,
+      "character": "暂",
+      "mediaFrequency": 1418,
+      "bestMediaRank": 1843
+    },
+    {
+      "index": 1163,
+      "character": "优",
+      "mediaFrequency": 1413,
+      "bestMediaRank": 1846
+    },
+    {
+      "index": 1164,
+      "character": "曲",
+      "mediaFrequency": 1411,
+      "bestMediaRank": 1849
+    },
+    {
+      "index": 1165,
+      "character": "婴",
+      "mediaFrequency": 1409,
+      "bestMediaRank": 1850
+    },
+    {
+      "index": 1166,
+      "character": "兰",
+      "mediaFrequency": 1407,
+      "bestMediaRank": 1852
+    },
+    {
+      "index": 1167,
+      "character": "惜",
+      "mediaFrequency": 1407,
+      "bestMediaRank": 1854
+    },
+    {
+      "index": 1168,
+      "character": "石",
+      "mediaFrequency": 1405,
+      "bestMediaRank": 1856
+    },
+    {
+      "index": 1169,
+      "character": "尺",
+      "mediaFrequency": 1403,
+      "bestMediaRank": 1857
+    },
+    {
+      "index": 1170,
+      "character": "省",
+      "mediaFrequency": 1401,
+      "bestMediaRank": 1859
+    },
+    {
+      "index": 1171,
+      "character": "顶",
+      "mediaFrequency": 1400,
+      "bestMediaRank": 1861
+    },
+    {
+      "index": 1172,
+      "character": "迷",
+      "mediaFrequency": 1399,
+      "bestMediaRank": 1863
+    },
+    {
+      "index": 1173,
+      "character": "塔",
+      "mediaFrequency": 1399,
+      "bestMediaRank": 1865
+    },
+    {
+      "index": 1174,
+      "character": "烟",
+      "mediaFrequency": 1392,
+      "bestMediaRank": 1874
+    },
+    {
+      "index": 1175,
+      "character": "厅",
+      "mediaFrequency": 1392,
+      "bestMediaRank": 1876
+    },
+    {
+      "index": 1176,
+      "character": "喊",
+      "mediaFrequency": 1392,
+      "bestMediaRank": 1877
+    },
+    {
+      "index": 1177,
+      "character": "距",
+      "mediaFrequency": 1387,
+      "bestMediaRank": 1881
+    },
+    {
+      "index": 1178,
+      "character": "摔",
+      "mediaFrequency": 1382,
+      "bestMediaRank": 1887
+    },
+    {
+      "index": 1179,
+      "character": "鼻",
+      "mediaFrequency": 1374,
+      "bestMediaRank": 1891
+    },
+    {
+      "index": 1180,
+      "character": "罢",
+      "mediaFrequency": 1373,
+      "bestMediaRank": 1893
+    },
+    {
+      "index": 1181,
+      "character": "归",
+      "mediaFrequency": 1372,
+      "bestMediaRank": 1895
+    },
+    {
+      "index": 1182,
+      "character": "拳",
+      "mediaFrequency": 1370,
+      "bestMediaRank": 1897
+    },
+    {
+      "index": 1183,
+      "character": "窗",
+      "mediaFrequency": 1367,
+      "bestMediaRank": 1901
+    },
+    {
+      "index": 1184,
+      "character": "迹",
+      "mediaFrequency": 1366,
+      "bestMediaRank": 1902
+    },
+    {
+      "index": 1185,
+      "character": "萨",
+      "mediaFrequency": 1362,
+      "bestMediaRank": 1906
+    },
+    {
+      "index": 1186,
+      "character": "悔",
+      "mediaFrequency": 1358,
+      "bestMediaRank": 1909
+    },
+    {
+      "index": 1187,
+      "character": "仰",
+      "mediaFrequency": 1358,
+      "bestMediaRank": 1910
+    },
+    {
+      "index": 1188,
+      "character": "媒",
+      "mediaFrequency": 1357,
+      "bestMediaRank": 1913
+    },
+    {
+      "index": 1189,
+      "character": "匹",
+      "mediaFrequency": 1355,
+      "bestMediaRank": 1915
+    },
+    {
+      "index": 1190,
+      "character": "化",
+      "mediaFrequency": 1349,
+      "bestMediaRank": 1921
+    },
+    {
+      "index": 1191,
+      "character": "辈",
+      "mediaFrequency": 1347,
+      "bestMediaRank": 1925
+    },
+    {
+      "index": 1192,
+      "character": "华",
+      "mediaFrequency": 1341,
+      "bestMediaRank": 1927
+    },
+    {
+      "index": 1193,
+      "character": "盛",
+      "mediaFrequency": 1341,
+      "bestMediaRank": 1927
+    },
+    {
+      "index": 1194,
+      "character": "维",
+      "mediaFrequency": 1337,
+      "bestMediaRank": 1933
+    },
+    {
+      "index": 1195,
+      "character": "症",
+      "mediaFrequency": 1336,
+      "bestMediaRank": 1936
+    },
+    {
+      "index": 1196,
+      "character": "孤",
+      "mediaFrequency": 1333,
+      "bestMediaRank": 1940
+    },
+    {
+      "index": 1197,
+      "character": "蒂",
+      "mediaFrequency": 1333,
+      "bestMediaRank": 1941
+    },
+    {
+      "index": 1198,
+      "character": "巨",
+      "mediaFrequency": 1332,
+      "bestMediaRank": 1943
+    },
+    {
+      "index": 1199,
+      "character": "惩",
+      "mediaFrequency": 1329,
+      "bestMediaRank": 1945
+    },
+    {
+      "index": 1200,
+      "character": "罚",
+      "mediaFrequency": 1329,
+      "bestMediaRank": 1945
+    },
+    {
+      "index": 1201,
+      "character": "牧",
+      "mediaFrequency": 1318,
+      "bestMediaRank": 1956
+    },
+    {
+      "index": 1202,
+      "character": "登",
+      "mediaFrequency": 1316,
+      "bestMediaRank": 1959
+    },
+    {
+      "index": 1203,
+      "character": "环",
+      "mediaFrequency": 1316,
+      "bestMediaRank": 1960
+    },
+    {
+      "index": 1204,
+      "character": "境",
+      "mediaFrequency": 1316,
+      "bestMediaRank": 1960
+    },
+    {
+      "index": 1205,
+      "character": "凭",
+      "mediaFrequency": 1313,
+      "bestMediaRank": 1965
+    },
+    {
+      "index": 1206,
+      "character": "雨",
+      "mediaFrequency": 1312,
+      "bestMediaRank": 1968
+    },
+    {
+      "index": 1207,
+      "character": "磅",
+      "mediaFrequency": 1311,
+      "bestMediaRank": 1969
+    },
+    {
+      "index": 1208,
+      "character": "佳",
+      "mediaFrequency": 1308,
+      "bestMediaRank": 1971
+    },
+    {
+      "index": 1209,
+      "character": "废",
+      "mediaFrequency": 1300,
+      "bestMediaRank": 1973
+    },
+    {
+      "index": 1210,
+      "character": "效",
+      "mediaFrequency": 1299,
+      "bestMediaRank": 1974
+    },
+    {
+      "index": 1211,
+      "character": "咯",
+      "mediaFrequency": 1295,
+      "bestMediaRank": 1976
+    },
+    {
+      "index": 1212,
+      "character": "夺",
+      "mediaFrequency": 1288,
+      "bestMediaRank": 1980
+    },
+    {
+      "index": 1213,
+      "character": "握",
+      "mediaFrequency": 1287,
+      "bestMediaRank": 1981
+    },
+    {
+      "index": 1214,
+      "character": "掌",
+      "mediaFrequency": 1287,
+      "bestMediaRank": 1981
+    },
+    {
+      "index": 1215,
+      "character": "麦",
+      "mediaFrequency": 1286,
+      "bestMediaRank": 1982
+    },
+    {
+      "index": 1216,
+      "character": "童",
+      "mediaFrequency": 1286,
+      "bestMediaRank": 1983
+    },
+    {
+      "index": 1217,
+      "character": "佬",
+      "mediaFrequency": 1280,
+      "bestMediaRank": 1989
+    },
+    {
+      "index": 1218,
+      "character": "脖",
+      "mediaFrequency": 1279,
+      "bestMediaRank": 1991
+    },
+    {
+      "index": 1219,
+      "character": "谍",
+      "mediaFrequency": 1279,
+      "bestMediaRank": 1994
+    },
+    {
+      "index": 1220,
+      "character": "篇",
+      "mediaFrequency": 1277,
+      "bestMediaRank": 1995
+    },
+    {
+      "index": 1221,
+      "character": "漫",
+      "mediaFrequency": 1267,
+      "bestMediaRank": 2006
+    },
+    {
+      "index": 1222,
+      "character": "哼",
+      "mediaFrequency": 1264,
+      "bestMediaRank": 2007
+    },
+    {
+      "index": 1223,
+      "character": "黎",
+      "mediaFrequency": 1263,
+      "bestMediaRank": 2009
+    },
+    {
+      "index": 1224,
+      "character": "赏",
+      "mediaFrequency": 1262,
+      "bestMediaRank": 2012
+    },
+    {
+      "index": 1225,
+      "character": "欣",
+      "mediaFrequency": 1262,
+      "bestMediaRank": 2012
+    },
+    {
+      "index": 1226,
+      "character": "守",
+      "mediaFrequency": 1258,
+      "bestMediaRank": 2016
+    },
+    {
+      "index": 1227,
+      "character": "尬",
+      "mediaFrequency": 1256,
+      "bestMediaRank": 2019
+    },
+    {
+      "index": 1228,
+      "character": "尴",
+      "mediaFrequency": 1256,
+      "bestMediaRank": 2019
+    }
+  ]
+}

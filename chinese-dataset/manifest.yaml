@@ -1,0 +1,118 @@
+# Chinese learning dataset: interface manifest.
+# Machine readable (YAML). Each file lists the source keys it draws from.
+# Source keys resolve in sources.json. Paths are relative to chinese-dataset/.
+
+dataset: chinese-dataset
+version: 0.1.0
+status: draft
+description: Curated Chinese dictionary, character, frequency, and audio data, merged from the vendored sources.
+sourcesRegistry: sources.json
+
+files:
+  dictionary/entries.json:
+    description: Dictionary entries. Merged CC-CEDICT definitions and dong-chinese statistics. Fifty entries exist only in dong-chinese and have no pinyinTones field.
+    sources: [cc-cedict, dong-chinese]
+    count: 124774
+    shape:
+      sources: string[]
+      entries: object[]
+    entryFields: [simp, trad, pinyin, searchablePinyin, pinyinTones, definitions, statistics, boost, usedAsComponentIn]
+
+  dictionary/index.json:
+    description: Lookup maps from a key to positions in dictionary/entries.json entries.
+    sources: [cc-cedict, dong-chinese]
+    count:
+      simpKeys: 121015
+      tradKeys: 122197
+    shape:
+      sources: string[]
+      simp: object of string to integer[]
+      trad: object of string to integer[]
+
+  dictionary/etymology.json:
+    description: Etymology per character, including components, notes, and definitions. Image SVGs are not included.
+    sources: [dong-chinese]
+    count: 5088
+    shape:
+      sources: string[]
+      characters: object[]
+    characterFields: [character, notes, definition, components, pinyin, searchablePinyin]
+
+  frequency/character-order.json:
+    description: The first 1000 characters in learning order.
+    sources: [dong-chinese]
+    count: 1000
+    shape:
+      sources: string[]
+      characters: string[]
+
+  frequency/words.json:
+    description: Top 2000 words by media frequency.
+    sources: [dong-chinese, cc-cedict]
+    count: 2000
+    shape:
+      sources: string[]
+      words: object[]
+    wordFields: [index, word, traditional, pinyin, translation, mediaRank, mediaFrequency]
+
+  frequency/characters.json:
+    description: Characters appearing in the top 2000 words, ranked by media frequency.
+    sources: [dong-chinese]
+    count: 1229
+    shape:
+      sources: string[]
+      characters: object[]
+    characterFields: [index, character, mediaFrequency, bestMediaRank]
+
+  word-audio/hsk-words:
+    description: Native speaker MP3 recordings of HSK words and characters. File names are cmn-<simplified text>.mp3.
+    sources: [audio-cmn]
+    count: 8596
+    format: mp3
+    attribution: word-audio/ATTRIBUTION.md
+
+  word-audio/syllables:
+    description: Reading-specific character audio, named by numbered pinyin, such as cmn-le4.mp3.
+    sources: [audio-cmn]
+    count: 1707
+    format: mp3
+    attribution: word-audio/ATTRIBUTION.md
+
+sentences:
+  hsk-sentences-audio:
+    folder: sentences/hsk-sentences-audio
+    publishable: true
+    sources: [hsk-sentences-audio]
+    count: 4329
+    shape: sentences.json (sources, sentences), plus one MP3 per sentence named by audio.path.
+
+  tatoeba-nc:
+    folder: sentences/tatoeba-nc
+    publishable: true
+    sources: [tatoeba-nc]
+    count: 30
+    shape: sentences.json (sources, sentences), plus one MP3 per sentence named by audio.path. Each record's source_metadata has audio_user.
+    note: CC BY-NC 4.0 audio. Attribution to audio_user and audio_attribution_url is required.
+
+  tatoeba-unlicensed:
+    folder: sentences/tatoeba-unlicensed
+    publishable: false
+    sources: [tatoeba-unlicensed]
+    count: 536
+    shape: sentences.json (sources, sentences), plus one MP3 per sentence named by audio.path. Each record's source_metadata has audio_user.
+    note: No audio license in the Tatoeba export. Gitignored by name in .gitignore until the license is resolved.
+
+  anki-tatoeba:
+    folder: sentences/anki-tatoeba
+    publishable: false
+    sources: [anki-tatoeba]
+    count: 737
+    shape: sentences.json (sources, sentences), plus one MP3 per sentence named by audio.path.
+    note: Anki records whose original Tatoeba ID is already in tatoeba-nc or tatoeba-unlicensed are dropped (340), keeping the Tatoeba copy. The remaining 737 do not overlap Tatoeba. 688 come from the original export. 49 were rebuilt from the Anki deck with migrate_anki_tatoeba.py because the original export did not keep them (no translation after word-gloss enrichment). Their glosses are generated, not hand-checked, and some are wrong. Gitignored by name in .gitignore.
+
+conventions:
+  - Every JSON file has a top-level sources array of source keys. Records do not repeat it.
+  - Record ids are unique within their file. Audio paths are relative to the folder holding the JSON.
+  - File paths in this manifest are relative to chinese-dataset/.
+  - Images are not included in this version.
+  - Non-publishable sets are gitignored one folder at a time in .gitignore. The files are maintained by hand, not generated.
