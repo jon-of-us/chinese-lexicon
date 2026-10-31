@@ -27,7 +27,7 @@
       <button type="button" onclick={onHome}>Dictionary</button>
       <button type="button" onclick={onComponents}>Components</button>
       <button type="button" onclick={onPinyin}>Pinyin</button>
-      <button type="button" onclick={onTrain}>Training</button>
+      {#if __TRAINING_ENABLED__}<button type="button" onclick={onTrain}>Training</button>{/if}
       <button type="button" onclick={onSettings}>Settings</button>
       <button type="button" class:active={searchOpen} onclick={toggleSearch}>Search</button>
     </nav>

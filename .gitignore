@@ -5,6 +5,9 @@
 *.m4a
 *.aac
 *.flac
+# Audio the app plays on the publish branch: edge-tts words and syllables
+!chinese-dataset/word-audio/edge-tts/words/*.mp3
+!chinese-dataset/word-audio/edge-tts/syllables/*.mp3
 chinese/dong-chinese
 
 # chinese-extraction/: only scripts and docs are tracked; all data (Anki deck, Tatoeba exports, audio, reports) stays local

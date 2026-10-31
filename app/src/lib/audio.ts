@@ -16,11 +16,6 @@ const edgeTtsSyllablePrefix = '../../../chinese-dataset/word-audio/edge-tts/syll
 
 const characterSyllables = new Map<string, string>(Object.entries(edgeTtsSyllableIndex.characters));
 
-const sentenceAudioModules = import.meta.glob('../../../chinese-dataset/sentences/**/*.mp3', {
-  import: 'default',
-  query: '?url',
-}) as Record<string, () => Promise<string>>;
-
 // A word's own recording is used when it exists. Otherwise the character's
 // primary syllable is voiced by another character with the same reading.
 export async function getPronunciationAudio(text: string) {
@@ -28,8 +23,4 @@ export async function getPronunciationAudio(text: string) {
   if (own) return own();
   const syllable = characterSyllables.get(text);
   return syllable ? edgeTtsSyllableModules[`${edgeTtsSyllablePrefix}${syllable}.mp3`]?.() : undefined;
-}
-
-export async function sentenceAudio(source: string, path: string) {
-  return sentenceAudioModules[`../../../chinese-dataset/sentences/${source}/${path}`]?.();
 }

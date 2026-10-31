@@ -21,6 +21,9 @@
     | { kind: 'start' | 'detail' | 'settings'; path: string }
     | { kind: 'search'; path: string; query: string; results: DictionarySearch.SearchEntry[]; error: string | null };
   const NAVIGATION_STATE_KEY = 'kwaslNavigation';
+  const trainingEnabled = __TRAINING_ENABLED__;
+  // Deployed under a subpath (GitHub Pages project sites), so routes are read and written relative to this prefix.
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
   const PANE_GAP_PX = 24;
   const PANES_MIN_HEIGHT_PX = 320;
   const PANES_BOTTOM_INSET_PX = 16;
@@ -81,12 +84,12 @@
   });
 
   onMount(() => {
-    path = window.location.pathname;
+    path = appPathname();
     restoreStoredNavigation();
     handleRoute(path);
     if (settings.order === 'books' || settings.order === 'hsk' || settings.source === 'books') void loadDictionary();
     const onPopState = () => {
-      path = window.location.pathname;
+      path = appPathname();
       restoreStoredNavigation();
       handleRoute(path);
     };
@@ -106,13 +109,19 @@
     };
   });
 
+  function appPathname() {
+    const route = window.location.pathname.slice(basePath.length) || '/';
+    return !trainingEnabled && route === '/train' ? '/' : route;
+  }
   function isEntryRoute(route: string) { return /^\/(?:character|word)\//.test(route); }
   function isDetailRoute(route: string) { return isEntryRoute(route) || /^\/component\//.test(route); }
   function isStartRoute(route: string) { return route === '/' || route === '/components' || route === '/pinyin' || route === '/train'; }
   function navigationState(): NavigationEntry[] | null {
     const state = window.history.state as Record<string, unknown> | null;
     const stored = state?.[NAVIGATION_STATE_KEY];
-    return Array.isArray(stored) ? stored as NavigationEntry[] : null;
+    if (!Array.isArray(stored)) return null;
+    const entries = stored as NavigationEntry[];
+    return trainingEnabled ? entries : entries.map((entry) => entry.path === '/train' ? { ...entry, path: '/' } : entry);
   }
   function writeNavigationState(stack = navigationStack, url = window.location.href) {
     const state = window.history.state && typeof window.history.state === 'object' ? window.history.state : {};
@@ -152,7 +161,7 @@
   function pushNavigation(to: string, entry: NavigationEntry, stack = [...navigationStack, entry]) {
     const nextStack = [...stack.slice(0, -1), entry];
     const snapshot = $state.snapshot(nextStack);
-    window.history.pushState({ [NAVIGATION_STATE_KEY]: snapshot }, '', to);
+    window.history.pushState({ [NAVIGATION_STATE_KEY]: snapshot }, '', `${basePath}${to}`);
     navigationStack = nextStack;
     path = to;
     handleRoute(to);
@@ -292,7 +301,7 @@
     const value = routeValue(route, 'component');
     return dictionary && value ? dictionary.getComponentDetails(value, settings.order) : undefined;
   }
-  function openTraining() { trainingFinished = false; openStartPage('/train'); }
+  function openTraining() { if (!trainingEnabled) return; trainingFinished = false; openStartPage('/train'); }
   function colorFor(text: string) { return rankColor(dictionary?.getDifficultyRank(text, settings.source) ?? getOverviewDifficultyRank(text, settings.source), settings.range); }
   function componentColorFor(text: string) { return rankColor(dictionary?.getComponentRank(text, settings.source), settings.range); }
   function pinyinFor(text: string) { return dictionary?.getPinyin(text) ?? ''; }
@@ -332,6 +341,7 @@
     ComponentPage = detailPage.default;
   }
   async function prepareTraining(startSession = false) {
+    if (!trainingEnabled) return;
     const [engine, state, page] = await Promise.all([
       import('./lib/training/engine'),
       import('./lib/training/state'),

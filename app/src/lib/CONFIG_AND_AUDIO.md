@@ -19,6 +19,8 @@ To change appearance, edit `visual.colors`. The CSS variables are generated auto
 
 To change training parameters, edit the fields under `training`.
 
+To hide the whole training section (header button, `/train` route, Settings group, and the sentence data and audio), set `training.enabled` to `false`. `vite.config.ts` turns it into the build-time constant `__TRAINING_ENABLED__`, so the training code is removed from the bundle.
+
 ## 2. User settings (persisted in localStorage)
 
 ### Dictionary settings (lib/settings.ts)
@@ -57,7 +59,7 @@ Audio files are discovered at build time through `import.meta.glob`. **After add
 
 ### Sentence audio (sentenceAudio)
 
-`sentenceAudio(source, path)` looks up `../../../chinese-dataset/sentences/<source>/<path>` in `sentenceAudioModules`. `source` is the sentence set folder name, which `training/data.ts` stores on each sentence. `path` is `audio.path` from that set's `sentences.json`.
+`sentenceAudio(source, path)` in `training/audio.ts` looks up `../../../../chinese-dataset/sentences/<source>/<path>` in its glob. `source` is the sentence set folder name, which `training/data.ts` stores on each sentence. `path` is `audio.path` from that set's `sentences.json`.
 
 ## 4. Related files and licensing
 
