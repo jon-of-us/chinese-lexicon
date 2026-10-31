@@ -114,7 +114,7 @@
                         <tr>
                             <th class="coverage-header" scope="row" data-coverage={coverageLabel("final", row[0])}>{row[0]}</th>
                             {#each row.slice(1) as name, columnIndex}
-                                  <td class:left-edge={columnIndex < 4} class:right-edge={columnIndex > initials.length - 5}>{#if name && syllableByName.has(normalizePinyin(name))}<div class="syllable" role="group" style={`background: ${colorForRank(rankByName.get(normalizePinyin(name)))}`} onmouseenter={() => showHoverMenu(name)} onmouseleave={() => hideHoverMenu(name)}><button class:selected={selectedName === normalizePinyin(name)} onclick={(event) => select(event, name)}>{name}</button>{#if (selectedName === normalizePinyin(name) || (!selectedName && hoveredName === normalizePinyin(name))) && hoverCharacters(name).length}<div class="hover-menu" aria-label={`Common characters pronounced ${name}`}>{#each hoverCharacters(name) as item}<div class="hover-character"><span class="audio-slot"><PlayButton text={item.character} pinyin={item.pinyin} /></span><a href={`/character/${encodeURIComponent(item.character)}`} onclick={(event) => open(event, item.character)}><strong style={`color: ${colorForRank(item.rank)}`}>{item.character}</strong><span>{item.pinyin}</span><small>{item.definition}</small></a></div>{/each}</div>{/if}</div>{/if}</td>
+                                  <td class:left-edge={columnIndex < 4} class:right-edge={columnIndex > initials.length - 5}>{#if name && syllableByName.has(normalizePinyin(name))}<div class="syllable" role="group" style={`background: ${colorForRank(rankByName.get(normalizePinyin(name)))}`} onmouseenter={() => showHoverMenu(name)} onmouseleave={() => hideHoverMenu(name)}><button class:selected={selectedName === normalizePinyin(name)} onclick={(event) => select(event, name)}>{name}</button>{#if (selectedName === normalizePinyin(name) || (!selectedName && hoveredName === normalizePinyin(name))) && hoverCharacters(name).length}<div class="hover-menu" aria-label={`Common characters pronounced ${name}`}>{#each hoverCharacters(name) as item}<div class="hover-character"><span class="audio-slot"><PlayButton text={item.character} /></span><a href={`/character/${encodeURIComponent(item.character)}`} onclick={(event) => open(event, item.character)}><strong style={`color: ${colorForRank(item.rank)}`}>{item.character}</strong><span>{item.pinyin}</span><small>{item.definition}</small></a></div>{/each}</div>{/if}</div>{/if}</td>
                             {/each}
                         </tr>
                     {/each}
@@ -133,7 +133,7 @@
                         <strong style={`color: ${colorForRank(item.rank)}`}>{item.character}</strong>
                         <span class="meaning"><b>{item.pinyin}</b>{item.definition}<small>#{item.rank ?? "—"}</small></span>
                         </a>
-                        <PlayButton text={item.character} pinyin={item.pinyin} />
+                        <PlayButton text={item.character} />
                     </div>
                 {/each}
             </div>

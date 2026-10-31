@@ -308,9 +308,8 @@
   async function playRouteAudio(route: string) {
     const text = decodeURIComponent(route.match(/^\/(?:character|word)\/(.+)$/)?.[1] ?? '');
     if (!text) return;
-    const [audio, dictionaryModule] = await Promise.all([import('./lib/audio'), loadDictionary()]);
-    const pinyin = dictionaryModule.getEntries(text)[0]?.pinyin;
-    const source = await audio.getPronunciationAudio(audio.pronunciationTarget(text, pinyin));
+    const audio = await import('./lib/audio');
+    const source = await audio.getPronunciationAudio(text);
     if (source) void new Audio(source).play().catch(() => {});
   }
   async function loadDictionary() {

@@ -1,12 +1,12 @@
 <script lang="ts">
     import * as AudioFiles from "./audio";
 
-    let { text, pinyin }: { text: string; pinyin?: string } = $props();
+    let { text }: { text: string } = $props();
     let source = $state<string>();
 
     $effect(() => {
         source = undefined;
-        void AudioFiles.getPronunciationAudio(AudioFiles.pronunciationTarget(text, pinyin)).then((next) => source = next);
+        void AudioFiles.getPronunciationAudio(text).then((next) => source = next);
     });
 
     function play() {

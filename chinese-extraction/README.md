@@ -18,6 +18,8 @@ chinese-extraction/
 │   └── migrate_anki_tatoeba.py
 ├── build_media_frequency_lists.mjs   Node: generates media word and character frequency lists
 ├── build_tatoeba_hsk13.mjs           Node: builds the Tatoeba HSK 1–3 sentence TSV
+├── build_edge_tts_dataset.py         Python: Edge TTS audio (zh-CN-YunyangNeural) for the top 2000 frequency words (multi-character only) → chinese-dataset/word-audio/edge-tts/words/
+├── build_edge_tts_syllables.py       Python: Edge TTS audio for every toned pinyin syllable + character→syllable index → chinese-dataset/word-audio/edge-tts/syllables/
 ├── download_hf_audio.sh              Shell: fills in HSK sentence audio (Git LFS)
 ├── download_hsk_word_audio.sh        Shell: fetches native-speaker HSK word and syllable pronunciations
 ├── requirements.txt                  Python dependency: spacy-pkuseg==1.0.1
@@ -61,6 +63,8 @@ Migration output is `chinese/sentences/<source>.json` and `chinese-extraction/mi
 - **build_tatoeba_hsk13.mjs**: reads the Chinese and English sentence exports (bz2) from `tatoeba/`, labels words with HSK levels using `getHSKLevel` from `dong-chinese/statistics/hsk.js`, keeps sentences at levels 1–3, and writes `tatoeba/hsk1-3_cmn_eng_audio.tsv`.
 - **download_hsk_word_audio.sh**: sparse-clones `hugolpz/audio-cmn` and syncs `96k/hsk` and `64k/syllabs` into `chinese/audio-cmn/`. Licensed CC BY-SA 4.0, see [ATTRIBUTION.md](../chinese/audio-cmn/ATTRIBUTION.md).
 - **download_hf_audio.sh**: replaces LFS pointers with real mp3 files and supports resuming.
+- **build_edge_tts_dataset.py**: synthesizes the 2000 most frequent unique texts (words from `frequency/words.json` and characters from `frequency/characters.json`, ranked by `mediaFrequency`), keeping only multi-character texts, with the `zh-CN-YunyangNeural` voice into `chinese-dataset/word-audio/edge-tts/words/cmn-<text>.mp3`. Single characters use the syllable audio instead. Text is padded with spaces to avoid clipped audio. Run as `.venv/bin/python chinese-extraction/build_edge_tts_dataset.py`. Existing files are skipped, so reruns resume.
+- **build_edge_tts_syllables.py**: synthesizes one MP3 per valid toned pinyin syllable (1333, e.g. `cmn-wo3.mp3`) into `chinese-dataset/word-audio/edge-tts/syllables/`. Each syllable is voiced by its most frequent character with that primary reading. It also writes `syllables/index.json` with `voices` (syllable → character) and `characters` (character → primary syllable), which the app uses as a fallback for characters without their own `main/` file. Run as `.venv/bin/python build_edge_tts_syllables.py` from `Chinese-extraction/`.
 - **migrations/**: see [migrations/README.md](migrations/README.md) for the unified format and the segmentation and alignment rules.
 
 ## Caveats and open decisions

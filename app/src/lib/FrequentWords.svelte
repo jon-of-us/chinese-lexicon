@@ -25,7 +25,7 @@
                     href={`/word/${encodeURIComponent(word.word)}`}
                     onclick={(event) => onOpen(event, word.word)}>{word.word}</a
                 ><span class="word-details"
-                    ><PlayButton text={word.word} pinyin={pinyinFor(word.word)} />
+                    ><PlayButton text={word.word} />
                     <small class="component-pinyin"
                         >{pinyinFor(word.word)}</small
                     ></span

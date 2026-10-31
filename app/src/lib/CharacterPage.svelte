@@ -137,7 +137,7 @@
                             >{/each}{/if}
                 </h1>
                 <div class="meta">
-                    <PlayButton text={entry} pinyin={primary.pinyin} /><strong>{primary.pinyin}</strong
+                    <PlayButton text={entry} /><strong>{primary.pinyin}</strong
                     ><b>·</b><strong
                         >{primary.definitions
                             .filter(

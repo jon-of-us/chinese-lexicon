@@ -1,2 +1,4 @@
 # Maintained spaCy fork of PKUSeg, used only when a source has no usable split.
 spacy-pkuseg==1.0.1
+# Used by build_edge_tts_dataset.py to synthesize word and character audio
+edge-tts==7.3.1

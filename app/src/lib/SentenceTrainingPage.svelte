@@ -103,7 +103,7 @@
     const now = Date.now();
     if (now - (lastWordAudio.get(word) ?? 0) < config.training.wordAudioDebounceMilliseconds) return;
     lastWordAudio.set(word, now);
-    void AudioFiles.getPronunciationAudio(AudioFiles.pronunciationTarget(word, pinyin(word))).then((wordSource) => {
+    void AudioFiles.getPronunciationAudio(word).then((wordSource) => {
       if (wordSource) void new Audio(wordSource).play().catch(() => {});
     });
   }

@@ -45,15 +45,15 @@ Audio files are discovered at build time through `import.meta.glob`. **After add
 
 | Category | Directory | Matching |
 | --- | --- | --- |
-| Word pronunciation | `chinese-dataset/word-audio/hsk-words/cmn-<word>.mp3` | Filename is the word text |
-| Syllable pronunciation | `chinese-dataset/word-audio/syllables/cmn-<syllable><tone>.mp3` | Filename is generated from pinyin |
+| Word pronunciation | `chinese-dataset/word-audio/edge-tts/words/cmn-<word>.mp3` (top 2000 multi-character words, Yunyang voice) | Filename is the text; no audio if the word is outside the top 2000 |
 | Sentence audio | `chinese-dataset/sentences/**/*.mp3` | Folder is the sentence set; file is `audio.path` in that set's `sentences.json` |
 
 ### Pronunciation selection (getPronunciationAudio)
 
-- For a single character with **multiple readings** (different pinyin in `Dictionary.getEntries`), the syllable file is used. The filename is produced by `syllableFilename`: tone marks are removed and converted to numeric tones (`ā` → `a1`), tone `5` (neutral) is written as `1`, and `u:` and `ü` are both normalized to `v`.
-- Otherwise, the word file `hsk/cmn-<text>.mp3` is used.
+- `getPronunciationAudio(text)` returns `edge-tts/words/cmn-<text>.mp3` when it exists. Single characters have no file in `words/`, so they use the syllable file for their primary reading: `edge-tts/syllables/cmn-<pinyin><tone>.mp3`. The mapping is in `edge-tts/syllables/index.json` (`characters`). Each syllable is voiced by one representative character with that reading (`voices`).
+- No other audio is used as a fallback.
 - If no matching file exists, it returns `undefined`, and `PlayButton.svelte` does not render a button.
+- Component characters use the same lookup. The component page plays the component's audio automatically when it opens, and its heading shows a play button for replay. The character page's Structure cards have no play buttons.
 
 ### Sentence audio (sentenceAudio)
 
