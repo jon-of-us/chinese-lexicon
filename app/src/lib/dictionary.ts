@@ -1,6 +1,5 @@
-import dictionaryEntriesFile from '../../../chinese-dataset/dictionary/entries.json';
+import dictionaryDataFile from '../generated/dictionary-data.json';
 import dictionaryIndexFile from '../../../chinese-dataset/dictionary/index.json';
-import etymologyFile from '../../../chinese-dataset/dictionary/etymology.json';
 import characterOrderFile from '../../../chinese-dataset/frequency/character-order.json';
 import frequencyCharacterFile from '../../../chinese-dataset/frequency/characters.json';
 import * as DictionarySearch from './dictionary-search';
@@ -10,12 +9,12 @@ import type * as Ranking from './ranking';
 type Statistics = { bookWordRank?: number; movieWordRank?: number; bookCharCount?: number; bookCharRank?: number; movieCharCount?: number; movieCharRank?: number; hskLevel?: number };
 type LexiconEntry = DictionarySearch.SearchEntry & { statistics?: Statistics };
 type MediaCharacter = { character: string; mediaFrequency: number; bestMediaRank?: number };
-const allEntries = dictionaryEntriesFile.entries as LexiconEntry[];
+const allEntries = dictionaryDataFile.entries as LexiconEntry[];
 const characterOrder: string[] = characterOrderFile.characters;
 const mediaCharacters = frequencyCharacterFile.characters as MediaCharacter[];
 const simpPositions: Record<string, number[]> = dictionaryIndexFile.simp;
 const tradPositions: Record<string, number[]> = dictionaryIndexFile.trad;
-const etymologyByCharacter = new Map(etymologyFile.characters.map((etymology) => [etymology.character, etymology]));
+const etymologyByCharacter = new Map(dictionaryDataFile.etymology.map((etymology) => [etymology.character, etymology]));
 const mediaFrequencyByCharacter = new Map(mediaCharacters.map(({ character, mediaFrequency }) => [character, mediaFrequency]));
 const mediaRankByCharacter = new Map(mediaCharacters.map(({ character, bestMediaRank }) => [character, bestMediaRank]));
 
@@ -64,55 +63,19 @@ export type ComponentDetails = {
 };
 export type OverviewComponent = { component: string; rank: number; frequency?: number; level?: number };
 type ComponentUseMaps = { meaning: Map<string, ComponentCharacter>; sound: Map<string, ComponentCharacter>; other: Map<string, ComponentCharacter> };
-const componentUses = new Map<string, ComponentUseMaps>();
-const seenComponentCharacters = new Set<string>();
+type ComponentUseLists = { meaning: ComponentCharacter[]; sound: ComponentCharacter[]; other: ComponentCharacter[] };
+const componentUses = new Map(
+  Object.entries(dictionaryDataFile.componentUses as Record<string, ComponentUseLists>).map(([component, uses]): [string, ComponentUseMaps] => [
+    component,
+    {
+      meaning: new Map(uses.meaning.map((character) => [character.character, character])),
+      sound: new Map(uses.sound.map((character) => [character.character, character])),
+      other: new Map(uses.other.map((character) => [character.character, character])),
+    },
+  ]),
+);
 const componentOverviewCache = new Map<Settings.DictionaryOrder, OverviewComponent[]>();
 const componentRankCache = new Map<Settings.DictionaryOrder, Map<string, number>>();
-
-function isSingleHan(text: string) {
-  return /^\p{Script=Han}$/u.test(text);
-}
-
-function getComponentUseMaps(component: string) {
-  let uses = componentUses.get(component);
-  if (!uses) {
-    uses = { meaning: new Map(), sound: new Map(), other: new Map() };
-    componentUses.set(component, uses);
-  }
-  return uses;
-}
-
-function addComponentUse(component: string, type: string, character: ComponentCharacter) {
-  if (!isSingleHan(component)) return;
-  const uses = getComponentUseMaps(component);
-  const category = type === 'meaning' || type === 'sound' ? type : 'other';
-  uses[category].set(character.character, character);
-}
-
-for (const entry of allEntries) {
-  if (Array.from(entry.simp).length !== 1) continue;
-  const character = entry.simp;
-  if (!isSingleHan(character) || seenComponentCharacters.has(character)) continue;
-  seenComponentCharacters.add(character);
-  const etymology = getEtymology(character);
-  if (!etymology) continue;
-  const characterEntry = (getEntries(character) as LexiconEntry[])[0] ?? entry;
-  const statistics = characterEntry.statistics;
-  const characterInfo: ComponentCharacter = {
-    character,
-    pinyin: characterEntry.pinyin ?? etymology.pinyin ?? '',
-    definition: etymology.definition ?? characterEntry.definitions[0] ?? 'Character',
-    bookFrequency: statistics?.bookCharCount,
-    bookRank: statistics?.bookCharRank,
-    mediaFrequency: statistics?.movieCharCount ?? mediaFrequencyByCharacter.get(character),
-    mediaRank: statistics?.movieCharRank ?? mediaRankByCharacter.get(character),
-    hskLevel: statistics?.hskLevel,
-    dongRank: dongRanks.get(character),
-  };
-  for (const part of etymology.components ?? []) {
-    addComponentUse(part.char, part.type, characterInfo);
-  }
-}
 
 function bestRank(current?: number, candidate?: number) {
   if (!candidate) return current;

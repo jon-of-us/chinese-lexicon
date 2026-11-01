@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount, type Component } from 'svelte';
   import OverviewPage from './lib/OverviewPage.svelte';
-    import PinyinPage from './lib/PinyinPage.svelte';
   import SearchResults from './lib/SearchResults.svelte';
   import SettingsPage from './lib/SettingsPage.svelte';
   import SiteHeader from './lib/SiteHeader.svelte';
@@ -52,6 +51,7 @@
   let dictionary = $state<DictionaryModule | null>(null);
   let trainingEngine = $state<TrainingEngine | null>(null);
   let trainingState = $state<TrainingState | null>(null);
+  let PinyinPage = $state<Component<any> | null>(null);
   let CharacterPage = $state<Component<any> | null>(null);
   let ComponentOverviewPage = $state<Component<any> | null>(null);
   let ComponentPage = $state<Component<any> | null>(null);
@@ -252,6 +252,7 @@
     searchWorker.addEventListener('message', (event: MessageEvent<SearchWorkerProtocol.SearchResponse>) => {
       if (event.data.id !== searchRequestId) return;
       results = event.data.results;
+      searchError = event.data.failed ? 'Dictionary search could not be completed. Please try again.' : null;
       searchLoading = false;
       updateSearchEntry();
     });
@@ -312,7 +313,7 @@
   function handleRoute(route: string) {
     if (isEntryRoute(route)) { void prepareDictionaryPage(); playRouteAudio(route); }
     if (route === '/components' || /^\/component\//.test(route)) void prepareComponentPages();
-    if (route === '/pinyin') void loadDictionary();
+    if (route === '/pinyin') void preparePinyinPage();
     if (route === '/train') void prepareTraining(true);
   }
   async function playRouteAudio(route: string) {
@@ -330,6 +331,11 @@
     const [module, page] = await Promise.all([loadDictionary(), import('./lib/CharacterPage.svelte')]);
     dictionary = module;
     CharacterPage = page.default;
+  }
+  async function preparePinyinPage() {
+    const [module, page] = await Promise.all([loadDictionary(), import('./lib/PinyinPage.svelte')]);
+    dictionary = module;
+    PinyinPage = page.default;
   }
   async function prepareComponentPages() {
     const [module, overviewPage, detailPage] = await Promise.all([
@@ -388,7 +394,7 @@
 
 {#snippet startView(route: string, index: number)}
   {#if route === '/pinyin'}
-    <PinyinPage colorFor={colorFor} colorForRank={(rank) => rankColor(rank, settings.range)} hoverCharacterRank={settings.pinyinHoverRank} onOpen={(value: string) => openFromPane(index, value)} />
+    {#if PinyinPage && dictionary}<PinyinPage colorFor={colorFor} colorForRank={(rank: number | undefined) => rankColor(rank, settings.range)} hoverCharacterRank={settings.pinyinHoverRank} onOpen={(value: string) => openFromPane(index, value)} />{:else}<p>Loading pinyin…</p>{/if}
   {:else if route === '/train'}
     {#if learningState && SentenceTrainingPage}<SentenceTrainingPage state={learningState} session={trainingSession} settings={trainingSettings} finished={trainingFinished} canPreviousSentence={trainingHistoryIndex > 0} canNextSentence={trainingHistoryIndex < trainingHistory.length - 1 || (trainingSession?.completedCount ?? 0) + 1 < (trainingSession?.targetCount ?? 0)} {colorFor} componentColorFor={componentColorFor} headlineSize={settings.detailHeadlineSize} onSession={updateTrainingSession} onOpenWord={(value: string) => openFromPane(index, value)} onComplete={nextTrainingSentence} onPreviousSentence={previousTrainingSentence} onStart={openTraining} />{:else}<p>Loading sentence training…</p>{/if}
   {:else if route === '/components'}

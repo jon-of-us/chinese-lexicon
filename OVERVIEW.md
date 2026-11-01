@@ -32,7 +32,7 @@ Note: the root `.gitignore` excludes mp3 and other audio, the `chinese-extractio
 
 ## 3. Data flow
 
-1. **Dictionary and frequency**: `chinese-dataset/dictionary/` (entries, lookup index, etymology) and `chinese-dataset/frequency/` (character order, word and character frequency). `dictionary.ts` and `search.worker.ts` load them for search, pinyin, definitions, components, and etymology. `ranking.ts` loads the frequency files for the overview page.
+1. **Dictionary and frequency**: `chinese-dataset/dictionary/` (entries, lookup index, etymology) and `chinese-dataset/frequency/` (character order, word and character frequency). `dictionary.ts` loads them for pinyin, definitions, components, and etymology. `dictionary.ts` loads a generated slim copy of the data (`chinese-app/src/generated/dictionary-data.json`) and `search.worker.ts` searches a generated slim copy of the entries (`chinese-app/src/generated/search-entries.json`). Both are built from `chinese-dataset/` by `chinese-app/scripts/generate-dictionary-data.ts` during `npm run generate`, `dev`, and `build`. They are gitignored. `npm run build` also fails if the entry chunk exceeds 250 KB (`chinese-app/scripts/check-bundle-size.mjs`). `ranking.ts` loads the frequency files for the overview page.
 2. **Audio**: `chinese-dataset/word-audio/` holds word and syllable MP3s. `audio.ts` discovers them at build time through `import.meta.glob`. `chinese-dataset/sentences/<set>/` holds sentence audio.
 3. **Sentences**: `training/data.ts` globs each set's `sentences.json` and keeps the sets listed in `config.training.sentenceSources`.
 4. **Curated dataset**: the data is maintained by hand. There are no generator scripts in the repository. The layout and interface are in [chinese-dataset/README.md](chinese-dataset/README.md) and [manifest.yaml](chinese-dataset/manifest.yaml).
@@ -52,7 +52,7 @@ The main fields of a unified sentence record are `id`, `source`, `audio{path,for
 | `/word/:w` | Word detail | `CharacterPage` |
 | `/components` | Component and radical overview, ordered by the selected frequency source and colored by component rank; hovering a component lifts it and shows its pinyin in bold below it | `ComponentOverviewPage` |
 | `/component/:c` | Component detail with its own structure (the parts it breaks down into, if any) and simplified-character uses grouped by meaning, sound, and other roles | `ComponentPage` |
-| `/pinyin` | Pinyin table | `PinyinPage` |
+| `/pinyin` | Pinyin table (lazy-loaded chunk, so it stays out of the entry chunk) | `PinyinPage` |
 | `/train` | Sentence training | `SentenceTrainingPage` |
 | `/settings` | Settings (dictionary ordering, training parameters) | `SettingsPage` |
 
@@ -149,7 +149,7 @@ Known gaps:
 - `frequency/character-order.json` has no generator in this repository.
 - 50 dictionary entries come only from dong-chinese and have no `pinyinTones` field.
 - Images are not included. The app does not use them.
-- The dictionary is a large static import (about 63 MB, 15.5 MB gzipped), loaded only when a dictionary page opens.
+- The dictionary is a large static import (about 64 MB, 15.7 MB gzipped), loaded on app start because `App.svelte` preloads it on mount.
 
 ## 8. Open decisions and verification status
 
