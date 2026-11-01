@@ -18,9 +18,9 @@ const characterSyllables = new Map<string, string>(Object.entries(edgeTtsSyllabl
 
 // A word's own recording is used when it exists. Otherwise the character's
 // primary syllable is voiced by another character with the same reading.
-export async function getPronunciationAudio(text: string) {
+export async function getPronunciationAudio(text: string, fallbackText?: string) {
   const own = edgeTtsWordModules[`${edgeTtsWordPrefix}${text}.mp3`];
   if (own) return own();
-  const syllable = characterSyllables.get(text);
+  const syllable = characterSyllables.get(text) ?? (fallbackText ? characterSyllables.get(fallbackText) : undefined);
   return syllable ? edgeTtsSyllableModules[`${edgeTtsSyllablePrefix}${syllable}.mp3`]?.() : undefined;
 }

@@ -27,7 +27,7 @@ export function getEtymology(character: string) {
 }
 
 export function search(term: string, limit = 100) {
-  return DictionarySearch.searchEntries(allEntries, term, limit);
+  return DictionarySearch.searchEntries([...allEntries, ...componentSearchEntries], term, limit);
 }
 
 type FrequencyScores = { books?: number; media?: number };
@@ -74,6 +74,20 @@ const componentUses = new Map(
     },
   ]),
 );
+const componentSearchEntries: DictionarySearch.SearchEntry[] = [...componentUses.keys()].map((component) => {
+  const entry = (getEntries(component) as LexiconEntry[])[0];
+  const etymology = getEtymology(component);
+  return {
+    simp: component,
+    trad: entry?.trad ?? component,
+    definitions: [etymology?.definition ?? entry?.definitions[0] ?? 'Character component'],
+    pinyin: entry?.pinyin ?? etymology?.pinyin,
+    searchablePinyin: entry?.searchablePinyin,
+    pinyinTones: entry?.pinyinTones,
+    boost: entry?.boost,
+    kind: 'component',
+  };
+});
 const componentOverviewCache = new Map<Settings.DictionaryOrder, OverviewComponent[]>();
 const componentRankCache = new Map<Settings.DictionaryOrder, Map<string, number>>();
 
@@ -130,7 +144,10 @@ for (const entry of allEntries) {
 
 // Short radical form of a full component (人 → 亻) or the full component of a short form (亻 → 人).
 export function getComponentVariant(component: string) {
-  return [...(componentForms.get(component) ?? [])][0] ?? componentOriginals.get(component) ?? '';
+  const form = [...(componentForms.get(component) ?? [])][0] ?? componentOriginals.get(component);
+  if (form) return form;
+  const entry = (getEntries(component) as LexiconEntry[])[0];
+  return entry && entry.simp !== entry.trad ? (entry.simp === component ? entry.trad : entry.simp) : '';
 }
 
 export function getFrequencyScores(text: string) {

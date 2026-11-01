@@ -1,12 +1,12 @@
 <script lang="ts">
     import * as AudioFiles from "./audio";
 
-    let { text }: { text: string } = $props();
+    let { text, fallbackText }: { text: string; fallbackText?: string } = $props();
     let source = $state<string>();
 
     $effect(() => {
         source = undefined;
-        void AudioFiles.getPronunciationAudio(text).then((next) => source = next);
+        void AudioFiles.getPronunciationAudio(text, fallbackText).then((next) => source = next);
     });
 
     function play() {

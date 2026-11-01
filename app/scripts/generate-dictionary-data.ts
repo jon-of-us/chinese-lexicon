@@ -124,7 +124,22 @@ export function writeDictionaryData() {
   const entries = rawEntries.map((entry) => roundFloats(trimEntry(entry)));
   const etymology = rawEtymology.map(trimEtymology);
   const componentUses = buildComponentUses(rawEntries, index, new Map(rawEtymology.map((item) => [item.character, item])), characterOrder, mediaCharacters);
-  const searchEntries = entries.map((entry) => pick(entry, searchFields));
+  const componentSearchEntries = Object.keys(componentUses).map((component) => {
+    const position = index.simp[component]?.[0] ?? index.trad[component]?.[0];
+    const entry = position === undefined ? undefined : rawEntries[position];
+    const componentEtymology = rawEtymology.find((item) => item.character === component);
+    return {
+      simp: component,
+      trad: entry?.trad ?? component,
+      definitions: [componentEtymology?.definition ?? entry?.definitions[0] ?? 'Character component'],
+      pinyin: entry?.pinyin ?? componentEtymology?.pinyin,
+      searchablePinyin: entry?.searchablePinyin,
+      pinyinTones: entry?.pinyinTones,
+      boost: entry?.boost,
+      kind: 'component' as const,
+    };
+  });
+  const searchEntries = [...entries.map((entry) => pick(entry, searchFields)), ...componentSearchEntries];
 
   FileSystem.mkdirSync(generatedDirectory, { recursive: true });
   FileSystem.writeFileSync(dictionaryDataPath, JSON.stringify({ entries, etymology, componentUses }));

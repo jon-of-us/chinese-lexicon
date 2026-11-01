@@ -19,6 +19,7 @@
   type NavigationEntry =
     | { kind: 'start' | 'detail' | 'settings'; path: string }
     | { kind: 'search'; path: string; query: string; results: DictionarySearch.SearchEntry[]; error: string | null };
+  type SearchNavigationEntry = Extract<NavigationEntry, { kind: 'search' }>;
   const NAVIGATION_STATE_KEY = 'kwaslNavigation';
   const trainingEnabled = __TRAINING_ENABLED__;
   // Deployed under a subpath (GitHub Pages project sites), so routes are read and written relative to this prefix.
@@ -60,6 +61,10 @@
   let searchTimer: number | undefined;
   let searchRequestId = 0;
   let searchWorker: Worker | null = null;
+  let routeAudio: HTMLAudioElement | undefined;
+  let routeAudioRequest = 0;
+  let lastSearch: { query: string; results: DictionarySearch.SearchEntry[] } | null = null;
+  let clickedSearchResults: DictionarySearch.SearchEntry[] = [];
   const character = $derived(routeValue(path, 'character'));
   const word = $derived(routeValue(path, 'word'));
   const component = $derived(routeValue(path, 'component'));
@@ -68,18 +73,26 @@
   const detailHomeLabel = $derived(startPage === '/components' ? 'Return to components' : startPage === '/pinyin' ? 'Return to pinyin' : startPage === '/train' ? trainingSession ? 'Return to sentence' : 'Return to training' : 'Return to dictionary');
   const overviewCharacters = $derived<OverviewCharacter[]>(settings.order === 'books' ? Dictionary.getBookFrequencyCharacters() : settings.order === 'hsk' ? Dictionary.getHskCharacters() : getOverviewCharacters(settings.order));
   const overviewComponents = $derived(Dictionary.getOverviewComponents(settings.order));
-  const lastNonDetailIndex = $derived(navigationStack.findLastIndex((item) => item.kind !== 'detail'));
-  const detailRunLength = $derived(navigationStack.length - lastNonDetailIndex - 1);
-  const paneBase = $derived(navigationStack[lastNonDetailIndex]?.kind === 'start' ? lastNonDetailIndex : lastNonDetailIndex + 1);
-  const paneRunLength = $derived(detailRunLength ? navigationStack.length - paneBase : 0);
+  const topEntry = $derived(navigationStack.at(-1));
+  const paneRunStart = $derived.by(() => {
+    let index = navigationStack.length;
+    while (index > 0 && isPaneEntry(navigationStack[index - 1])) index--;
+    return index;
+  });
+  const paneBase = $derived(navigationStack[paneRunStart - 1]?.kind === 'start' ? paneRunStart - 1 : paneRunStart);
+  // A search entry directly beneath a detail is replaced by that detail, so it takes no pane of its own.
+  const paneEntries = $derived.by(() => {
+    if (paneRunStart === navigationStack.length) return [];
+    return navigationStack
+      .slice(paneBase)
+      .map((entry, offset) => ({ index: paneBase + offset, entry }))
+      .filter(({ index, entry }) => !(entry.kind === 'search' && navigationStack[index + 1]?.kind === 'detail'));
+  });
+  const paneRunLength = $derived(paneEntries.length);
   const multiPane = $derived(Math.min(settings.maxPanes, paneRunLength) >= 2);
   const fittingPanes = $derived(Math.floor((availableWidth + PANE_GAP_PX) / (settings.paneMinWidth + PANE_GAP_PX)));
   const visiblePaneCount = $derived(Math.min(settings.maxPanes, paneRunLength, Math.max(1, fittingPanes)));
-  const detailPanes = $derived.by(() => {
-    if (visiblePaneCount < 2) return [];
-    const start = navigationStack.length - visiblePaneCount;
-    return navigationStack.slice(start).map((item, offset) => ({ index: start + offset, path: item.path, kind: item.kind }));
-  });
+  const detailPanes = $derived(visiblePaneCount < 2 ? [] : paneEntries.slice(-visiblePaneCount));
 
   onMount(() => {
     path = appPathname();
@@ -113,6 +126,7 @@
   function isEntryRoute(route: string) { return /^\/(?:character|word)\//.test(route); }
   function isDetailRoute(route: string) { return isEntryRoute(route) || /^\/component\//.test(route); }
   function isStartRoute(route: string) { return route === '/' || route === '/components' || route === '/pinyin' || route === '/train'; }
+  function isPaneEntry(entry: NavigationEntry) { return entry.kind === 'detail' || entry.kind === 'search'; }
   function navigationState(): NavigationEntry[] | null {
     const state = window.history.state as Record<string, unknown> | null;
     const stored = state?.[NAVIGATION_STATE_KEY];
@@ -162,6 +176,7 @@
     navigationStack = nextStack;
     path = to;
     handleRoute(to);
+    if (entry.kind === 'detail') playRouteAudio(to);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function openStartPage(to: string) {
@@ -170,7 +185,7 @@
     searchOpen = false;
     pushNavigation(to, { kind: 'start', path: to }, []);
   }
-  function navigateBackTo(index: number, playAudio = true) {
+  function navigateBackTo(index: number) {
     const target = navigationStack[index];
     if (!target) return;
     const nextStack = navigationStack.slice(0, index + 1);
@@ -178,7 +193,7 @@
     navigationStack = nextStack;
     path = target.path;
     restoreStoredNavigation();
-    handleRoute(path, playAudio);
+    handleRoute(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function open(value: string) {
@@ -190,7 +205,7 @@
     pushNavigation(to, { kind: 'detail', path: to });
   }
   function popToPane(index: number) {
-    if (index < navigationStack.length - 1) navigateBackTo(index, false);
+    if (index < navigationStack.length - 1) navigateBackTo(index);
   }
   function openFromPane(index: number, value: string) {
     popToPane(index);
@@ -227,11 +242,11 @@
     navigateBackTo(Math.max(0, navigationStack.length - 2));
   }
   function openSearch() {
-    if (navigationStack.at(-1)?.kind !== 'search') {
-      query = '';
-      results = [];
-      pushNavigation(path, { kind: 'search', path, query: '', results: [], error: null });
-    }
+    if (navigationStack.at(-1)?.kind === 'search') return;
+    query = lastSearch?.query ?? '';
+    results = lastSearch?.results ?? clickedSearchResults;
+    searchError = null;
+    pushNavigation(path, { kind: 'search', path, query, results, error: null });
   }
   function closeSearch() {
     const index = navigationStack.findLastIndex((item) => item.kind === 'search');
@@ -267,7 +282,7 @@
     if (searchTimer !== undefined) window.clearTimeout(searchTimer);
     const requestId = ++searchRequestId;
     searchError = null;
-    if (!term) { results = []; searchLoading = false; updateSearchEntry(); return; }
+    if (!term) { results = clickedSearchResults; searchLoading = false; updateSearchEntry(); return; }
     results = [];
     searchLoading = true;
     updateSearchEntry();
@@ -283,7 +298,16 @@
     navigationStack = [...navigationStack.slice(0, -1), updated];
     writeNavigationState();
   }
-  function selectSearchResult(value: string) { query = ''; results = []; searchOpen = false; open(value); }
+  function selectSearchResult(entry: DictionarySearch.SearchEntry) {
+    if (query.trim()) lastSearch = { query, results: $state.snapshot(results) };
+    const clicked = $state.snapshot(entry);
+    clickedSearchResults = [clicked, ...clickedSearchResults.filter((item) => item.simp !== clicked.simp || item.kind !== clicked.kind)];
+    query = '';
+    results = [];
+    searchOpen = false;
+    if (clicked.kind === 'component') openComponent(clicked.simp);
+    else open(clicked.simp);
+  }
   function openOverview() { openStartPage('/'); }
   function openPinyin() { openStartPage('/pinyin'); }
   function openSettings() {
@@ -306,18 +330,24 @@
   function updateSettings(next: DifficultySettings) { settings = next; saveDifficultySettings(next); }
   function updateFrequencySource(order: DifficultySettings['order']) { updateSettings({ ...settings, order }); }
   function cycleDictionaryOrder() { const orders: DifficultySettings['order'][] = ['books', 'media', 'dong', 'hsk']; updateFrequencySource(orders[(orders.indexOf(settings.order) + 1) % orders.length]); }
-  function handleRoute(route: string, playAudio = true) {
-    if (isEntryRoute(route)) { void prepareCharacterPage(); if (playAudio) playRouteAudio(route); }
+  function handleRoute(route: string) {
+    if (isEntryRoute(route)) void prepareCharacterPage();
     if (route === '/components' || /^\/component\//.test(route)) void prepareComponentPages();
     if (route === '/pinyin') void preparePinyinPage();
     if (route === '/train') void prepareTraining(true);
   }
   async function playRouteAudio(route: string) {
-    const text = decodeURIComponent(route.match(/^\/(?:character|word)\/(.+)$/)?.[1] ?? '');
+    const text = decodeURIComponent(route.match(/^\/(?:character|word|component)\/(.+)$/)?.[1] ?? '');
     if (!text) return;
+    const request = ++routeAudioRequest;
     const audio = await import('./lib/audio');
-    const source = await audio.getPronunciationAudio(text);
-    if (source) void new Audio(source).play().catch(() => {});
+    const fallbackText = Dictionary.getEntries(text)[0]?.simp || Dictionary.getComponentVariant(text);
+    const source = await audio.getPronunciationAudio(text, fallbackText);
+    if (request !== routeAudioRequest) return;
+    routeAudio?.pause();
+    if (!source) return;
+    routeAudio = new Audio(source);
+    void routeAudio.play().catch(() => {});
   }
   async function prepareCharacterPage() {
     CharacterPage = (await import('./lib/CharacterPage.svelte')).default;
@@ -374,8 +404,8 @@
 <svelte:head><title>{component || entry ? `${component || entry} · ${config.appName}` : config.appName}</title><meta name="description" content="Explore Chinese characters, words, components, and etymology." /></svelte:head>
 
 <svelte:window bind:innerHeight={windowHeight} />
-<SiteHeader bind:query bind:searchOpen onSearch={runSearch} onSearchOpen={openSearch} onSearchClose={closeSearch} onSettings={openSettings} onTrain={openTraining} onHome={openOverview} onPinyin={openPinyin} onComponents={openComponents} />
-<main class:multi-pane={multiPane}><div class="width-probe" bind:clientWidth={availableWidth}></div>{#if query.trim()}<SearchResults query={query} results={results} loading={searchLoading} error={searchError} colorFor={colorFor} onSelect={selectSearchResult} />{:else if path === '/settings'}<SettingsPage {settings} {trainingSettings} onUpdate={updateSettings} onTrainingUpdate={updateTrainingSettings} onBack={backFromSettings} />{:else if detailPanes.length}<div class="detail-panes" bind:this={panesElement} style="--pane-count: {detailPanes.length}; --pane-height: {panesHeight}">{#each detailPanes as pane (pane.index + ':' + pane.path)}<section class="detail-pane">{#if pane.kind === 'start'}{@render startView(pane.path, pane.index)}{:else}{@render detailView(pane.path, pane.index)}{/if}</section>{/each}</div>{:else if entry || component}{@render detailView(path, navigationStack.length - 1)}{:else}{@render startView(path, navigationStack.length - 1)}{/if}</main>
+<SiteHeader bind:searchOpen onSearchOpen={openSearch} onSearchClose={closeSearch} onSettings={openSettings} onTrain={openTraining} onHome={openOverview} onPinyin={openPinyin} onComponents={openComponents} />
+<main class:multi-pane={multiPane}><div class="width-probe" bind:clientWidth={availableWidth}></div>{#if detailPanes.length}<div class="detail-panes" bind:this={panesElement} style="--pane-count: {detailPanes.length}; --pane-height: {panesHeight}">{#each detailPanes as pane (pane.index + ':' + pane.entry.path)}<section class="detail-pane">{#if pane.entry.kind === 'start'}{@render startView(pane.entry.path, pane.index)}{:else if pane.entry.kind === 'search'}{@render searchView(pane.entry, pane.index)}{:else}{@render detailView(pane.entry.path, pane.index)}{/if}</section>{/each}</div>{:else if topEntry?.kind === 'search'}{@render searchView(topEntry, navigationStack.length - 1)}{:else if path === '/settings'}<SettingsPage {settings} {trainingSettings} onUpdate={updateSettings} onTrainingUpdate={updateTrainingSettings} onBack={backFromSettings} />{:else if entry || component}{@render detailView(path, navigationStack.length - 1)}{:else}{@render startView(path, navigationStack.length - 1)}{/if}</main>
 
 {#snippet startView(route: string, index: number)}
   {#if route === '/pinyin'}
@@ -387,6 +417,10 @@
   {:else}
     <OverviewPage characters={overviewCharacters} source={settings.order} colorFor={colorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openFromPaneLink(index, event, value)} />
   {/if}
+{/snippet}
+
+{#snippet searchView(item: SearchNavigationEntry, index: number)}
+  <SearchResults bind:query results={item.results} loading={index === navigationStack.length - 1 && searchLoading} error={item.error} colorFor={colorFor} componentColorFor={componentColorFor} onSelect={selectSearchResult} onSearch={runSearch} onSearchClose={closeSearch} />
 {/snippet}
 
 {#snippet detailView(route: string, index: number)}
@@ -405,4 +439,5 @@ main.multi-pane { width: calc(100% - var(--space-page) * 2); }
 .detail-panes { display: grid; grid-template-columns: repeat(var(--pane-count), minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); gap: 24px; height: var(--pane-height); }
 .detail-pane { min-width: 0; min-height: 0; overflow-y: auto; }
 .detail-pane :global(nav.page-controls) { position: sticky; bottom: var(--space-md); right: auto; left: auto; margin-left: auto; z-index: 5; }
+@media (min-width: 681px) { .detail-pane :global(nav.page-controls) { width: fit-content; } }
 </style>
