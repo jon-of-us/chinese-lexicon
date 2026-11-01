@@ -51,7 +51,7 @@ The main fields of a unified sentence record are `id`, `source`, `audio{path,for
 | `/character/:c` | Character detail (etymology, components, words, pronunciation) | `CharacterPage` |
 | `/word/:w` | Word detail | `CharacterPage` |
 | `/components` | Component and radical overview, ordered by the selected frequency source and colored by component rank; hovering a component lifts it and shows its pinyin in bold below it | `ComponentOverviewPage` |
-| `/component/:c` | Component detail with simplified-character uses grouped by meaning, sound, and other roles | `ComponentPage` |
+| `/component/:c` | Component detail with its own structure (the parts it breaks down into, if any) and simplified-character uses grouped by meaning, sound, and other roles | `ComponentPage` |
 | `/pinyin` | Pinyin table | `PinyinPage` |
 | `/train` | Sentence training | `SentenceTrainingPage` |
 | `/settings` | Settings (dictionary ordering, training parameters) | `SettingsPage` |

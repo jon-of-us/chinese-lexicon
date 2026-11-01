@@ -6,6 +6,7 @@
         getFrequencyScores,
     } from "./dictionary";
     import { componentTypeNames, config } from "./config";
+    import * as Dictionary from "./dictionary";
     import * as FitHeadline from "./fit-headline";
     import * as Settings from "./settings";
     import FrequentWords from "./FrequentWords.svelte";
@@ -70,13 +71,7 @@
         showAllMeanings ? dictionaryMeanings : dictionaryMeanings.slice(0, 4),
     );
     const displayComponents = $derived(
-        (etymology?.components ?? []).filter(
-            (component) =>
-                component.char !== "◎" &&
-                component.type !== "simplified" &&
-                component.type !== "deleted" &&
-                component.type !== "unknown",
-        ),
+        character ? Dictionary.getStructureParts(character) : [],
     );
 
     function pinyinFor(text: string) {
@@ -198,12 +193,12 @@
                                     <small>{meaningFor(glyph)}</small>
                                 </span></a
                             >{/each}{:else}{#each displayComponents as component}<a
-                                href={`/component/${encodeURIComponent(component.char)}`}
-                                onclick={(event) => openComponent(event, component.char)}
+                                href={`/component/${encodeURIComponent(component.character)}`}
+                                onclick={(event) => openComponent(event, component.character)}
                                 ><span
                                     class="glyph"
-                                    style={`color: ${colorComponent(component.char)}`}
-                                    >{component.char}</span
+                                    style={`color: ${colorComponent(component.character)}`}
+                                    >{component.character}</span
                                 ><span
                                     ><strong
                                         >{componentTypeNames[component.type] ??

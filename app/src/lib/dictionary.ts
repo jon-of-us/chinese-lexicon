@@ -51,11 +51,13 @@ export type ComponentCharacter = {
   hskLevel?: number;
   dongRank?: number;
 };
+export type StructurePart = { character: string; type: string; pinyin: string; definition: string };
 export type ComponentDetails = {
   component: string;
   pinyin: string;
   definition: string;
   variant: string;
+  parts: StructurePart[];
   meaning: ComponentCharacter[];
   sound: ComponentCharacter[];
   other: ComponentCharacter[];
@@ -229,6 +231,13 @@ export function getPinyin(text: string) {
   return (getEntries(text) as LexiconEntry[])[0]?.pinyin ?? getEtymology(text)?.pinyin ?? '';
 }
 
+// Drops the ◎ placeholder and deleted parts. Only the first pinyin reading is shown, e.g. 女 is "nǚ; rǔ" in the data.
+export function getStructureParts(character: string): StructurePart[] {
+  return (getEtymology(character)?.components ?? [])
+    .filter((part) => part.char !== '◎' && part.type !== 'deleted')
+    .map((part) => ({ character: part.char, type: part.type, pinyin: (part.pinyin ?? getPinyin(part.char)).split(';')[0].trim(), definition: part.definition ?? 'Component' }));
+}
+
 export function getComponentDetails(component: string, order: Settings.DictionaryOrder): ComponentDetails {
   const uses = componentUses.get(component);
   const sortByFrequency = (characters: Map<string, ComponentCharacter> | undefined) => [...(characters?.values() ?? [])].sort((left, right) => {
@@ -244,6 +253,7 @@ export function getComponentDetails(component: string, order: Settings.Dictionar
     pinyin: getPinyin(component),
     definition: etymology?.definition ?? entry?.definitions[0] ?? 'Character component',
     variant: getComponentVariant(component),
+    parts: getStructureParts(component),
     meaning: sortByFrequency(uses?.meaning),
     sound: sortByFrequency(uses?.sound),
     other: sortByFrequency(uses?.other),
