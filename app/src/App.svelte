@@ -170,7 +170,7 @@
     searchOpen = false;
     pushNavigation(to, { kind: 'start', path: to }, []);
   }
-  function navigateBackTo(index: number) {
+  function navigateBackTo(index: number, playAudio = true) {
     const target = navigationStack[index];
     if (!target) return;
     const nextStack = navigationStack.slice(0, index + 1);
@@ -178,7 +178,7 @@
     navigationStack = nextStack;
     path = target.path;
     restoreStoredNavigation();
-    handleRoute(path);
+    handleRoute(path, playAudio);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function open(value: string) {
@@ -190,7 +190,7 @@
     pushNavigation(to, { kind: 'detail', path: to });
   }
   function popToPane(index: number) {
-    if (index < navigationStack.length - 1) navigateBackTo(index);
+    if (index < navigationStack.length - 1) navigateBackTo(index, false);
   }
   function openFromPane(index: number, value: string) {
     popToPane(index);
@@ -306,8 +306,8 @@
   function updateSettings(next: DifficultySettings) { settings = next; saveDifficultySettings(next); }
   function updateFrequencySource(order: DifficultySettings['order']) { updateSettings({ ...settings, order }); }
   function cycleDictionaryOrder() { const orders: DifficultySettings['order'][] = ['books', 'media', 'dong', 'hsk']; updateFrequencySource(orders[(orders.indexOf(settings.order) + 1) % orders.length]); }
-  function handleRoute(route: string) {
-    if (isEntryRoute(route)) { void prepareCharacterPage(); playRouteAudio(route); }
+  function handleRoute(route: string, playAudio = true) {
+    if (isEntryRoute(route)) { void prepareCharacterPage(); if (playAudio) playRouteAudio(route); }
     if (route === '/components' || /^\/component\//.test(route)) void prepareComponentPages();
     if (route === '/pinyin') void preparePinyinPage();
     if (route === '/train') void prepareTraining(true);

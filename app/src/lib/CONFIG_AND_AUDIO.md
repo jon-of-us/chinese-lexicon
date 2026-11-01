@@ -47,7 +47,7 @@ Audio files are discovered at build time through `import.meta.glob`. **After add
 
 | Category | Directory | Matching |
 | --- | --- | --- |
-| Word pronunciation | `chinese-dataset/word-audio/edge-tts/words/cmn-<word>.mp3` (top 2000 multi-character words, Yunyang voice) | Filename is the text; no audio if the word is outside the top 2000 |
+| Word pronunciation | `chinese-dataset/word-audio/edge-tts/words/cmn-<word>.mp3` (multi-character words in the top 2500 media words or the official HSK 1–4 lists, Yunyang voice) | Filename is the text; no audio if the word is outside that set |
 | Sentence audio | `chinese-dataset/sentences/**/*.mp3` | Folder is the sentence set; file is `audio.path` in that set's `sentences.json` |
 
 ### Pronunciation selection (getPronunciationAudio)
