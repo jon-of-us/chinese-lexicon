@@ -2,6 +2,8 @@ export const config = {
     appName: "Chinese Lexicon",
     data: { topWordsLimit: 12, searchResultsLimit: 30 },
     training: {
+        // false hides the whole training section: header link, /train route, and the Settings group.
+        enabled: false,
         // Sentence sets are folders in chinese-dataset/sentences: "hsk-sentences-audio", "tatoeba-nc", "tatoeba-unlicensed", "anki-tatoeba".
         // sentenceSources: ["hsk-sentences-audio", "tatoeba-nc", "tatoeba-unlicensed", "anki-tatoeba"],
         sentenceSources: ["tatoeba-nc", "tatoeba-unlicensed"],

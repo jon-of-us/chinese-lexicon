@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import * as AudioFiles from './audio';
+  import * as TrainingAudio from './training/audio';
   import { config } from './config';
   import { getDifficultyRank, getEntries } from './dictionary';
   import CharacterPage from './CharacterPage.svelte';
@@ -23,7 +24,7 @@
 
   $effect(() => {
     source = undefined;
-    if (active) void AudioFiles.sentenceAudio(active.sentence.source, active.sentence.audio.path).then((next) => source = next);
+    if (active) void TrainingAudio.sentenceAudio(active.sentence.source, active.sentence.audio.path).then((next) => source = next);
   });
 
   $effect(() => {

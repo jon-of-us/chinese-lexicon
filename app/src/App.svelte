@@ -1,26 +1,29 @@
 <script lang="ts">
   import { onMount, type Component } from 'svelte';
   import OverviewPage from './lib/OverviewPage.svelte';
-    import PinyinPage from './lib/PinyinPage.svelte';
   import SearchResults from './lib/SearchResults.svelte';
   import SettingsPage from './lib/SettingsPage.svelte';
   import SiteHeader from './lib/SiteHeader.svelte';
   import { loadDifficultySettings, saveDifficultySettings, type DifficultySettings } from './lib/settings';
   import type * as DictionarySearch from './lib/dictionary-search';
   import type * as SearchWorkerProtocol from './lib/search-worker-protocol';
+  import * as Dictionary from './lib/dictionary';
   import { config } from './lib/config';
   import { getOverviewCharacters, getOverviewDifficultyRank, rankColor, type OverviewCharacter } from './lib/ranking';
   import type { TrainingSession } from './lib/training/engine';
   import type { LearningState } from './lib/training/types';
   import { loadTrainingSettings, saveTrainingSettings, type TrainingSettings } from './lib/training-settings';
 
-  type DictionaryModule = typeof import('./lib/dictionary');
   type TrainingEngine = typeof import('./lib/training/engine');
   type TrainingState = typeof import('./lib/training/state');
   type NavigationEntry =
     | { kind: 'start' | 'detail' | 'settings'; path: string }
     | { kind: 'search'; path: string; query: string; results: DictionarySearch.SearchEntry[]; error: string | null };
+  type SearchNavigationEntry = Extract<NavigationEntry, { kind: 'search' }>;
   const NAVIGATION_STATE_KEY = 'kwaslNavigation';
+  const trainingEnabled = __TRAINING_ENABLED__;
+  // Deployed under a subpath (GitHub Pages project sites), so routes are read and written relative to this prefix.
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
   const PANE_GAP_PX = 24;
   const PANES_MIN_HEIGHT_PX = 320;
   const PANES_BOTTOM_INSET_PX = 16;
@@ -46,9 +49,9 @@
   let trainingSession = $state<TrainingSession | null>(null);
   let trainingSettings = $state<TrainingSettings>(loadTrainingSettings());
   let trainingFinished = $state(false);
-  let dictionary = $state<DictionaryModule | null>(null);
   let trainingEngine = $state<TrainingEngine | null>(null);
   let trainingState = $state<TrainingState | null>(null);
+  let PinyinPage = $state<Component<any> | null>(null);
   let CharacterPage = $state<Component<any> | null>(null);
   let ComponentOverviewPage = $state<Component<any> | null>(null);
   let ComponentPage = $state<Component<any> | null>(null);
@@ -58,35 +61,45 @@
   let searchTimer: number | undefined;
   let searchRequestId = 0;
   let searchWorker: Worker | null = null;
+  let routeAudio: HTMLAudioElement | undefined;
+  let routeAudioRequest = 0;
+  let lastSearch: { query: string; results: DictionarySearch.SearchEntry[] } | null = null;
+  let clickedSearchResults: DictionarySearch.SearchEntry[] = [];
   const character = $derived(routeValue(path, 'character'));
   const word = $derived(routeValue(path, 'word'));
   const component = $derived(routeValue(path, 'component'));
   const entry = $derived(character || word);
   const startPage = $derived(navigationStack.findLast((item) => item.kind === 'start')?.path ?? '/');
   const detailHomeLabel = $derived(startPage === '/components' ? 'Return to components' : startPage === '/pinyin' ? 'Return to pinyin' : startPage === '/train' ? trainingSession ? 'Return to sentence' : 'Return to training' : 'Return to dictionary');
-  const overviewCharacters = $derived<OverviewCharacter[]>(settings.order === 'books' ? dictionary?.getBookFrequencyCharacters() ?? [] : settings.order === 'hsk' ? dictionary?.getHskCharacters() ?? [] : getOverviewCharacters(settings.order));
-  const overviewLoading = $derived((settings.order === 'books' || settings.order === 'hsk') && !dictionary);
-  const overviewComponents = $derived(dictionary?.getOverviewComponents(settings.order) ?? []);
-  const lastNonDetailIndex = $derived(navigationStack.findLastIndex((item) => item.kind !== 'detail'));
-  const detailRunLength = $derived(navigationStack.length - lastNonDetailIndex - 1);
-  const paneBase = $derived(navigationStack[lastNonDetailIndex]?.kind === 'start' ? lastNonDetailIndex : lastNonDetailIndex + 1);
-  const paneRunLength = $derived(detailRunLength ? navigationStack.length - paneBase : 0);
+  const overviewCharacters = $derived<OverviewCharacter[]>(settings.order === 'books' ? Dictionary.getBookFrequencyCharacters() : settings.order === 'hsk' ? Dictionary.getHskCharacters() : getOverviewCharacters(settings.order));
+  const overviewComponents = $derived(Dictionary.getOverviewComponents(settings.order));
+  const topEntry = $derived(navigationStack.at(-1));
+  const paneRunStart = $derived.by(() => {
+    let index = navigationStack.length;
+    while (index > 0 && isPaneEntry(navigationStack[index - 1])) index--;
+    return index;
+  });
+  const paneBase = $derived(navigationStack[paneRunStart - 1]?.kind === 'start' ? paneRunStart - 1 : paneRunStart);
+  // A search entry directly beneath a detail is replaced by that detail, so it takes no pane of its own.
+  const paneEntries = $derived.by(() => {
+    if (paneRunStart === navigationStack.length) return [];
+    return navigationStack
+      .slice(paneBase)
+      .map((entry, offset) => ({ index: paneBase + offset, entry }))
+      .filter(({ index, entry }) => !(entry.kind === 'search' && navigationStack[index + 1]?.kind === 'detail'));
+  });
+  const paneRunLength = $derived(paneEntries.length);
   const multiPane = $derived(Math.min(settings.maxPanes, paneRunLength) >= 2);
   const fittingPanes = $derived(Math.floor((availableWidth + PANE_GAP_PX) / (settings.paneMinWidth + PANE_GAP_PX)));
   const visiblePaneCount = $derived(Math.min(settings.maxPanes, paneRunLength, Math.max(1, fittingPanes)));
-  const detailPanes = $derived.by(() => {
-    if (visiblePaneCount < 2) return [];
-    const start = navigationStack.length - visiblePaneCount;
-    return navigationStack.slice(start).map((item, offset) => ({ index: start + offset, path: item.path, kind: item.kind }));
-  });
+  const detailPanes = $derived(visiblePaneCount < 2 ? [] : paneEntries.slice(-visiblePaneCount));
 
   onMount(() => {
-    path = window.location.pathname;
+    path = appPathname();
     restoreStoredNavigation();
     handleRoute(path);
-    if (settings.order === 'books' || settings.order === 'hsk' || settings.source === 'books') void loadDictionary();
     const onPopState = () => {
-      path = window.location.pathname;
+      path = appPathname();
       restoreStoredNavigation();
       handleRoute(path);
     };
@@ -106,13 +119,20 @@
     };
   });
 
+  function appPathname() {
+    const route = window.location.pathname.slice(basePath.length) || '/';
+    return !trainingEnabled && route === '/train' ? '/' : route;
+  }
   function isEntryRoute(route: string) { return /^\/(?:character|word)\//.test(route); }
   function isDetailRoute(route: string) { return isEntryRoute(route) || /^\/component\//.test(route); }
   function isStartRoute(route: string) { return route === '/' || route === '/components' || route === '/pinyin' || route === '/train'; }
+  function isPaneEntry(entry: NavigationEntry) { return entry.kind === 'detail' || entry.kind === 'search'; }
   function navigationState(): NavigationEntry[] | null {
     const state = window.history.state as Record<string, unknown> | null;
     const stored = state?.[NAVIGATION_STATE_KEY];
-    return Array.isArray(stored) ? stored as NavigationEntry[] : null;
+    if (!Array.isArray(stored)) return null;
+    const entries = stored as NavigationEntry[];
+    return trainingEnabled ? entries : entries.map((entry) => entry.path === '/train' ? { ...entry, path: '/' } : entry);
   }
   function writeNavigationState(stack = navigationStack, url = window.location.href) {
     const state = window.history.state && typeof window.history.state === 'object' ? window.history.state : {};
@@ -152,10 +172,11 @@
   function pushNavigation(to: string, entry: NavigationEntry, stack = [...navigationStack, entry]) {
     const nextStack = [...stack.slice(0, -1), entry];
     const snapshot = $state.snapshot(nextStack);
-    window.history.pushState({ [NAVIGATION_STATE_KEY]: snapshot }, '', to);
+    window.history.pushState({ [NAVIGATION_STATE_KEY]: snapshot }, '', `${basePath}${to}`);
     navigationStack = nextStack;
     path = to;
     handleRoute(to);
+    if (entry.kind === 'detail') playRouteAudio(to);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function openStartPage(to: string) {
@@ -221,11 +242,11 @@
     navigateBackTo(Math.max(0, navigationStack.length - 2));
   }
   function openSearch() {
-    if (navigationStack.at(-1)?.kind !== 'search') {
-      query = '';
-      results = [];
-      pushNavigation(path, { kind: 'search', path, query: '', results: [], error: null });
-    }
+    if (navigationStack.at(-1)?.kind === 'search') return;
+    query = lastSearch?.query ?? '';
+    results = lastSearch?.results ?? clickedSearchResults;
+    searchError = null;
+    pushNavigation(path, { kind: 'search', path, query, results, error: null });
   }
   function closeSearch() {
     const index = navigationStack.findLastIndex((item) => item.kind === 'search');
@@ -242,6 +263,7 @@
     searchWorker.addEventListener('message', (event: MessageEvent<SearchWorkerProtocol.SearchResponse>) => {
       if (event.data.id !== searchRequestId) return;
       results = event.data.results;
+      searchError = event.data.failed ? 'Dictionary search could not be completed. Please try again.' : null;
       searchLoading = false;
       updateSearchEntry();
     });
@@ -260,7 +282,7 @@
     if (searchTimer !== undefined) window.clearTimeout(searchTimer);
     const requestId = ++searchRequestId;
     searchError = null;
-    if (!term) { results = []; searchLoading = false; updateSearchEntry(); return; }
+    if (!term) { results = clickedSearchResults; searchLoading = false; updateSearchEntry(); return; }
     results = [];
     searchLoading = true;
     updateSearchEntry();
@@ -276,7 +298,16 @@
     navigationStack = [...navigationStack.slice(0, -1), updated];
     writeNavigationState();
   }
-  function selectSearchResult(value: string) { query = ''; results = []; searchOpen = false; open(value); }
+  function selectSearchResult(entry: DictionarySearch.SearchEntry) {
+    if (query.trim()) lastSearch = { query, results: $state.snapshot(results) };
+    const clicked = $state.snapshot(entry);
+    clickedSearchResults = [clicked, ...clickedSearchResults.filter((item) => item.simp !== clicked.simp || item.kind !== clicked.kind)];
+    query = '';
+    results = [];
+    searchOpen = false;
+    if (clicked.kind === 'component') openComponent(clicked.simp);
+    else open(clicked.simp);
+  }
   function openOverview() { openStartPage('/'); }
   function openPinyin() { openStartPage('/pinyin'); }
   function openSettings() {
@@ -290,53 +321,54 @@
   }
   function componentDetailsFor(route: string) {
     const value = routeValue(route, 'component');
-    return dictionary && value ? dictionary.getComponentDetails(value, settings.order) : undefined;
+    return value ? Dictionary.getComponentDetails(value, settings.order) : undefined;
   }
-  function openTraining() { trainingFinished = false; openStartPage('/train'); }
-  function colorFor(text: string) { return rankColor(dictionary?.getDifficultyRank(text, settings.source) ?? getOverviewDifficultyRank(text, settings.source), settings.range); }
-  function componentColorFor(text: string) { return rankColor(dictionary?.getComponentRank(text, settings.source), settings.range); }
-  function pinyinFor(text: string) { return dictionary?.getPinyin(text) ?? ''; }
-  function updateSettings(next: DifficultySettings) { settings = next; saveDifficultySettings(next); if (next.order === 'books' || next.order === 'hsk' || next.source === 'books') void loadDictionary(); }
+  function openTraining() { if (!trainingEnabled) return; trainingFinished = false; openStartPage('/train'); }
+  function colorFor(text: string) { return rankColor(Dictionary.getDifficultyRank(text, settings.source) ?? getOverviewDifficultyRank(text, settings.source), settings.range); }
+  function componentColorFor(text: string) { return rankColor(Dictionary.getComponentRank(text, settings.source), settings.range); }
+  function pinyinFor(text: string) { return Dictionary.getPinyin(text) ?? ''; }
+  function updateSettings(next: DifficultySettings) { settings = next; saveDifficultySettings(next); }
   function updateFrequencySource(order: DifficultySettings['order']) { updateSettings({ ...settings, order }); }
   function cycleDictionaryOrder() { const orders: DifficultySettings['order'][] = ['books', 'media', 'dong', 'hsk']; updateFrequencySource(orders[(orders.indexOf(settings.order) + 1) % orders.length]); }
   function handleRoute(route: string) {
-    if (isEntryRoute(route)) { void prepareDictionaryPage(); playRouteAudio(route); }
+    if (isEntryRoute(route)) void prepareCharacterPage();
     if (route === '/components' || /^\/component\//.test(route)) void prepareComponentPages();
-    if (route === '/pinyin') void loadDictionary();
+    if (route === '/pinyin') void preparePinyinPage();
     if (route === '/train') void prepareTraining(true);
   }
   async function playRouteAudio(route: string) {
-    const text = decodeURIComponent(route.match(/^\/(?:character|word)\/(.+)$/)?.[1] ?? '');
+    const text = decodeURIComponent(route.match(/^\/(?:character|word|component)\/(.+)$/)?.[1] ?? '');
     if (!text) return;
+    const request = ++routeAudioRequest;
     const audio = await import('./lib/audio');
-    const source = await audio.getPronunciationAudio(text);
-    if (source) void new Audio(source).play().catch(() => {});
+    const fallbackText = Dictionary.getEntries(text)[0]?.simp || Dictionary.getComponentVariant(text);
+    const source = await audio.getPronunciationAudio(text, fallbackText);
+    if (request !== routeAudioRequest) return;
+    routeAudio?.pause();
+    if (!source) return;
+    routeAudio = new Audio(source);
+    void routeAudio.play().catch(() => {});
   }
-  async function loadDictionary() {
-    dictionary ??= await import('./lib/dictionary');
-    return dictionary;
+  async function prepareCharacterPage() {
+    CharacterPage = (await import('./lib/CharacterPage.svelte')).default;
   }
-  async function prepareDictionaryPage() {
-    const [module, page] = await Promise.all([loadDictionary(), import('./lib/CharacterPage.svelte')]);
-    dictionary = module;
-    CharacterPage = page.default;
+  async function preparePinyinPage() {
+    PinyinPage = (await import('./lib/PinyinPage.svelte')).default;
   }
   async function prepareComponentPages() {
-    const [module, overviewPage, detailPage] = await Promise.all([
-      loadDictionary(),
+    const [overviewPage, detailPage] = await Promise.all([
       import('./lib/ComponentOverviewPage.svelte'),
       import('./lib/ComponentPage.svelte'),
     ]);
-    dictionary = module;
     ComponentOverviewPage = overviewPage.default;
     ComponentPage = detailPage.default;
   }
   async function prepareTraining(startSession = false) {
+    if (!trainingEnabled) return;
     const [engine, state, page] = await Promise.all([
       import('./lib/training/engine'),
       import('./lib/training/state'),
       import('./lib/SentenceTrainingPage.svelte'),
-      loadDictionary(),
     ]);
     trainingEngine = engine;
     trainingState = state;
@@ -372,19 +404,23 @@
 <svelte:head><title>{component || entry ? `${component || entry} · ${config.appName}` : config.appName}</title><meta name="description" content="Explore Chinese characters, words, components, and etymology." /></svelte:head>
 
 <svelte:window bind:innerHeight={windowHeight} />
-<SiteHeader bind:query bind:searchOpen onSearch={runSearch} onSearchOpen={openSearch} onSearchClose={closeSearch} onSettings={openSettings} onTrain={openTraining} onHome={openOverview} onPinyin={openPinyin} onComponents={openComponents} />
-<main class:multi-pane={multiPane}><div class="width-probe" bind:clientWidth={availableWidth}></div>{#if query.trim()}<SearchResults query={query} results={results} loading={searchLoading} error={searchError} colorFor={colorFor} onSelect={selectSearchResult} />{:else if path === '/settings'}<SettingsPage {settings} {trainingSettings} onUpdate={updateSettings} onTrainingUpdate={updateTrainingSettings} onBack={backFromSettings} />{:else if detailPanes.length}<div class="detail-panes" bind:this={panesElement} style="--pane-count: {detailPanes.length}; --pane-height: {panesHeight}">{#each detailPanes as pane (pane.index + ':' + pane.path)}<section class="detail-pane">{#if pane.kind === 'start'}{@render startView(pane.path, pane.index)}{:else}{@render detailView(pane.path, pane.index)}{/if}</section>{/each}</div>{:else if entry || component}{@render detailView(path, navigationStack.length - 1)}{:else}{@render startView(path, navigationStack.length - 1)}{/if}</main>
+<SiteHeader bind:searchOpen onSearchOpen={openSearch} onSearchClose={closeSearch} onSettings={openSettings} onTrain={openTraining} onHome={openOverview} onPinyin={openPinyin} onComponents={openComponents} />
+<main class:multi-pane={multiPane}><div class="width-probe" bind:clientWidth={availableWidth}></div>{#if detailPanes.length}<div class="detail-panes" bind:this={panesElement} style="--pane-count: {detailPanes.length}; --pane-height: {panesHeight}">{#each detailPanes as pane (pane.index + ':' + pane.entry.path)}<section class="detail-pane">{#if pane.entry.kind === 'start'}{@render startView(pane.entry.path, pane.index)}{:else if pane.entry.kind === 'search'}{@render searchView(pane.entry, pane.index)}{:else}{@render detailView(pane.entry.path, pane.index)}{/if}</section>{/each}</div>{:else if topEntry?.kind === 'search'}{@render searchView(topEntry, navigationStack.length - 1)}{:else if path === '/settings'}<SettingsPage {settings} {trainingSettings} onUpdate={updateSettings} onTrainingUpdate={updateTrainingSettings} onBack={backFromSettings} />{:else if entry || component}{@render detailView(path, navigationStack.length - 1)}{:else}{@render startView(path, navigationStack.length - 1)}{/if}</main>
 
 {#snippet startView(route: string, index: number)}
   {#if route === '/pinyin'}
-    <PinyinPage colorFor={colorFor} colorForRank={(rank) => rankColor(rank, settings.range)} hoverCharacterRank={settings.pinyinHoverRank} onOpen={(value: string) => openFromPane(index, value)} />
+    {#if PinyinPage}<PinyinPage colorFor={colorFor} colorForRank={(rank: number | undefined) => rankColor(rank, settings.range)} hoverCharacterRank={settings.pinyinHoverRank} onOpen={(value: string) => openFromPane(index, value)} />{:else}<p>Loading pinyin…</p>{/if}
   {:else if route === '/train'}
     {#if learningState && SentenceTrainingPage}<SentenceTrainingPage state={learningState} session={trainingSession} settings={trainingSettings} finished={trainingFinished} canPreviousSentence={trainingHistoryIndex > 0} canNextSentence={trainingHistoryIndex < trainingHistory.length - 1 || (trainingSession?.completedCount ?? 0) + 1 < (trainingSession?.targetCount ?? 0)} {colorFor} componentColorFor={componentColorFor} headlineSize={settings.detailHeadlineSize} onSession={updateTrainingSession} onOpenWord={(value: string) => openFromPane(index, value)} onComplete={nextTrainingSentence} onPreviousSentence={previousTrainingSentence} onStart={openTraining} />{:else}<p>Loading sentence training…</p>{/if}
   {:else if route === '/components'}
-    {#if ComponentOverviewPage && dictionary}<ComponentOverviewPage components={overviewComponents} order={settings.order} colorFor={componentColorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openComponentFromPane(index, event, value)} />{:else}<p>Loading components…</p>{/if}
+    {#if ComponentOverviewPage}<ComponentOverviewPage components={overviewComponents} order={settings.order} colorFor={componentColorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openComponentFromPane(index, event, value)} />{:else}<p>Loading components…</p>{/if}
   {:else}
-    <OverviewPage characters={overviewCharacters} source={settings.order} loading={overviewLoading} colorFor={colorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openFromPaneLink(index, event, value)} />
+    <OverviewPage characters={overviewCharacters} source={settings.order} colorFor={colorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openFromPaneLink(index, event, value)} />
   {/if}
+{/snippet}
+
+{#snippet searchView(item: SearchNavigationEntry, index: number)}
+  <SearchResults bind:query results={item.results} loading={index === navigationStack.length - 1 && searchLoading} error={item.error} colorFor={colorFor} componentColorFor={componentColorFor} onSelect={selectSearchResult} onSearch={runSearch} onSearchClose={closeSearch} />
 {/snippet}
 
 {#snippet detailView(route: string, index: number)}
@@ -403,4 +439,5 @@ main.multi-pane { width: calc(100% - var(--space-page) * 2); }
 .detail-panes { display: grid; grid-template-columns: repeat(var(--pane-count), minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); gap: 24px; height: var(--pane-height); }
 .detail-pane { min-width: 0; min-height: 0; overflow-y: auto; }
 .detail-pane :global(nav.page-controls) { position: sticky; bottom: var(--space-md); right: auto; left: auto; margin-left: auto; z-index: 5; }
+@media (min-width: 681px) { .detail-pane :global(nav.page-controls) { width: fit-content; } }
 </style>

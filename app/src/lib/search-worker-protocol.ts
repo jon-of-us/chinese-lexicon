@@ -9,4 +9,5 @@ export type SearchRequest = {
 export type SearchResponse = {
   id: number;
   results: DictionarySearch.SearchEntry[];
+  failed?: boolean;
 };

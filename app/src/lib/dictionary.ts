@@ -1,6 +1,5 @@
-import dictionaryEntriesFile from '../../../chinese-dataset/dictionary/entries.json';
+import dictionaryDataFile from '../generated/dictionary-data.json';
 import dictionaryIndexFile from '../../../chinese-dataset/dictionary/index.json';
-import etymologyFile from '../../../chinese-dataset/dictionary/etymology.json';
 import characterOrderFile from '../../../chinese-dataset/frequency/character-order.json';
 import frequencyCharacterFile from '../../../chinese-dataset/frequency/characters.json';
 import * as DictionarySearch from './dictionary-search';
@@ -10,12 +9,12 @@ import type * as Ranking from './ranking';
 type Statistics = { bookWordRank?: number; movieWordRank?: number; bookCharCount?: number; bookCharRank?: number; movieCharCount?: number; movieCharRank?: number; hskLevel?: number };
 type LexiconEntry = DictionarySearch.SearchEntry & { statistics?: Statistics };
 type MediaCharacter = { character: string; mediaFrequency: number; bestMediaRank?: number };
-const allEntries = dictionaryEntriesFile.entries as LexiconEntry[];
+const allEntries = dictionaryDataFile.entries as LexiconEntry[];
 const characterOrder: string[] = characterOrderFile.characters;
 const mediaCharacters = frequencyCharacterFile.characters as MediaCharacter[];
 const simpPositions: Record<string, number[]> = dictionaryIndexFile.simp;
 const tradPositions: Record<string, number[]> = dictionaryIndexFile.trad;
-const etymologyByCharacter = new Map(etymologyFile.characters.map((etymology) => [etymology.character, etymology]));
+const etymologyByCharacter = new Map(dictionaryDataFile.etymology.map((etymology) => [etymology.character, etymology]));
 const mediaFrequencyByCharacter = new Map(mediaCharacters.map(({ character, mediaFrequency }) => [character, mediaFrequency]));
 const mediaRankByCharacter = new Map(mediaCharacters.map(({ character, bestMediaRank }) => [character, bestMediaRank]));
 
@@ -28,7 +27,7 @@ export function getEtymology(character: string) {
 }
 
 export function search(term: string, limit = 100) {
-  return DictionarySearch.searchEntries(allEntries, term, limit);
+  return DictionarySearch.searchEntries([...allEntries, ...componentSearchEntries], term, limit);
 }
 
 type FrequencyScores = { books?: number; media?: number };
@@ -51,66 +50,46 @@ export type ComponentCharacter = {
   hskLevel?: number;
   dongRank?: number;
 };
+export type StructurePart = { character: string; type: string; pinyin: string; definition: string };
 export type ComponentDetails = {
   component: string;
   pinyin: string;
   definition: string;
   variant: string;
+  parts: StructurePart[];
   meaning: ComponentCharacter[];
   sound: ComponentCharacter[];
   other: ComponentCharacter[];
 };
 export type OverviewComponent = { component: string; rank: number; frequency?: number; level?: number };
 type ComponentUseMaps = { meaning: Map<string, ComponentCharacter>; sound: Map<string, ComponentCharacter>; other: Map<string, ComponentCharacter> };
-const componentUses = new Map<string, ComponentUseMaps>();
-const seenComponentCharacters = new Set<string>();
+type ComponentUseLists = { meaning: ComponentCharacter[]; sound: ComponentCharacter[]; other: ComponentCharacter[] };
+const componentUses = new Map(
+  Object.entries(dictionaryDataFile.componentUses as Record<string, ComponentUseLists>).map(([component, uses]): [string, ComponentUseMaps] => [
+    component,
+    {
+      meaning: new Map(uses.meaning.map((character) => [character.character, character])),
+      sound: new Map(uses.sound.map((character) => [character.character, character])),
+      other: new Map(uses.other.map((character) => [character.character, character])),
+    },
+  ]),
+);
+const componentSearchEntries: DictionarySearch.SearchEntry[] = [...componentUses.keys()].map((component) => {
+  const entry = (getEntries(component) as LexiconEntry[])[0];
+  const etymology = getEtymology(component);
+  return {
+    simp: component,
+    trad: entry?.trad ?? component,
+    definitions: [etymology?.definition ?? entry?.definitions[0] ?? 'Character component'],
+    pinyin: entry?.pinyin ?? etymology?.pinyin,
+    searchablePinyin: entry?.searchablePinyin,
+    pinyinTones: entry?.pinyinTones,
+    boost: entry?.boost,
+    kind: 'component',
+  };
+});
 const componentOverviewCache = new Map<Settings.DictionaryOrder, OverviewComponent[]>();
 const componentRankCache = new Map<Settings.DictionaryOrder, Map<string, number>>();
-
-function isSingleHan(text: string) {
-  return /^\p{Script=Han}$/u.test(text);
-}
-
-function getComponentUseMaps(component: string) {
-  let uses = componentUses.get(component);
-  if (!uses) {
-    uses = { meaning: new Map(), sound: new Map(), other: new Map() };
-    componentUses.set(component, uses);
-  }
-  return uses;
-}
-
-function addComponentUse(component: string, type: string, character: ComponentCharacter) {
-  if (!isSingleHan(component)) return;
-  const uses = getComponentUseMaps(component);
-  const category = type === 'meaning' || type === 'sound' ? type : 'other';
-  uses[category].set(character.character, character);
-}
-
-for (const entry of allEntries) {
-  if (Array.from(entry.simp).length !== 1) continue;
-  const character = entry.simp;
-  if (!isSingleHan(character) || seenComponentCharacters.has(character)) continue;
-  seenComponentCharacters.add(character);
-  const etymology = getEtymology(character);
-  if (!etymology) continue;
-  const characterEntry = (getEntries(character) as LexiconEntry[])[0] ?? entry;
-  const statistics = characterEntry.statistics;
-  const characterInfo: ComponentCharacter = {
-    character,
-    pinyin: characterEntry.pinyin ?? etymology.pinyin ?? '',
-    definition: etymology.definition ?? characterEntry.definitions[0] ?? 'Character',
-    bookFrequency: statistics?.bookCharCount,
-    bookRank: statistics?.bookCharRank,
-    mediaFrequency: statistics?.movieCharCount ?? mediaFrequencyByCharacter.get(character),
-    mediaRank: statistics?.movieCharRank ?? mediaRankByCharacter.get(character),
-    hskLevel: statistics?.hskLevel,
-    dongRank: dongRanks.get(character),
-  };
-  for (const part of etymology.components ?? []) {
-    addComponentUse(part.char, part.type, characterInfo);
-  }
-}
 
 function bestRank(current?: number, candidate?: number) {
   if (!candidate) return current;
@@ -165,7 +144,10 @@ for (const entry of allEntries) {
 
 // Short radical form of a full component (人 → 亻) or the full component of a short form (亻 → 人).
 export function getComponentVariant(component: string) {
-  return [...(componentForms.get(component) ?? [])][0] ?? componentOriginals.get(component) ?? '';
+  const form = [...(componentForms.get(component) ?? [])][0] ?? componentOriginals.get(component);
+  if (form) return form;
+  const entry = (getEntries(component) as LexiconEntry[])[0];
+  return entry && entry.simp !== entry.trad ? (entry.simp === component ? entry.trad : entry.simp) : '';
 }
 
 export function getFrequencyScores(text: string) {
@@ -229,6 +211,13 @@ export function getPinyin(text: string) {
   return (getEntries(text) as LexiconEntry[])[0]?.pinyin ?? getEtymology(text)?.pinyin ?? '';
 }
 
+// Drops the ◎ placeholder and deleted parts. Only the first pinyin reading is shown, e.g. 女 is "nǚ; rǔ" in the data.
+export function getStructureParts(character: string): StructurePart[] {
+  return (getEtymology(character)?.components ?? [])
+    .filter((part) => part.char !== '◎' && part.type !== 'deleted')
+    .map((part) => ({ character: part.char, type: part.type, pinyin: (part.pinyin ?? getPinyin(part.char)).split(';')[0].trim(), definition: part.definition ?? 'Component' }));
+}
+
 export function getComponentDetails(component: string, order: Settings.DictionaryOrder): ComponentDetails {
   const uses = componentUses.get(component);
   const sortByFrequency = (characters: Map<string, ComponentCharacter> | undefined) => [...(characters?.values() ?? [])].sort((left, right) => {
@@ -244,6 +233,7 @@ export function getComponentDetails(component: string, order: Settings.Dictionar
     pinyin: getPinyin(component),
     definition: etymology?.definition ?? entry?.definitions[0] ?? 'Character component',
     variant: getComponentVariant(component),
+    parts: getStructureParts(component),
     meaning: sortByFrequency(uses?.meaning),
     sound: sortByFrequency(uses?.sound),
     other: sortByFrequency(uses?.other),

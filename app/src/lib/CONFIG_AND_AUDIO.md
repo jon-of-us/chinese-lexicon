@@ -19,6 +19,8 @@ To change appearance, edit `visual.colors`. The CSS variables are generated auto
 
 To change training parameters, edit the fields under `training`.
 
+To hide the whole training section (header button, `/train` route, Settings group, and the sentence data and audio), set `training.enabled` to `false`. `vite.config.ts` turns it into the build-time constant `__TRAINING_ENABLED__`, so the training code is removed from the bundle.
+
 ## 2. User settings (persisted in localStorage)
 
 ### Dictionary settings (lib/settings.ts)
@@ -45,7 +47,7 @@ Audio files are discovered at build time through `import.meta.glob`. **After add
 
 | Category | Directory | Matching |
 | --- | --- | --- |
-| Word pronunciation | `chinese-dataset/word-audio/edge-tts/words/cmn-<word>.mp3` (top 2000 multi-character words, Yunyang voice) | Filename is the text; no audio if the word is outside the top 2000 |
+| Word pronunciation | `chinese-dataset/word-audio/edge-tts/words/cmn-<word>.mp3` (multi-character words in the top 2500 media words or the official HSK 1–4 lists, Yunyang voice) | Filename is the text; no audio if the word is outside that set |
 | Sentence audio | `chinese-dataset/sentences/**/*.mp3` | Folder is the sentence set; file is `audio.path` in that set's `sentences.json` |
 
 ### Pronunciation selection (getPronunciationAudio)
@@ -53,11 +55,11 @@ Audio files are discovered at build time through `import.meta.glob`. **After add
 - `getPronunciationAudio(text)` returns `edge-tts/words/cmn-<text>.mp3` when it exists. Single characters have no file in `words/`, so they use the syllable file for their primary reading: `edge-tts/syllables/cmn-<pinyin><tone>.mp3`. The mapping is in `edge-tts/syllables/index.json` (`characters`). Each syllable is voiced by one representative character with that reading (`voices`).
 - No other audio is used as a fallback.
 - If no matching file exists, it returns `undefined`, and `PlayButton.svelte` does not render a button.
-- Component characters use the same lookup. The component page plays the component's audio automatically when it opens, and its heading shows a play button for replay. The character page's Structure cards have no play buttons.
+- Component characters use the same lookup. Clicking a link to a component page plays its audio, and its heading shows a play button for replay. The character page's Structure cards have no play buttons.
 
 ### Sentence audio (sentenceAudio)
 
-`sentenceAudio(source, path)` looks up `../../../chinese-dataset/sentences/<source>/<path>` in `sentenceAudioModules`. `source` is the sentence set folder name, which `training/data.ts` stores on each sentence. `path` is `audio.path` from that set's `sentences.json`.
+`sentenceAudio(source, path)` in `training/audio.ts` looks up `../../../../chinese-dataset/sentences/<source>/<path>` in its glob. `source` is the sentence set folder name, which `training/data.ts` stores on each sentence. `path` is `audio.path` from that set's `sentences.json`.
 
 ## 4. Related files and licensing
 
