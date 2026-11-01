@@ -4,7 +4,7 @@ This document explains how the app loads dictionary data and builds search and f
 
 ## Data source
 
-At the top level, `dictionary.ts` imports `src/generated/dictionary-data.json` (built from `chinese-dataset/dictionary/` by `app/scripts/generate-dictionary-data.ts`), `chinese-dataset/dictionary/index.json`, and `chinese-dataset/frequency/` (`character-order.json`, `characters.json`). The generated file keeps only the fields the app reads, rounds floats to 4 significant figures, caps `topWords`, and precomputes `componentUses`. `dictionary.ts` lives in a separate lazy chunk (`dictionary-*.js`), so it stays out of the entry chunk. `App.svelte` calls `loadDictionary()` on mount and when a route needs it, including `/pinyin`.
+At the top level, `dictionary.ts` imports `src/generated/dictionary-data.json` (built from `chinese-dataset/dictionary/` by `app/scripts/generate-dictionary-data.ts`), `chinese-dataset/dictionary/index.json`, and `chinese-dataset/frequency/` (`character-order.json`, `characters.json`). The generated file keeps only the fields the app reads, rounds floats to 4 significant figures, caps `topWords`, and precomputes `componentUses`. `dictionary.ts` is imported statically by `App.svelte`, so it is part of the entry chunk and loads at startup, before the first render. The `componentUses` map is built from the generated lists.
 
 Entry types are defined in `lib/types.ts`:
 

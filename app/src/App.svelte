@@ -7,13 +7,13 @@
   import { loadDifficultySettings, saveDifficultySettings, type DifficultySettings } from './lib/settings';
   import type * as DictionarySearch from './lib/dictionary-search';
   import type * as SearchWorkerProtocol from './lib/search-worker-protocol';
+  import * as Dictionary from './lib/dictionary';
   import { config } from './lib/config';
   import { getOverviewCharacters, getOverviewDifficultyRank, rankColor, type OverviewCharacter } from './lib/ranking';
   import type { TrainingSession } from './lib/training/engine';
   import type { LearningState } from './lib/training/types';
   import { loadTrainingSettings, saveTrainingSettings, type TrainingSettings } from './lib/training-settings';
 
-  type DictionaryModule = typeof import('./lib/dictionary');
   type TrainingEngine = typeof import('./lib/training/engine');
   type TrainingState = typeof import('./lib/training/state');
   type NavigationEntry =
@@ -48,7 +48,6 @@
   let trainingSession = $state<TrainingSession | null>(null);
   let trainingSettings = $state<TrainingSettings>(loadTrainingSettings());
   let trainingFinished = $state(false);
-  let dictionary = $state<DictionaryModule | null>(null);
   let trainingEngine = $state<TrainingEngine | null>(null);
   let trainingState = $state<TrainingState | null>(null);
   let PinyinPage = $state<Component<any> | null>(null);
@@ -67,9 +66,8 @@
   const entry = $derived(character || word);
   const startPage = $derived(navigationStack.findLast((item) => item.kind === 'start')?.path ?? '/');
   const detailHomeLabel = $derived(startPage === '/components' ? 'Return to components' : startPage === '/pinyin' ? 'Return to pinyin' : startPage === '/train' ? trainingSession ? 'Return to sentence' : 'Return to training' : 'Return to dictionary');
-  const overviewCharacters = $derived<OverviewCharacter[]>(settings.order === 'books' ? dictionary?.getBookFrequencyCharacters() ?? [] : settings.order === 'hsk' ? dictionary?.getHskCharacters() ?? [] : getOverviewCharacters(settings.order));
-  const overviewLoading = $derived((settings.order === 'books' || settings.order === 'hsk') && !dictionary);
-  const overviewComponents = $derived(dictionary?.getOverviewComponents(settings.order) ?? []);
+  const overviewCharacters = $derived<OverviewCharacter[]>(settings.order === 'books' ? Dictionary.getBookFrequencyCharacters() : settings.order === 'hsk' ? Dictionary.getHskCharacters() : getOverviewCharacters(settings.order));
+  const overviewComponents = $derived(Dictionary.getOverviewComponents(settings.order));
   const lastNonDetailIndex = $derived(navigationStack.findLastIndex((item) => item.kind !== 'detail'));
   const detailRunLength = $derived(navigationStack.length - lastNonDetailIndex - 1);
   const paneBase = $derived(navigationStack[lastNonDetailIndex]?.kind === 'start' ? lastNonDetailIndex : lastNonDetailIndex + 1);
@@ -87,8 +85,6 @@
     path = appPathname();
     restoreStoredNavigation();
     handleRoute(path);
-    // Hover pinyin on the overview reads from the dictionary, so it is preloaded for every order.
-    void loadDictionary();
     const onPopState = () => {
       path = appPathname();
       restoreStoredNavigation();
@@ -301,17 +297,17 @@
   }
   function componentDetailsFor(route: string) {
     const value = routeValue(route, 'component');
-    return dictionary && value ? dictionary.getComponentDetails(value, settings.order) : undefined;
+    return value ? Dictionary.getComponentDetails(value, settings.order) : undefined;
   }
   function openTraining() { if (!trainingEnabled) return; trainingFinished = false; openStartPage('/train'); }
-  function colorFor(text: string) { return rankColor(dictionary?.getDifficultyRank(text, settings.source) ?? getOverviewDifficultyRank(text, settings.source), settings.range); }
-  function componentColorFor(text: string) { return rankColor(dictionary?.getComponentRank(text, settings.source), settings.range); }
-  function pinyinFor(text: string) { return dictionary?.getPinyin(text) ?? ''; }
-  function updateSettings(next: DifficultySettings) { settings = next; saveDifficultySettings(next); if (next.order === 'books' || next.order === 'hsk' || next.source === 'books') void loadDictionary(); }
+  function colorFor(text: string) { return rankColor(Dictionary.getDifficultyRank(text, settings.source) ?? getOverviewDifficultyRank(text, settings.source), settings.range); }
+  function componentColorFor(text: string) { return rankColor(Dictionary.getComponentRank(text, settings.source), settings.range); }
+  function pinyinFor(text: string) { return Dictionary.getPinyin(text) ?? ''; }
+  function updateSettings(next: DifficultySettings) { settings = next; saveDifficultySettings(next); }
   function updateFrequencySource(order: DifficultySettings['order']) { updateSettings({ ...settings, order }); }
   function cycleDictionaryOrder() { const orders: DifficultySettings['order'][] = ['books', 'media', 'dong', 'hsk']; updateFrequencySource(orders[(orders.indexOf(settings.order) + 1) % orders.length]); }
   function handleRoute(route: string) {
-    if (isEntryRoute(route)) { void prepareDictionaryPage(); playRouteAudio(route); }
+    if (isEntryRoute(route)) { void prepareCharacterPage(); playRouteAudio(route); }
     if (route === '/components' || /^\/component\//.test(route)) void prepareComponentPages();
     if (route === '/pinyin') void preparePinyinPage();
     if (route === '/train') void prepareTraining(true);
@@ -323,27 +319,17 @@
     const source = await audio.getPronunciationAudio(text);
     if (source) void new Audio(source).play().catch(() => {});
   }
-  async function loadDictionary() {
-    dictionary ??= await import('./lib/dictionary');
-    return dictionary;
-  }
-  async function prepareDictionaryPage() {
-    const [module, page] = await Promise.all([loadDictionary(), import('./lib/CharacterPage.svelte')]);
-    dictionary = module;
-    CharacterPage = page.default;
+  async function prepareCharacterPage() {
+    CharacterPage = (await import('./lib/CharacterPage.svelte')).default;
   }
   async function preparePinyinPage() {
-    const [module, page] = await Promise.all([loadDictionary(), import('./lib/PinyinPage.svelte')]);
-    dictionary = module;
-    PinyinPage = page.default;
+    PinyinPage = (await import('./lib/PinyinPage.svelte')).default;
   }
   async function prepareComponentPages() {
-    const [module, overviewPage, detailPage] = await Promise.all([
-      loadDictionary(),
+    const [overviewPage, detailPage] = await Promise.all([
       import('./lib/ComponentOverviewPage.svelte'),
       import('./lib/ComponentPage.svelte'),
     ]);
-    dictionary = module;
     ComponentOverviewPage = overviewPage.default;
     ComponentPage = detailPage.default;
   }
@@ -353,7 +339,6 @@
       import('./lib/training/engine'),
       import('./lib/training/state'),
       import('./lib/SentenceTrainingPage.svelte'),
-      loadDictionary(),
     ]);
     trainingEngine = engine;
     trainingState = state;
@@ -394,13 +379,13 @@
 
 {#snippet startView(route: string, index: number)}
   {#if route === '/pinyin'}
-    {#if PinyinPage && dictionary}<PinyinPage colorFor={colorFor} colorForRank={(rank: number | undefined) => rankColor(rank, settings.range)} hoverCharacterRank={settings.pinyinHoverRank} onOpen={(value: string) => openFromPane(index, value)} />{:else}<p>Loading pinyin…</p>{/if}
+    {#if PinyinPage}<PinyinPage colorFor={colorFor} colorForRank={(rank: number | undefined) => rankColor(rank, settings.range)} hoverCharacterRank={settings.pinyinHoverRank} onOpen={(value: string) => openFromPane(index, value)} />{:else}<p>Loading pinyin…</p>{/if}
   {:else if route === '/train'}
     {#if learningState && SentenceTrainingPage}<SentenceTrainingPage state={learningState} session={trainingSession} settings={trainingSettings} finished={trainingFinished} canPreviousSentence={trainingHistoryIndex > 0} canNextSentence={trainingHistoryIndex < trainingHistory.length - 1 || (trainingSession?.completedCount ?? 0) + 1 < (trainingSession?.targetCount ?? 0)} {colorFor} componentColorFor={componentColorFor} headlineSize={settings.detailHeadlineSize} onSession={updateTrainingSession} onOpenWord={(value: string) => openFromPane(index, value)} onComplete={nextTrainingSentence} onPreviousSentence={previousTrainingSentence} onStart={openTraining} />{:else}<p>Loading sentence training…</p>{/if}
   {:else if route === '/components'}
-    {#if ComponentOverviewPage && dictionary}<ComponentOverviewPage components={overviewComponents} order={settings.order} colorFor={componentColorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openComponentFromPane(index, event, value)} />{:else}<p>Loading components…</p>{/if}
+    {#if ComponentOverviewPage}<ComponentOverviewPage components={overviewComponents} order={settings.order} colorFor={componentColorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openComponentFromPane(index, event, value)} />{:else}<p>Loading components…</p>{/if}
   {:else}
-    <OverviewPage characters={overviewCharacters} source={settings.order} loading={overviewLoading} colorFor={colorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openFromPaneLink(index, event, value)} />
+    <OverviewPage characters={overviewCharacters} source={settings.order} colorFor={colorFor} pinyinFor={pinyinFor} onCycleOrder={cycleDictionaryOrder} onOpen={(event: MouseEvent, value: string) => openFromPaneLink(index, event, value)} />
   {/if}
 {/snippet}
 

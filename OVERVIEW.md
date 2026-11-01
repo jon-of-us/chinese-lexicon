@@ -32,7 +32,7 @@ Note: the root `.gitignore` excludes mp3 and other audio, the `chinese-extractio
 
 ## 3. Data flow
 
-1. **Dictionary and frequency**: `chinese-dataset/dictionary/` (entries, lookup index, etymology) and `chinese-dataset/frequency/` (character order, word and character frequency). `dictionary.ts` loads them for pinyin, definitions, components, and etymology. `dictionary.ts` loads a generated slim copy of the data (`chinese-app/src/generated/dictionary-data.json`) and `search.worker.ts` searches a generated slim copy of the entries (`chinese-app/src/generated/search-entries.json`). Both are built from `chinese-dataset/` by `chinese-app/scripts/generate-dictionary-data.ts` during `npm run generate`, `dev`, and `build`. They are gitignored. `npm run build` also fails if the entry chunk exceeds 250 KB (`chinese-app/scripts/check-bundle-size.mjs`). `ranking.ts` loads the frequency files for the overview page.
+1. **Dictionary and frequency**: `chinese-dataset/dictionary/` (entries, lookup index, etymology) and `chinese-dataset/frequency/` (character order, word and character frequency). `dictionary.ts` loads them for pinyin, definitions, components, and etymology. `dictionary.ts` loads a generated slim copy of the data (`chinese-app/src/generated/dictionary-data.json`) and `search.worker.ts` searches a generated slim copy of the entries (`chinese-app/src/generated/search-entries.json`). Both are built from `chinese-dataset/` by `chinese-app/scripts/generate-dictionary-data.ts` during `npm run generate`, `dev`, and `build`. They are gitignored. `ranking.ts` loads the frequency files for the overview page.
 2. **Audio**: `chinese-dataset/word-audio/` holds word and syllable MP3s. `audio.ts` discovers them at build time through `import.meta.glob`. `chinese-dataset/sentences/<set>/` holds sentence audio.
 3. **Sentences**: `training/data.ts` globs each set's `sentences.json` and keeps the sets listed in `config.training.sentenceSources`.
 4. **Curated dataset**: the data is maintained by hand. There are no generator scripts in the repository. The layout and interface are in [chinese-dataset/README.md](chinese-dataset/README.md) and [manifest.yaml](chinese-dataset/manifest.yaml).
@@ -52,7 +52,7 @@ The main fields of a unified sentence record are `id`, `source`, `audio{path,for
 | `/word/:w` | Word detail | `CharacterPage` |
 | `/components` | Component and radical overview, ordered by the selected frequency source and colored by component rank; hovering a component lifts it and shows its pinyin in bold below it | `ComponentOverviewPage` |
 | `/component/:c` | Component detail with its own structure (the parts it breaks down into, if any) and simplified-character uses grouped by meaning, sound, and other roles | `ComponentPage` |
-| `/pinyin` | Pinyin table (lazy-loaded chunk, so it stays out of the entry chunk) | `PinyinPage` |
+| `/pinyin` | Pinyin table (lazy-loaded page) | `PinyinPage` |
 | `/train` | Sentence training | `SentenceTrainingPage` |
 | `/settings` | Settings (dictionary ordering, training parameters) | `SettingsPage` |
 
@@ -70,7 +70,7 @@ Section start pages are `/`, `/components`, `/pinyin`, and `/train`. Opening a s
 
 - **Dictionary**: `lib/dictionary.ts` handles search (fuzzy English matching plus Hanzi substring matching) and the frequency indexes.
 - **Ranking**: `lib/ranking.ts` provides a lightweight overview ranking, kept separate from the full dictionary so the dictionary can load lazily.
-- **Components**: the lazy dictionary module derives component-to-simplified-character use indexes from lexicon etymology, including meaning and sound roles. Component overview ranks aggregate character book/media counts, Dong character ranks, or HSK levels; component colors reflect their rank for the selected frequency source.
+- **Components**: the dictionary module derives component-to-simplified-character use indexes from lexicon etymology, including meaning and sound roles. Component overview ranks aggregate character book/media counts, Dong character ranks, or HSK levels; component colors reflect their rank for the selected frequency source.
 - Component details show each role in a responsive multi-column list, collapsed to three rows by default, with book/media ranks rather than raw counts. Character/word and component detail pages use different content components but share `DictionaryPageControls` and the root navigation stack for consistent Back and return-to-start behavior.
 - **Config**: `lib/config.ts` is the central config object (training parameters, colors, CSS variables, and so on). `config.training.enabled` is the single switch for the whole training section. When it is `false`, the Training header button, `/train` route, Settings group, and sentence data and audio are removed from the build (`__TRAINING_ENABLED__` in `vite.config.ts`).
 - **Settings**: `lib/settings.ts` and `lib/training-settings.ts` store preferences in localStorage. The Navigation settings control whether detail Back restores a Search query or skips Search, the Minimum pane width (default 560 px, 320–1200), and the Maximum detail panes (default 3, 1–5). The Detail pages setting controls the Headline size of the main character or word (default 160 px, 64–288).
