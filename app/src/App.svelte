@@ -87,7 +87,8 @@
     path = appPathname();
     restoreStoredNavigation();
     handleRoute(path);
-    if (settings.order === 'books' || settings.order === 'hsk' || settings.source === 'books') void loadDictionary();
+    // Hover pinyin on the overview reads from the dictionary, so it is preloaded for every order.
+    void loadDictionary();
     const onPopState = () => {
       path = appPathname();
       restoreStoredNavigation();
