@@ -1,0 +1,4 @@
+- syllables
+  - si1: 思 (instead of 司, which sounded clipped)
+  - jiao4: 叫 (instead of polyphonic 觉)
+  - ai2: 癌 (instead of uncommon 騃)

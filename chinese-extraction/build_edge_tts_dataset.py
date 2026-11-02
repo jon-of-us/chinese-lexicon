@@ -69,30 +69,32 @@ def load_texts():
     return sorted(word for word in selected if len(word) > 1)
 
 
-async def synthesize(text, path, semaphore):
-    if path.exists() and path.stat().st_size > 0:
+async def synthesize(text, path, semaphore, force=False):
+    if not force and path.exists() and path.stat().st_size > 0:
         return "skipped"
 
     async with semaphore:
+        temporary_path = path.with_name(f".{path.name}.tmp")
         for attempt in range(1, MAX_ATTEMPTS + 1):
             try:
                 communicate = edge_tts.Communicate(f"{PADDING}{text}{PADDING}", VOICE)
-                await communicate.save(str(path))
-                if path.stat().st_size > 0:
+                await communicate.save(str(temporary_path))
+                if temporary_path.stat().st_size > 0:
+                    temporary_path.replace(path)
                     return "generated"
                 raise RuntimeError("empty audio returned")
             except Exception as error:
-                path.unlink(missing_ok=True)
+                temporary_path.unlink(missing_ok=True)
                 if attempt == MAX_ATTEMPTS:
                     print(f"FAILED {text}: {error}", file=sys.stderr)
                     return "failed"
                 await asyncio.sleep(2 ** attempt)
 
 
-async def generate(jobs):
+async def generate(jobs, *, force=False):
     """Synthesize (text, path) pairs with VOICE and return the counts per status."""
     semaphore = asyncio.Semaphore(CONCURRENCY)
-    results = await asyncio.gather(*(synthesize(text, path, semaphore) for text, path in jobs))
+    results = await asyncio.gather(*(synthesize(text, path, semaphore, force) for text, path in jobs))
 
     counts = {status: results.count(status) for status in ("generated", "skipped", "failed")}
     print(f"generated {counts['generated']}, skipped {counts['skipped']}, failed {counts['failed']}")

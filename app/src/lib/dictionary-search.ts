@@ -5,7 +5,7 @@ export type SearchEntry = {
   pinyin?: string;
   searchablePinyin?: string;
   pinyinTones?: string;
-  boost?: number;
+  mediaRank?: number;
   kind?: 'component';
 };
 
@@ -47,22 +47,18 @@ export function searchEntries(entries: readonly SearchEntry[], term: string, lim
   const normalized = term.trim().toLowerCase();
   if (!normalized || limit <= 0) return [];
   const compactPinyin = normalized.replace(/\s+/g, '');
-  const matches = entries
+  return entries
     .map((entry) => {
       const englishScore = englishMatchScore(entry.definitions, normalized);
       const textScore = [entry.simp, entry.trad].some((text) => text.includes(normalized))
         || [entry.searchablePinyin, entry.pinyinTones, entry.pinyin?.toLowerCase()]
           .some((text) => text?.replace(/\s+/g, '').includes(compactPinyin)) ? 25 : 0;
-      return { entry, score: englishScore + textScore };
+      const score = englishScore + textScore;
+      return { entry, score: score * (entry.kind === 'component' ? 0.7 : 1) };
     })
     .filter(({ score }) => score > 0)
-    .sort((left, right) => (right.score * (right.entry.boost ?? 1)) - (left.score * (left.entry.boost ?? 1))
-      || Number(right.entry.kind === 'component') - Number(left.entry.kind === 'component'));
-  const componentMatches = matches.filter(({ entry }) => entry.kind === 'component');
-  const dictionaryMatches = matches.filter(({ entry }) => entry.kind !== 'component');
-  const componentLimit = Math.min(componentMatches.length, Math.max(1, Math.floor(limit / 10)));
-  return [
-    ...dictionaryMatches.slice(0, limit - componentLimit),
-    ...componentMatches.slice(0, componentLimit),
-  ].map(({ entry }) => entry);
+    .sort((left, right) => right.score - left.score
+      || (left.entry.mediaRank ?? Infinity) - (right.entry.mediaRank ?? Infinity))
+    .slice(0, limit)
+    .map(({ entry }) => entry);
 }

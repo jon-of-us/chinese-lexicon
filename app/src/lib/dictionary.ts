@@ -84,7 +84,7 @@ const componentSearchEntries: DictionarySearch.SearchEntry[] = [...componentUses
     pinyin: entry?.pinyin ?? etymology?.pinyin,
     searchablePinyin: entry?.searchablePinyin,
     pinyinTones: entry?.pinyinTones,
-    boost: entry?.boost,
+    mediaRank: entry?.statistics?.movieCharRank ?? mediaRankByCharacter.get(component),
     kind: 'component',
   };
 });

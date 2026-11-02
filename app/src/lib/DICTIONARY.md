@@ -18,9 +18,9 @@ Entry types are defined in `lib/types.ts`:
 1. **English meanings**: the query is split into tokens and fuzzy-matched against definitions, scored with edit distance.
 2. **Characters and components**: substring matching against simplified and traditional forms, including component entries that navigate to component detail pages.
 
-The final score is multiplied by `entry.boost`, which raises the ranking of common entries. Pinyin matching ignores whitespace, so both `jianada` and `jia na da` match 加拿大. `dictionary-search.ts` owns this shared scoring logic.
+Results are ordered by search score, then media-frequency rank (lower is better). Component entries use the same ordering with their search score multiplied by `0.7`; there is no separate component quota. Word ranks come from `movieWordRank` with the frequency-word list as a fallback; single-character and component ranks come from `movieCharRank` or the character-frequency list. Pinyin matching ignores whitespace, so both `jianada` and `jia na da` match 加拿大. `dictionary-search.ts` owns this shared scoring logic.
 
-Search runs in `search.worker.ts`, so the scan stays off the UI thread. The worker does not import `entries.json`. It fetches `src/generated/search-entries.json` (emitted as a hashed asset via a `?url` import) the first time a query is made. `app/scripts/generate-dictionary-data.ts` writes dictionary entries and labeled component entries at build time, in `npm run generate`, and in dev. It keeps only the fields search reads (`simp`, `trad`, `definitions`, `pinyin`, `searchablePinyin`, `pinyinTones`, `boost`, and the optional `kind`). `statistics` and `usedAsComponentIn` are left out. `src/generated/` is gitignored, so the file is not committed. If `dictionary-search.ts` starts reading another field from `SearchEntry`, add it to the generator's `searchFields` list or component-entry generation.
+Search runs in `search.worker.ts`, so the scan stays off the UI thread. The worker does not import `entries.json`. It fetches `src/generated/search-entries.json` (emitted as a hashed asset via a `?url` import) the first time a query is made. `app/scripts/generate-dictionary-data.ts` writes dictionary entries and labeled component entries at build time, in `npm run generate`, and in dev. It keeps only the fields search reads (`simp`, `trad`, `definitions`, `pinyin`, `searchablePinyin`, `pinyinTones`, `mediaRank`, and the optional `kind`). `statistics` and `usedAsComponentIn` are left out. `src/generated/` is gitignored, so the file is not committed. If `dictionary-search.ts` starts reading another field from `SearchEntry`, add it to the generator's `searchFields` list or component-entry generation.
 
 ## Frequency and ranking indexes
 
@@ -57,7 +57,7 @@ The component overview and detail pages are lazy-loaded, and character uses link
 
 ## Modification guide
 
-- To change search weighting, look at the scoring code in `search()` and at `entry.boost`.
+- To change search ordering or weighting, look at the scoring code in `dictionary-search.ts` and the rank fields added by `generate-dictionary-data.ts`.
 - To add a frequency source, add reading and indexing functions in `dictionary.ts`, register the source in `source` in `settings.ts`, and display it in `FrequencySourceSelector.svelte`.
 - Dictionary data lives in `chinese-dataset/dictionary/` and is maintained by hand. To change entries, edit `entries.json`, `index.json`, or `etymology.json` there, and keep `index.json` consistent with the positions in `entries.json`. Do not edit `app/src/generated/`; it is rebuilt from `entries.json`.
 

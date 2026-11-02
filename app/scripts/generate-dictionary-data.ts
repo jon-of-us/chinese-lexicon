@@ -16,22 +16,24 @@ const sourcePaths = {
   etymology: Path.join(datasetDirectory, 'dictionary/etymology.json'),
   characterOrder: Path.join(datasetDirectory, 'frequency/character-order.json'),
   characters: Path.join(datasetDirectory, 'frequency/characters.json'),
+  words: Path.join(datasetDirectory, 'frequency/words.json'),
 };
 
 type TopWord = { word: string; trad: string; gloss: string; share: number };
 type RawStatistics = { hskLevel?: number; bookWordRank?: number; movieWordRank?: number; bookCharCount?: number; bookCharRank?: number; movieCharCount?: number; movieCharRank?: number; topWords?: TopWord[] };
-type RawEntry = { simp: string; trad: string; definitions: string[]; pinyin?: string; searchablePinyin?: string; pinyinTones?: string; boost?: number; statistics?: RawStatistics };
+type RawEntry = { simp: string; trad: string; definitions: string[]; pinyin?: string; searchablePinyin?: string; pinyinTones?: string; statistics?: RawStatistics };
 type RawComponent = { char: string; type: string; pinyin?: string; definition?: string; notes?: string; fragment?: string };
 type RawEtymology = { character: string; notes?: string; definition?: string; pinyin?: string; components?: RawComponent[] };
 type MediaCharacter = { character: string; mediaFrequency: number; bestMediaRank?: number };
+type MediaWord = { word: string; mediaRank: number };
 type PositionIndex = { simp: Record<string, number[]>; trad: Record<string, number[]> };
 type ComponentCharacter = { character: string; pinyin: string; definition: string; bookFrequency?: number; bookRank?: number; mediaFrequency?: number; mediaRank?: number; hskLevel?: number; dongRank?: number };
 type UseCategory = 'meaning' | 'sound' | 'other';
 
 // Only fields the app reads. Anything else in chinese-dataset (e.g. usedAsComponentIn, corpus percentages) is dropped here.
-const entryFields = ['simp', 'trad', 'definitions', 'pinyin', 'searchablePinyin', 'pinyinTones', 'boost'] as const;
+const entryFields = ['simp', 'trad', 'definitions', 'pinyin', 'searchablePinyin', 'pinyinTones'] as const;
 const statisticsFields = ['hskLevel', 'bookWordRank', 'movieWordRank', 'bookCharCount', 'bookCharRank', 'movieCharCount', 'movieCharRank', 'topWords'] as const;
-const searchFields = ['simp', 'trad', 'definitions', 'pinyin', 'searchablePinyin', 'pinyinTones', 'boost'] as const;
+const searchFields = ['simp', 'trad', 'definitions', 'pinyin', 'searchablePinyin', 'pinyinTones', 'mediaRank'] as const;
 const etymologyFields = ['character', 'notes', 'definition', 'pinyin'] as const;
 const componentFields = ['char', 'type', 'pinyin', 'definition', 'notes'] as const;
 
@@ -53,6 +55,12 @@ function roundFloats<T>(value: T): T {
 
 function isSingleHan(text: string) {
   return /^\p{Script=Han}$/u.test(text);
+}
+
+function getMediaRank(entry: RawEntry | undefined, mediaWordRanks: Map<string, number>, mediaCharacterRanks: Map<string, number>) {
+  if (!entry) return undefined;
+  if (isSingleHan(entry.simp)) return entry.statistics?.movieCharRank ?? mediaCharacterRanks.get(entry.simp);
+  return entry.statistics?.movieWordRank ?? mediaWordRanks.get(entry.simp);
 }
 
 function trimEntry(entry: RawEntry) {
@@ -120,8 +128,14 @@ export function writeDictionaryData() {
   const { characters: rawEtymology } = readJson<{ characters: RawEtymology[] }>(sourcePaths.etymology);
   const { characters: characterOrder } = readJson<{ characters: string[] }>(sourcePaths.characterOrder);
   const { characters: mediaCharacters } = readJson<{ characters: MediaCharacter[] }>(sourcePaths.characters);
+  const { words: mediaWords } = readJson<{ words: MediaWord[] }>(sourcePaths.words);
 
-  const entries = rawEntries.map((entry) => roundFloats(trimEntry(entry)));
+  const mediaWordRanks = new Map(mediaWords.map(({ word, mediaRank }) => [word, mediaRank]));
+  const mediaCharacterRanks = new Map(mediaCharacters.flatMap(({ character, bestMediaRank }) => bestMediaRank === undefined ? [] : [[character, bestMediaRank] as const]));
+  const entries = rawEntries.map((entry) => ({
+    ...roundFloats(trimEntry(entry)),
+    mediaRank: getMediaRank(entry, mediaWordRanks, mediaCharacterRanks),
+  }));
   const etymology = rawEtymology.map(trimEtymology);
   const componentUses = buildComponentUses(rawEntries, index, new Map(rawEtymology.map((item) => [item.character, item])), characterOrder, mediaCharacters);
   const componentSearchEntries = Object.keys(componentUses).map((component) => {
@@ -135,7 +149,7 @@ export function writeDictionaryData() {
       pinyin: entry?.pinyin ?? componentEtymology?.pinyin,
       searchablePinyin: entry?.searchablePinyin,
       pinyinTones: entry?.pinyinTones,
-      boost: entry?.boost,
+      mediaRank: getMediaRank(entry, mediaWordRanks, mediaCharacterRanks) ?? mediaCharacterRanks.get(component),
       kind: 'component' as const,
     };
   });

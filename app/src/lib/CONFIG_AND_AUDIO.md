@@ -52,7 +52,7 @@ Audio files are discovered at build time through `import.meta.glob`. **After add
 
 ### Pronunciation selection (getPronunciationAudio)
 
-- `getPronunciationAudio(text)` returns `edge-tts/words/cmn-<text>.mp3` when it exists. Single characters have no file in `words/`, so they use the syllable file for their primary reading: `edge-tts/syllables/cmn-<pinyin><tone>.mp3`. The mapping is in `edge-tts/syllables/index.json` (`characters`). Each syllable is voiced by one representative character with that reading (`voices`).
+- `getPronunciationAudio(text)` returns `edge-tts/words/cmn-<text>.mp3` when it exists. Single characters have no file in `words/`, so they use the basic TTS syllable file for their primary reading: `edge-tts/syllables/cmn-<pinyin><tone>.mp3`. The mapping is in `edge-tts/syllables/index.json` (`characters`). The syllable generator uses only characters whose dictionary primary reading matches the target; syllables without such a character have no clip.
 - No other audio is used as a fallback.
 - If no matching file exists, it returns `undefined`, and `PlayButton.svelte` does not render a button.
 - Component characters use the same lookup. Clicking a link to a component page plays its audio, and its heading shows a play button for replay. The character page's Structure cards have no play buttons.
