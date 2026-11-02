@@ -325,6 +325,11 @@
   }
   function openTraining() { if (!trainingEnabled) return; trainingFinished = false; openStartPage('/train'); }
   function colorFor(text: string) { return rankColor(Dictionary.getDifficultyRank(text, settings.source) ?? getOverviewDifficultyRank(text, settings.source), settings.range); }
+  function searchResultColorFor(text: string) {
+    if (Array.from(text).length === 1) return colorFor(text);
+    const rank = settings.source === 'dong' ? settings.range : Dictionary.getFrequencyScores(text)[settings.source] ?? settings.range;
+    return rankColor(rank, settings.range);
+  }
   function componentColorFor(text: string) { return rankColor(Dictionary.getComponentRank(text, settings.source), settings.range); }
   function pinyinFor(text: string) { return Dictionary.getPinyin(text) ?? ''; }
   function updateSettings(next: DifficultySettings) { settings = next; saveDifficultySettings(next); }
@@ -420,7 +425,7 @@
 {/snippet}
 
 {#snippet searchView(item: SearchNavigationEntry, index: number)}
-  <SearchResults bind:query results={item.results} loading={index === navigationStack.length - 1 && searchLoading} error={item.error} colorFor={colorFor} componentColorFor={componentColorFor} onSelect={selectSearchResult} onSearch={runSearch} onSearchClose={closeSearch} />
+  <SearchResults bind:query results={item.results} loading={index === navigationStack.length - 1 && searchLoading} error={item.error} colorFor={searchResultColorFor} componentColorFor={componentColorFor} onSelect={selectSearchResult} onSearch={runSearch} onSearchClose={closeSearch} />
 {/snippet}
 
 {#snippet detailView(route: string, index: number)}

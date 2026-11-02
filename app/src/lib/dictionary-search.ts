@@ -9,7 +9,7 @@ export type SearchEntry = {
   kind?: 'component';
 };
 
-const englishWords = /[\p{L}\p{N}]+/gu;
+const englishWords = /[\p{Script=Latin}\p{N}]+/gu;
 
 function editDistance(left: string, right: string) {
   const previous = Array.from({ length: right.length + 1 }, (_, index) => index);
@@ -50,10 +50,14 @@ export function searchEntries(entries: readonly SearchEntry[], term: string, lim
   return entries
     .map((entry) => {
       const englishScore = englishMatchScore(entry.definitions, normalized);
-      const textScore = [entry.simp, entry.trad].some((text) => text.includes(normalized))
-        || [entry.searchablePinyin, entry.pinyinTones, entry.pinyin?.toLowerCase()]
-          .some((text) => text?.replace(/\s+/g, '').includes(compactPinyin)) ? 25 : 0;
-      const score = englishScore + textScore;
+      const exactTextMatch = entry.simp === normalized || entry.trad === normalized;
+      const pinyinFields = [entry.searchablePinyin, entry.pinyinTones, entry.pinyin?.toLowerCase()]
+        .map((text) => text?.replace(/[\s\u200B]+/g, ''));
+      const exactPinyinMatch = pinyinFields.some((text) => text === compactPinyin);
+      const textMatch = [entry.simp, entry.trad].some((text) => text.includes(normalized))
+        || pinyinFields.some((text) => text?.includes(compactPinyin));
+      const textScore = exactTextMatch || exactPinyinMatch ? 50 : textMatch ? 25 : 0;
+      const score = Math.max(englishScore, textScore);
       return { entry, score: score * (entry.kind === 'component' ? 0.7 : 1) };
     })
     .filter(({ score }) => score > 0)
