@@ -55,6 +55,7 @@
   let CharacterPage = $state<Component<any> | null>(null);
   let ComponentOverviewPage = $state<Component<any> | null>(null);
   let ComponentPage = $state<Component<any> | null>(null);
+  let SourcesPage = $state<Component<any> | null>(null);
   let SentenceTrainingPage = $state<Component<any> | null>(null);
   let trainingHistory = $state<TrainingSession[]>([]);
   let trainingHistoryIndex = $state(0);
@@ -125,7 +126,7 @@
   }
   function isEntryRoute(route: string) { return /^\/(?:character|word)\//.test(route); }
   function isDetailRoute(route: string) { return isEntryRoute(route) || /^\/component\//.test(route); }
-  function isStartRoute(route: string) { return route === '/' || route === '/components' || route === '/pinyin' || route === '/train'; }
+  function isStartRoute(route: string) { return route === '/' || route === '/components' || route === '/pinyin' || route === '/train' || route === '/sources'; }
   function isPaneEntry(entry: NavigationEntry) { return entry.kind === 'detail' || entry.kind === 'search'; }
   function navigationState(): NavigationEntry[] | null {
     const state = window.history.state as Record<string, unknown> | null;
@@ -310,6 +311,7 @@
   }
   function openOverview() { openStartPage('/'); }
   function openPinyin() { openStartPage('/pinyin'); }
+  function openSources() { openStartPage('/sources'); }
   function openSettings() {
     query = '';
     results = [];
@@ -340,6 +342,7 @@
     if (route === '/components' || /^\/component\//.test(route)) void prepareComponentPages();
     if (route === '/pinyin') void preparePinyinPage();
     if (route === '/train') void prepareTraining(true);
+    if (route === '/sources') void prepareSourcesPage();
   }
   async function playRouteAudio(route: string) {
     const text = decodeURIComponent(route.match(/^\/(?:character|word|component)\/(.+)$/)?.[1] ?? '');
@@ -359,6 +362,9 @@
   }
   async function preparePinyinPage() {
     PinyinPage = (await import('./lib/PinyinPage.svelte')).default;
+  }
+  async function prepareSourcesPage() {
+    SourcesPage = (await import('./lib/SourcesPage.svelte')).default;
   }
   async function prepareComponentPages() {
     const [overviewPage, detailPage] = await Promise.all([
@@ -406,14 +412,16 @@
   function updateTrainingSettings(next: TrainingSettings) { trainingSettings = next; saveTrainingSettings(next); }
 </script>
 
-<svelte:head><title>{component || entry ? `${component || entry} · ${config.appName}` : config.appName}</title><meta name="description" content="Explore Chinese characters, words, components, and etymology." /></svelte:head>
+<svelte:head><title>{path === '/sources' ? `Sources & Licenses · ${config.appName}` : component || entry ? `${component || entry} · ${config.appName}` : config.appName}</title><meta name="description" content="Explore Chinese characters, words, components, and etymology." /></svelte:head>
 
 <svelte:window bind:innerHeight={windowHeight} />
-<SiteHeader bind:searchOpen onSearchOpen={openSearch} onSearchClose={closeSearch} onSettings={openSettings} onTrain={openTraining} onHome={openOverview} onPinyin={openPinyin} onComponents={openComponents} />
+<SiteHeader bind:searchOpen onSearchOpen={openSearch} onSearchClose={closeSearch} onSettings={openSettings} onTrain={openTraining} onHome={openOverview} onPinyin={openPinyin} onComponents={openComponents} onSources={openSources} />
 <main class:multi-pane={multiPane}><div class="width-probe" bind:clientWidth={availableWidth}></div>{#if detailPanes.length}<div class="detail-panes" bind:this={panesElement} style="--pane-count: {detailPanes.length}; --pane-height: {panesHeight}">{#each detailPanes as pane (pane.index + ':' + pane.entry.path)}<section class="detail-pane">{#if pane.entry.kind === 'start'}{@render startView(pane.entry.path, pane.index)}{:else if pane.entry.kind === 'search'}{@render searchView(pane.entry, pane.index)}{:else}{@render detailView(pane.entry.path, pane.index)}{/if}</section>{/each}</div>{:else if topEntry?.kind === 'search'}{@render searchView(topEntry, navigationStack.length - 1)}{:else if path === '/settings'}<SettingsPage {settings} {trainingSettings} onUpdate={updateSettings} onTrainingUpdate={updateTrainingSettings} onBack={backFromSettings} />{:else if entry || component}{@render detailView(path, navigationStack.length - 1)}{:else}{@render startView(path, navigationStack.length - 1)}{/if}</main>
 
 {#snippet startView(route: string, index: number)}
-  {#if route === '/pinyin'}
+  {#if route === '/sources'}
+    {#if SourcesPage}<SourcesPage />{:else}<p>Loading sources…</p>{/if}
+  {:else if route === '/pinyin'}
     {#if PinyinPage}<PinyinPage colorFor={colorFor} colorForRank={(rank: number | undefined) => rankColor(rank, settings.range)} hoverCharacterRank={settings.pinyinHoverRank} onOpen={(value: string) => openFromPane(index, value)} />{:else}<p>Loading pinyin…</p>{/if}
   {:else if route === '/train'}
     {#if learningState && SentenceTrainingPage}<SentenceTrainingPage state={learningState} session={trainingSession} settings={trainingSettings} finished={trainingFinished} canPreviousSentence={trainingHistoryIndex > 0} canNextSentence={trainingHistoryIndex < trainingHistory.length - 1 || (trainingSession?.completedCount ?? 0) + 1 < (trainingSession?.targetCount ?? 0)} {colorFor} componentColorFor={componentColorFor} headlineSize={settings.detailHeadlineSize} onSession={updateTrainingSession} onOpenWord={(value: string) => openFromPane(index, value)} onComplete={nextTrainingSentence} onPreviousSentence={previousTrainingSentence} onStart={openTraining} />{:else}<p>Loading sentence training…</p>{/if}
