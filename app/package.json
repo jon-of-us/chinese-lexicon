@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "generate": "node scripts/generate-dictionary-data.ts",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "NODE_OPTIONS=--max-old-space-size=16384 svelte-check --tsconfig ./tsconfig.app.json && NODE_OPTIONS=--max-old-space-size=16384 tsc -p tsconfig.node.json"
+    "check": "npm run generate && NODE_OPTIONS=--max-old-space-size=16384 svelte-check --tsconfig ./tsconfig.app.json && NODE_OPTIONS=--max-old-space-size=16384 tsc -p tsconfig.node.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.1.2",

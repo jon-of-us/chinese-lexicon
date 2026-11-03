@@ -5,10 +5,11 @@ export type SearchEntry = {
   pinyin?: string;
   searchablePinyin?: string;
   pinyinTones?: string;
-  boost?: number;
+  mediaRank?: number;
+  kind?: 'component';
 };
 
-const englishWords = /[a-z0-9]+/gi;
+const englishWords = /[\p{Script=Latin}\p{N}]+/gu;
 
 function editDistance(left: string, right: string) {
   const previous = Array.from({ length: right.length + 1 }, (_, index) => index);
@@ -44,18 +45,24 @@ function englishMatchScore(definitions: string[], term: string) {
 
 export function searchEntries(entries: readonly SearchEntry[], term: string, limit = 100): SearchEntry[] {
   const normalized = term.trim().toLowerCase();
-  if (!normalized) return [];
+  if (!normalized || limit <= 0) return [];
   const compactPinyin = normalized.replace(/\s+/g, '');
   return entries
     .map((entry) => {
       const englishScore = englishMatchScore(entry.definitions, normalized);
-      const textScore = [entry.simp, entry.trad].some((text) => text.includes(normalized))
-        || [entry.searchablePinyin, entry.pinyinTones, entry.pinyin?.toLowerCase()]
-          .some((text) => text?.replace(/\s+/g, '').includes(compactPinyin)) ? 25 : 0;
-      return { entry, score: englishScore + textScore };
+      const exactTextMatch = entry.simp === normalized || entry.trad === normalized;
+      const pinyinFields = [entry.searchablePinyin, entry.pinyinTones, entry.pinyin?.toLowerCase()]
+        .map((text) => text?.replace(/[\s\u200B]+/g, ''));
+      const exactPinyinMatch = pinyinFields.some((text) => text === compactPinyin);
+      const textMatch = [entry.simp, entry.trad].some((text) => text.includes(normalized))
+        || pinyinFields.some((text) => text?.includes(compactPinyin));
+      const textScore = exactTextMatch || exactPinyinMatch ? 50 : textMatch ? 25 : 0;
+      const score = Math.max(englishScore, textScore);
+      return { entry, score: score * (entry.kind === 'component' ? 0.7 : 1) };
     })
     .filter(({ score }) => score > 0)
-    .sort((left, right) => (right.score * (right.entry.boost ?? 1)) - (left.score * (left.entry.boost ?? 1)))
+    .sort((left, right) => right.score - left.score
+      || (left.entry.mediaRank ?? Infinity) - (right.entry.mediaRank ?? Infinity))
     .slice(0, limit)
     .map(({ entry }) => entry);
 }

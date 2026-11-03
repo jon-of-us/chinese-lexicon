@@ -160,6 +160,7 @@
             /></label
         >
     </section>
+    {#if __TRAINING_ENABLED__}
     <section
         class="settings-group training-settings"
         aria-labelledby="training-settings-heading"
@@ -220,6 +221,7 @@
             ></label
         >
     </section>
+    {/if}
     <PageControls
         controls={[{ label: "Back", onClick: onBack, primary: true }]}
     />

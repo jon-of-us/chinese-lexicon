@@ -4,7 +4,7 @@ This document explains how the app loads dictionary data and builds search and f
 
 ## Data source
 
-At the top level, `dictionary.ts` statically imports the curated files in `chinese-dataset/dictionary/` (`entries.json`, `index.json`, `etymology.json`) and `chinese-dataset/frequency/` (`character-order.json`, `characters.json`). The module is loaded lazily by `App.svelte` the first time a dictionary-related page is opened, so the home page does not wait for it. It builds `allEntries` when the module initializes.
+At the top level, `dictionary.ts` imports `src/generated/dictionary-data.json` (built from `chinese-dataset/dictionary/` by `app/scripts/generate-dictionary-data.ts`), `chinese-dataset/dictionary/index.json`, and `chinese-dataset/frequency/` (`character-order.json`, `characters.json`). The generated file keeps only the fields the app reads, rounds floats to 4 significant figures, caps `topWords`, and precomputes `componentUses`. `dictionary.ts` is imported statically by `App.svelte`, so it is part of the entry chunk and loads at startup, before the first render. The `componentUses` map is built from the generated lists.
 
 Entry types are defined in `lib/types.ts`:
 
@@ -16,9 +16,13 @@ Entry types are defined in `lib/types.ts`:
 `search(query)` combines two matching methods:
 
 1. **English meanings**: the query is split into tokens and fuzzy-matched against definitions, scored with edit distance.
-2. **Characters**: substring matching against simplified and traditional forms.
+2. **Characters and components**: substring matching against simplified and traditional forms, including component entries that navigate to component detail pages.
 
-The final score is multiplied by `entry.boost`, which raises the ranking of common entries. Pinyin matching ignores whitespace, so both `jianada` and `jia na da` match 加拿大. `dictionary-search.ts` owns this shared scoring logic. `App.svelte` sends debounced queries to `search.worker.ts`, so the full lexicon scan runs off the UI thread and cannot delay keystrokes; only the result update waits for the worker.
+Exact simplified/traditional text and exact pinyin matches score 50; substrings and partial pinyin matches score 25. English definition matching uses Latin-script words only, so Chinese text inside a definition cannot outscore a direct character match. The search uses the strongest matching signal rather than adding unrelated English and pinyin scores. Results are ordered by search score, then media-frequency rank (lower is better). Component entries use the same ordering with their search score multiplied by `0.7`; there is no separate component quota. Word ranks come from `movieWordRank` with the frequency-word list as a fallback; single-character and component ranks come from `movieCharRank` or the character-frequency list. Pinyin matching ignores whitespace, so both `jianada` and `jia na da` match 加拿大. `dictionary-search.ts` owns this shared scoring logic.
+
+Search result colors use word-specific ranks for multi-character dictionary entries; an unranked word uses the maximum configured rank instead of inheriting the best rank of one of its characters.
+
+Search runs in `search.worker.ts`, so the scan stays off the UI thread. The worker does not import `entries.json`. It fetches `src/generated/search-entries.json` (emitted as a hashed asset via a `?url` import) the first time a query is made. `app/scripts/generate-dictionary-data.ts` writes dictionary entries and labeled component entries at build time, in `npm run generate`, and in dev. It keeps only the fields search reads (`simp`, `trad`, `definitions`, `pinyin`, `searchablePinyin`, `pinyinTones`, `mediaRank`, and the optional `kind`). `statistics` and `usedAsComponentIn` are left out. `src/generated/` is gitignored, so the file is not committed. If `dictionary-search.ts` starts reading another field from `SearchEntry`, add it to the generator's `searchFields` list or component-entry generation.
 
 ## Frequency and ranking indexes
 
@@ -55,8 +59,8 @@ The component overview and detail pages are lazy-loaded, and character uses link
 
 ## Modification guide
 
-- To change search weighting, look at the scoring code in `search()` and at `entry.boost`.
+- To change search ordering or weighting, look at the scoring code in `dictionary-search.ts` and the rank fields added by `generate-dictionary-data.ts`.
 - To add a frequency source, add reading and indexing functions in `dictionary.ts`, register the source in `source` in `settings.ts`, and display it in `FrequencySourceSelector.svelte`.
-- Dictionary data lives in `chinese-dataset/dictionary/` and is maintained by hand. To change entries, edit `entries.json`, `index.json`, or `etymology.json` there, and keep `index.json` consistent with the positions in `entries.json`.
+- Dictionary data lives in `chinese-dataset/dictionary/` and is maintained by hand. To change entries, edit `entries.json`, `index.json`, or `etymology.json` there, and keep `index.json` consistent with the positions in `entries.json`. Do not edit `app/src/generated/`; it is rebuilt from `entries.json`.
 
 Back to [src overview](../README.md).

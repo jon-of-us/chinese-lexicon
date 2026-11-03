@@ -32,7 +32,7 @@ Note: the root `.gitignore` excludes mp3 and other audio, the `chinese-extractio
 
 ## 3. Data flow
 
-1. **Dictionary and frequency**: `chinese-dataset/dictionary/` (entries, lookup index, etymology) and `chinese-dataset/frequency/` (character order, word and character frequency). `dictionary.ts` and `search.worker.ts` load them for search, pinyin, definitions, components, and etymology. `ranking.ts` loads the frequency files for the overview page.
+1. **Dictionary and frequency**: `chinese-dataset/dictionary/` (entries, lookup index, etymology) and `chinese-dataset/frequency/` (character order, word and character frequency). `dictionary.ts` loads them for pinyin, definitions, components, and etymology. `dictionary.ts` loads a generated slim copy of the data (`chinese-app/src/generated/dictionary-data.json`) and `search.worker.ts` searches a generated slim copy of the entries (`chinese-app/src/generated/search-entries.json`). Both are built from `chinese-dataset/` by `chinese-app/scripts/generate-dictionary-data.ts` during `npm run generate`, `dev`, and `build`. They are gitignored. `ranking.ts` loads the frequency files for the overview page.
 2. **Audio**: `chinese-dataset/word-audio/` holds word and syllable MP3s. `audio.ts` discovers them at build time through `import.meta.glob`. `chinese-dataset/sentences/<set>/` holds sentence audio.
 3. **Sentences**: `training/data.ts` globs each set's `sentences.json` and keeps the sets listed in `config.training.sentenceSources`.
 4. **Curated dataset**: the data is maintained by hand. There are no generator scripts in the repository. The layout and interface are in [chinese-dataset/README.md](chinese-dataset/README.md) and [manifest.yaml](chinese-dataset/manifest.yaml).
@@ -51,18 +51,18 @@ The main fields of a unified sentence record are `id`, `source`, `audio{path,for
 | `/character/:c` | Character detail (etymology, components, words, pronunciation) | `CharacterPage` |
 | `/word/:w` | Word detail | `CharacterPage` |
 | `/components` | Component and radical overview, ordered by the selected frequency source and colored by component rank; hovering a component lifts it and shows its pinyin in bold below it | `ComponentOverviewPage` |
-| `/component/:c` | Component detail with simplified-character uses grouped by meaning, sound, and other roles | `ComponentPage` |
-| `/pinyin` | Pinyin table | `PinyinPage` |
+| `/component/:c` | Component detail with its own structure (the parts it breaks down into, if any) and simplified-character uses grouped by meaning, sound, and other roles | `ComponentPage` |
+| `/pinyin` | Pinyin table (lazy-loaded page) | `PinyinPage` |
 | `/train` | Sentence training | `SentenceTrainingPage` |
 | `/settings` | Settings (dictionary ordering, training parameters) | `SettingsPage` |
 
-The search box is in `SiteHeader`, and results are shown by `SearchResults`. Search is a temporary navigation entry, not a section start page; its query and results are retained while a result detail is open. Settings is also a temporary entry and does not change the active section start page.
+Search is opened from `SiteHeader`; its input and results are shown together by `SearchResults` inside the Search pane. It includes dictionary entries and components; component results open component detail pages. Search is a temporary navigation entry, not a section start page. Every result the user clicks is remembered in memory (not across reloads), newest click first and without duplicates; clicking a result again moves it to the beginning. When the search box is empty, these clicked results are shown. When Search opens, the box is filled with the query of the last search that led to a click, along with its results. Clicking a result pushes its detail after the Search entry; the Search entry stays beneath it so Back can restore it. Settings is also a temporary entry and does not change the active section start page.
 
 Section start pages are `/`, `/components`, `/pinyin`, and `/train`. Opening a section from the header replaces the active in-app trail with that start page. Opening a character, word, or component adds a detail entry. The shared detail controls behave as follows:
 
 - **Back** returns to the preceding detail or, when there is no preceding detail, the active section start page. Settings is skipped. Returning from a Search result is configurable in Settings: restore Search with its query (default), or skip Search and go to the previous detail/start page.
 - **Return to …** goes directly to the active section start page, clearing the detail trail.
-- **Wide layout (panes):** the trailing run of detail entries is shown side by side, with the top of the stack on the right and earlier details to its left. When a start page sits directly below the run, it is the leftmost pane, so selecting a character or component from a start page keeps that page visible beside the detail. The pane count is the smallest of the Maximum detail panes setting, the number of panes in the run, and the number of panes that fit the Minimum pane width. Each detail pane has its own Back and return controls, placed sticky inside the pane, and scrolls independently: the pane row is sized to the rest of the window below the header, so the start page and each detail keep their own scroll position. The main character or word is sized from the Headline size setting and shrinks to fit one line rather than wrapping. Clicking a link in a left pane pops the stack to that pane before opening the new detail. Search and Settings are not panes; while one is on top, the trail is not shown side by side.
+- **Wide layout (panes):** the trailing run of detail entries is shown side by side, with the top of the stack on the right and earlier details to its left. When a start page sits directly below the run, it is the leftmost pane, so selecting a character or component from a start page keeps that page visible beside the detail. The pane count is the smallest of the Maximum detail panes setting, the number of panes in the run, and the number of panes that fit the Minimum pane width. Each detail pane has its own Back and return controls, placed sticky inside the pane, and scrolls independently: the pane row is sized to the rest of the window below the header, so the start page and each detail keep their own scroll position. The main character or word is sized from the Headline size setting and shrinks to fit one line rather than wrapping. Clicking a link in a left pane pops the stack to that pane before opening the new detail. Search is a pane when it is in the trailing run, and has no Back or return controls. A Search entry directly beneath a detail is hidden, so the clicked detail takes its place. When Search is the only pane that fits, it is shown full width. Settings is not a pane; while it is on top, the trail is not shown side by side.
 - Directly loading a detail URL uses Dictionary (`/`) as its fallback start page.
 - Character and word routes both render `CharacterPage`; component routes render `ComponentPage`. These have different detail content/layouts but share `DictionaryPageControls` for their navigation actions. The training page embeds the same `CharacterPage` for new words, with the same colour functions and headline size as the detail pane, and without rendering detail controls.
 
@@ -70,11 +70,11 @@ Section start pages are `/`, `/components`, `/pinyin`, and `/train`. Opening a s
 
 - **Dictionary**: `lib/dictionary.ts` handles search (fuzzy English matching plus Hanzi substring matching) and the frequency indexes.
 - **Ranking**: `lib/ranking.ts` provides a lightweight overview ranking, kept separate from the full dictionary so the dictionary can load lazily.
-- **Components**: the lazy dictionary module derives component-to-simplified-character use indexes from lexicon etymology, including meaning and sound roles. Component overview ranks aggregate character book/media counts, Dong character ranks, or HSK levels; component colors reflect their rank for the selected frequency source.
+- **Components**: the dictionary module derives component-to-simplified-character use indexes from lexicon etymology, including meaning and sound roles. Component overview ranks aggregate character book/media counts, Dong character ranks, or HSK levels; component colors reflect their rank for the selected frequency source.
 - Component details show each role in a responsive multi-column list, collapsed to three rows by default, with book/media ranks rather than raw counts. Character/word and component detail pages use different content components but share `DictionaryPageControls` and the root navigation stack for consistent Back and return-to-start behavior.
-- **Config**: `lib/config.ts` is the central config object (training parameters, colors, CSS variables, and so on).
-- **Settings**: `lib/settings.ts` and `lib/training-settings.ts` store preferences in localStorage. The Navigation settings control whether detail Back restores a Search query or skips Search, the Minimum pane width (default 560 px, 320–1200), and the Maximum detail panes (default 3, 1–5). The Detail pages setting controls the Headline size of the main character or word (default 160 px, 64–288).
-- **Audio**: `lib/audio.ts` resolves pronunciation files. Characters with several readings use the matching syllable mp3.
+- **Config**: `lib/config.ts` is the central config object (training parameters, colors, CSS variables, and so on). `config.training.enabled` is the single switch for the whole training section. When it is `false`, the Training header button, `/train` route, Settings group, and sentence data and audio are removed from the build (`__TRAINING_ENABLED__` in `vite.config.ts`).
+- **Settings**: `lib/settings.ts` and `lib/training-settings.ts` store preferences in localStorage. The Navigation settings control whether detail Back restores a Search query or skips Search, the Minimum pane width (default 400 px, 320–1200), and the Maximum detail panes (default 4, 1–5). The Detail pages setting controls the Headline size of the main character or word (default 120 px, 64–288).
+- **Audio**: `lib/audio.ts` resolves pronunciation files. Characters with several readings use the matching syllable mp3. `App.svelte` plays one route clip when a character, word, or component detail is opened through a link, but not on page loads or history navigation; a new clip stops the previous one.
 - **Training**: `lib/training/` selects sentences based on word knowledge, persists state in IndexedDB, and filters timing outliers.
 
 ### 4.3 Key current settings
@@ -92,6 +92,8 @@ npm run dev       # dev server
 npm run build     # production build
 npm run check     # svelte-check + tsc
 ```
+
+Each GitHub Pages deploy replaces the hashed `assets/` files. A tab opened before a deploy then fails to load its lazy pages (for example `CharacterPage-*.js`). `main.ts` reloads the page once when that happens, and the guard stops it from reloading repeatedly.
 
 The data in `chinese-dataset/` is hand-maintained and kept locally. It is not regenerated by any script. The `chinese/` folder is legacy, gitignored and removed from git history; it stays on disk locally. The `chinese-extraction/` scripts are legacy and tracked. Neither is part of the app's build.
 
@@ -147,19 +149,5 @@ Known gaps:
 - `frequency/character-order.json` has no generator in this repository.
 - 50 dictionary entries come only from dong-chinese and have no `pinyinTones` field.
 - Images are not included. The app does not use them.
-- The dictionary is a large static import (about 63 MB, 15.5 MB gzipped), loaded only when a dictionary page opens.
-
-## 8. Open decisions and verification status
-
-1. **`chinese/` and `chinese-extraction/` disposition:** `chinese/` is removed from git history (history rewritten and force-pushed) and gitignored. It stays on disk locally. `chinese-extraction/` is still tracked and legacy. The `chinese/` MP3 folders were rebuilt from the curated copies, so they match the old layout. The `anki-tatoeba.json` file and its MP3s were lost when `chinese/` was deleted. They were rebuilt with `chinese-extraction/migrations/migrate_anki_tatoeba.py` (1077 records, not the original 1028), so the rebuild does not match the old output exactly.
-2. **Anki sentence set:** `anki-tatoeba` is not enabled. The 340 Anki records that duplicate converted Tatoeba records are already removed. Decide whether to enable it. The 737 records (688 original plus 49 rebuilt) have generated word glosses. About two-thirds of tokens (punctuation included) have no contextual alignment and use the CC-CEDICT fallback, and some glosses are wrong (for example `都` = "surname Du", `了` = "He"). The 624 curated glosses that differ from the current pipeline were kept as they are. Their origin cannot be reproduced from this repo, and they have not been reviewed. Review the set before enabling it.
-3. **Empty-license Tatoeba records (536):** what does an empty `audio_license` mean? They are gitignored and `publishable: false` until this is answered. Also decide whether the 30 CC BY-NC recordings stay in, given that the app may be distributed.
-4. **Anki deck in git history:** removed. The history rewrite dropped `chinese/`, including `chinese/sentences/anki-tatoeba.json`, and no `chinese-extraction/anki/` objects remain in history.
-5. **`character-order.json` provenance:** add a generator, or document the source.
-6. **Unused fields:** decide whether to drop `translation.alignment` and sentence-level `pinyin` from the dataset.
-7. **dong-chinese license:** resolve the CC BY-SA 4.0 vs ISC conflict.
-
-Verification status: `npm run check` and `npm run build` pass. `check` sets a 16 GB Node heap in its script because TypeScript inference on the large dictionary JSON runs out of memory at the default size. The app has not been checked in a browser yet. The checks still to do are dictionary search, character and component pages, the frequency overview, pinyin, training for each enabled sentence set, and audio (for example 乐 and 行).
-
-
+- The dictionary is a large static import (about 64 MB, 15.7 MB gzipped), loaded on app start because `App.svelte` preloads it on mount.
 

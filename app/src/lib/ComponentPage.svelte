@@ -4,7 +4,7 @@
   import * as FitHeadline from './fit-headline';
   import DictionaryPageControls from './DictionaryPageControls.svelte';
   import PlayButton from './PlayButton.svelte';
-  import * as AudioFiles from './audio';
+  import * as Config from './config';
 
   let { details, order, colorFor, componentColorFor, onBack, onHome, homeLabel, onOpenCharacter, onOpenComponent, headlineSize }: {
     details: Dictionary.ComponentDetails;
@@ -32,20 +32,6 @@
       expandedGroups = {};
     }
   });
-  $effect(() => {
-    const text = details.component;
-    let audio: HTMLAudioElement | undefined;
-    let active = true;
-    void AudioFiles.getPronunciationAudio(text).then((source) => {
-      if (!active || !source) return;
-      audio = new Audio(source);
-      void audio.play().catch(() => {});
-    });
-    return () => {
-      active = false;
-      audio?.pause();
-    };
-  });
   const frequencyFor = (item: Dictionary.ComponentCharacter) => {
     if (order === 'books') return item.bookRank ? `Books #${item.bookRank}` : 'No book rank data';
     if (order === 'media') return item.mediaRank ? `Media #${item.mediaRank}` : 'No media rank data';
@@ -59,9 +45,23 @@
     <div class="hero-text">
       <p class="eyebrow">Component / radical</p>
       <h1 use:FitHeadline.fitHeadline={headlineSize} style:color={componentColorFor(details.component)}>{details.component}{#if details.variant}<a class="variant" href={`/component/${encodeURIComponent(details.variant)}`} onclick={(event) => onOpenComponent(event, details.variant)} aria-label={`Open component form ${details.variant}`} style={`color: ${componentColorFor(details.variant)}`}>{details.variant}</a>{/if}</h1>
-      <div class="meta"><PlayButton text={details.component} />{#if details.pinyin}<strong>{details.pinyin}</strong><b>·</b>{/if}<strong>{details.definition}</strong></div>
+      <div class="meta"><PlayButton text={details.component} fallbackText={details.variant} />{#if details.pinyin}<strong>{details.pinyin}</strong><b>·</b>{/if}<strong>{details.definition}</strong></div>
     </div>
   </header>
+
+  {#if details.parts.length}
+    <section class="card">
+      <p class="eyebrow">Structure · {details.parts.length}</p>
+      <nav class="characters" aria-label="Component structure">
+        {#each details.parts as part}
+          <a href={`/component/${encodeURIComponent(part.character)}`} onclick={(event) => onOpenComponent(event, part.character)}>
+            <span class="glyph" style={`color: ${componentColorFor(part.character)}`}>{part.character}</span>
+            <span class="details"><strong>{part.pinyin || 'Pinyin unavailable'}</strong><small>{Config.componentTypeNames[part.type] ?? part.type}</small><small>{part.definition}</small></span>
+          </a>
+        {/each}
+      </nav>
+    </section>
+  {/if}
 
   <p class="frequency-note">Characters are ordered by {order === 'hsk' ? 'HSK level' : order === 'dong' ? 'Dong Chinese rank' : `frequency in ${order}`}.</p>
   {#each groups as group (group.key)}
